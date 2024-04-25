@@ -15,10 +15,6 @@ public class LeftArrow : Tumbnails
     public GameObject stitch;
     public GameObject needle;
     
-    
-    
-    
-    
     public void Down() //butona basılı tutuluyor
     {
         _isDown = true;
@@ -36,7 +32,7 @@ public class LeftArrow : Tumbnails
     private void Update()
     {
         _time += Time.deltaTime;
-        if (_time >= .1f)
+        if (_time >= .05f)
         {
             DownStitch();
             _time = 0;
@@ -49,9 +45,9 @@ public class LeftArrow : Tumbnails
         if (_isDown)
         {  
             needleAnim.SetBool("isNeedle",true);  
-            if (i < 23)
+            if (i < 22)
             {
-                if (j < 23)
+                if (j < 22)
                 {
                     Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
                     j++;
@@ -70,7 +66,6 @@ public class LeftArrow : Tumbnails
             //    needle anim dursun
             needleAnim.SetBool("isNeedle",false);  
             }
-           
         }
         else
         {

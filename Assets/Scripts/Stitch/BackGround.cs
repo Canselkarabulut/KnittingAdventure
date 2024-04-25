@@ -11,7 +11,7 @@ public class BackGround : Tumbnails
 
     private void Start()
     {
-        Stitch(imagePrefabInstantiate, parentInstantiate,0,23,0,23);
+        Stitch(imagePrefabInstantiate, parentInstantiate,0,22,0,22);
     }
    
 }
