@@ -5,53 +5,87 @@ using UnityEngine;
 
 public class StitchControl : Tumbnails
 {
-    public GameObject imagePrefabInstantiate;
-    public GameObject imagePrefabInstantiate1;
-    public GameObject imagePrefabInstantiate2;
     public GameObject parentInstantiate;
     public GameObject stitch;
-
-    void Start()
+    public GameObject needle;
+    public Animator needleAnim;
+    [HideInInspector] public float time;
+    [HideInInspector] public bool isDown;
+    [HideInInspector] public float firstNeedleX;
+    [HideInInspector] public int i = 0;
+    [HideInInspector] public int j = 0;
+    [HideInInspector] private UndoStitchControl undoStitchControl;
+    public float lastXPos;
+    public void Down() //butona basılı tutuluyor
     {
-        // Stitch(imagePrefabInstantiate, parentInstantiate, 23, 1);
-        i = 0;
+        isDown = true;
     }
 
-    private int i;
-    int a = 1;
-    int b = 11;
-    int c = 12;
+    public void Up() // buton bırakılıyor
+    {
+        isDown = false;
+    }
+
+    private void Start()
+    {
+        undoStitchControl = GetComponent<UndoStitchControl>();
+        firstNeedleX = needle.transform.position.x;
+        i = 0;
+        j = 0;
+    }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        time += Time.deltaTime;
+        if (time >= .05f)
         {
-            if (i != 0)
+            DownStitch();
+            time = 0;
+        }
+    }
+
+    public int stitchCount;
+    public void DownStitch()
+    {
+   
+        if (isDown)
+        {
+            needleAnim.SetBool("isNeedle", true);
+            undoStitchControl.lastStitchObject =0;
+            if (i < 22)
             {
-                if (i % 2 == 0)
+                if (j < 22)
                 {
-                    Stitch(imagePrefabInstantiate, parentInstantiate, 0, 23, i, 1 + i);
+                    Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
+                    j++;
+                    needle.transform.position += new Vector3(.2f, 0, 0);
+                    if (j == 21)
+                    {
+                         lastXPos = needle.transform.position.x;
+                    }
+
+                    stitchCount++;
+                    Debug.Log(stitchCount);
                 }
                 else
                 {
-                    Stitch(imagePrefabInstantiate1, parentInstantiate, 0, 23, i, 1 + i);
+                    needle.transform.position = new Vector3(firstNeedleX, needle.transform.position.y,
+                        needle.transform.position.z);
+                    needle.transform.position += new Vector3(0, .2f, 0);
+                    i++;
+                    j = 0;
                 }
             }
             else
             {
-                Stitch(imagePrefabInstantiate2, parentInstantiate, 0, 23, i, 1 + i);
+                //    needle anim dursun
+                needleAnim.SetBool("isNeedle", false);
             }
-
-            i++;
         }
-
-        if (Input.GetKeyDown(KeyCode.A))
+        else
         {
-            if (i < 23)
-            {
-                Stitch(stitch, parentInstantiate, 0, 23, i, 1 + i);
-                i++;
-            }
+            //    needle anim dursun
+            needleAnim.SetBool("isNeedle", false);
         }
     }
 }

@@ -6,7 +6,7 @@ public abstract class Tumbnails : MonoBehaviour
 {
     private Vector3 _imageNewPosition;
     private GameObject _obj;
-
+    
     /// <summary>
     /// 
     /// </summary>
