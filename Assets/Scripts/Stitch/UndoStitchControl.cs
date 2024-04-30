@@ -37,6 +37,7 @@ public class UndoStitchControl : MonoBehaviour
                     lastStitchObject++;
                     transform.GetChild(transform.childCount - lastStitchObject).gameObject.SetActive(false);
                     stitchControl.stitchCount--;
+                    stitchControl.StarActive();
                     Debug.Log(stitchControl.stitchCount);
                 }
              
