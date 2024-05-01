@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Jobs;
 using UnityEngine;
 
-public class UndoStitchControl : MonoBehaviour
+public class UndoStitchControl : Tumbnails
 {
     public GameObject parentInstantiate;
     public GameObject undoStitch;
@@ -20,29 +20,32 @@ public class UndoStitchControl : MonoBehaviour
     }
 
     private Vector3 lastneedletransform;
-    public int lastStitchObject ;
+    public int lastStitchObject;
+    public StarControl starControl;
+
     public void UndoStitch()
     {
         if (stitchControl.i > -1)
         {
             needleAnim.SetBool("isNeedle", true);
-           
             if (stitchControl.j > 0)
             {
-               
                 stitchControl.j--;
                 needle.transform.position += new Vector3(-.2f, 0, 0);
                 if (transform.childCount > 0)
                 {
                     lastStitchObject++;
-                    transform.GetChild(transform.childCount - lastStitchObject).gameObject.SetActive(false);
+                   
+              //      transform.GetChild(transform.childCount - lastStitchObject).gameObject.SetActive(false);
+                     var a = transform.GetChild(transform.childCount - 1).gameObject;
+                     Destroy(a);
+                    
+                    
                     stitchControl.stitchCount--;
-                    stitchControl.StarActive();
-                    Debug.Log(stitchControl.stitchCount);
+                    starControl.StarActive();
                 }
-             
             }
-            else if(stitchControl.j==0 && stitchControl.i>0)
+            else if (stitchControl.j == 0 && stitchControl.i > 0)
             {
                 needle.transform.position = new Vector3(stitchControl.lastXPos, needle.transform.position.y,
                     needle.transform.position.z);

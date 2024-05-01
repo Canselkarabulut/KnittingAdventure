@@ -5,13 +5,12 @@ using UnityEngine;
 public abstract class Tumbnails : MonoBehaviour
 {
     private Vector3 _imageNewPosition;
-    private GameObject _obj;
-    
+    [HideInInspector]public GameObject _obj;
     /// <summary>
     /// 
     /// </summary>
-    /// <param name="row"></param> // satır
-    /// <param name="col"></param> //stun
+    /// <param name="row"></param> // satır   //22
+    /// <param name="col"></param> //stun     //22
     ///
     /// startRow // satır başlangıcı
     /// startCol // stun Başlangını

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,6 +19,7 @@ public class StitchControl : Tumbnails
     [HideInInspector] private UndoStitchControl undoStitchControl;
     public float lastXPos;
     public int stitchCount = 0;
+    public StarControl starControl;
 
     public void Down() //butona basılı tutuluyor
     {
@@ -48,7 +50,6 @@ public class StitchControl : Tumbnails
         }
     }
 
-
     public void DownStitch()
     {
         if (isDown)
@@ -61,15 +62,17 @@ public class StitchControl : Tumbnails
                 {
                     Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
                     j++;
+
                     needle.transform.position += new Vector3(.2f, 0, 0);
                     if (j == 21)
                     {
                         lastXPos = needle.transform.position.x;
                     }
 
+                    StitchColor();
                     stitchCount++;
-                    StarActive();
-                    Debug.Log(stitchCount);
+
+                    starControl.StarActive();
                 }
                 else
                 {
@@ -93,35 +96,46 @@ public class StitchControl : Tumbnails
         }
     }
 
-    public Button star1;
-    public Button star2;
-    public Button star3;
 
-    public void StarActive()
+    public int trueStitchInt;
+    public int falseStitchInt;
+    public GameObject desired;
+
+
+    private Color desiredStitchColor;
+    private Color stitchColor;
+
+
+    public Color minDesiredStitchColor;
+    public Color maxDesiredStitchColor;
+
+    //stitch renk kontrolleri
+    public void StitchColor()
     {
-        if (stitchCount >= 100)
+        stitchColor = transform.GetChild(stitchCount).GetComponent<Image>().color;
+        desiredStitchColor = desired.transform.GetChild(stitchCount).GetComponent<Image>().color;
+
+
+        minDesiredStitchColor.r = desiredStitchColor.r - .2f;
+        minDesiredStitchColor.g = desiredStitchColor.g - .2f;
+        minDesiredStitchColor.b = desiredStitchColor.b - .2f;
+
+        maxDesiredStitchColor.r = desiredStitchColor.r + .2f;
+        maxDesiredStitchColor.g = desiredStitchColor.g + .2f;
+        maxDesiredStitchColor.b = desiredStitchColor.b + .2f;
+
+        if (maxDesiredStitchColor.r > stitchColor.r && stitchColor.r > minDesiredStitchColor.r &&
+            maxDesiredStitchColor.g > stitchColor.g && stitchColor.g > minDesiredStitchColor.g &&
+            maxDesiredStitchColor.b > stitchColor.b && stitchColor.b > minDesiredStitchColor.b)
         {
-            star1.interactable = true;
-            if (stitchCount >= 300)
-            {
-                star2.interactable = true;
-                if (stitchCount >= 450)
-                {
-                    star3.interactable = true;
-                }
-                else
-                {
-                    star3.interactable = false;
-                }
-            }
-            else
-            {
-                star2.interactable = false;
-            }
+            trueStitchInt++;
+            Debug.Log("trueStitchInt" + trueStitchInt);
         }
-        else if (stitchCount < 100)
+        else
         {
-            star1.interactable = false;
+              falseStitchInt++;
+              Debug.Log("falseStitchInt" + falseStitchInt);
         }
+        
     }
 }

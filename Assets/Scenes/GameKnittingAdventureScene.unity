@@ -815,6 +815,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251780086}
   m_CullTransparentMesh: 1
+--- !u!1 &262782627
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 262782628}
+  - component: {fileID: 262782630}
+  - component: {fileID: 262782629}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &262782628
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262782627}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1324008400}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2.58, y: -96.472}
+  m_SizeDelta: {x: 847.28, y: 851.89}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &262782629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262782627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &262782630
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262782627}
+  m_CullTransparentMesh: 1
 --- !u!1 &379293550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3071,7 +3146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.12156863, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.04, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3543,6 +3618,7 @@ RectTransform:
   - {fileID: 12779401}
   - {fileID: 173764520}
   - {fileID: 1643269079}
+  - {fileID: 262782628}
   - {fileID: 1376606242}
   - {fileID: 1139927473}
   - {fileID: 807305120}
@@ -3675,6 +3751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 261fabbf3c0450647857ddfef5522bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obj: {fileID: 0}
   parentInstantiate: {fileID: 1376606241}
   stitch: {fileID: 6332032395029392992, guid: 54d805d02f93baf429eb9e56d73c7ce7, type: 3}
   needle: {fileID: 1139927472}
@@ -3686,9 +3763,12 @@ MonoBehaviour:
   j: 0
   lastXPos: 0
   stitchCount: 0
-  star1: {fileID: 1421577712}
-  star2: {fileID: 1228376338}
-  star3: {fileID: 1394295317}
+  starControl: {fileID: 1613089768}
+  trueStitchInt: 0
+  falseStitchInt: 0
+  desired: {fileID: 1643269078}
+  minDesiredStitchColor: {r: 0, g: 0, b: 0, a: 0}
+  maxDesiredStitchColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &1376606245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3701,6 +3781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d48650623199142a14fbe8023e7823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obj: {fileID: 0}
   parentInstantiate: {fileID: 1376606241}
   undoStitch: {fileID: 943057778271191091, guid: 6f78c7ea4d5724b4297d9fc144994e45, type: 3}
   needle: {fileID: 1139927472}
@@ -3709,6 +3790,7 @@ MonoBehaviour:
   firstNeedleX: 0
   stitchControl: {fileID: 1376606244}
   lastStitchObject: 0
+  starControl: {fileID: 1613089768}
 --- !u!1 &1393382589
 GameObject:
   m_ObjectHideFlags: 0
@@ -4379,7 +4461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.11986828, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.14117648, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4419,7 +4501,7 @@ MonoBehaviour:
   stitchPrefab: {fileID: 6005247188635489404, guid: 54d805d02f93baf429eb9e56d73c7ce7, type: 3}
   color:
     serializedVersion: 2
-    rgba: 4294901770
+    rgba: 4294910976
 --- !u!114 &1549466972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4568,9 +4650,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stitchControl: {fileID: 1376606244}
-  star1: {fileID: 1421577710}
-  star2: {fileID: 1228376336}
-  star3: {fileID: 1394295315}
+  star1: {fileID: 1421577712}
+  star2: {fileID: 1228376338}
+  star3: {fileID: 1394295317}
 --- !u!1 &1643269078
 GameObject:
   m_ObjectHideFlags: 0
@@ -4615,6 +4697,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a700a8cb553552d4aad900cce6af5d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _obj: {fileID: 0}
   imagePrefabInstantiate: {fileID: 6332032395029392992, guid: f7635062841ee8f489993f80acd8e628, type: 3}
   parentInstantiate: {fileID: 1643269078}
 --- !u!1 &1650029394
