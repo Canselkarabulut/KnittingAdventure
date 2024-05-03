@@ -39,9 +39,9 @@ public class UndoStitchControl : Tumbnails
               //      transform.GetChild(transform.childCount - lastStitchObject).gameObject.SetActive(false);
                      var a = transform.GetChild(transform.childCount - 1).gameObject;
                      Destroy(a);
-                    
-                    
-                    stitchControl.stitchCount--;
+                     stitchControl.stitchCount--;
+                  
+                 
                     starControl.StarActive();
                 }
             }
