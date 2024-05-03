@@ -129,12 +129,11 @@ public class StitchControl : Tumbnails
             maxDesiredStitchColor.b > stitchColor.b && stitchColor.b > minDesiredStitchColor.b)
         {
             trueStitchInt++;
-            Debug.Log("trueStitchInt" + trueStitchInt);
         }
         else
         {
               falseStitchInt++;
-              Debug.Log("falseStitchInt" + falseStitchInt);
+            
         }
         
     }
