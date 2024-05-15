@@ -1266,7 +1266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &262782628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5420,7 +5420,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obj: {fileID: 0}
-  foregroundImage: {fileID: 0}
   parentInstantiate: {fileID: 1376606241}
   stitch: {fileID: 6332032395029392992, guid: 54d805d02f93baf429eb9e56d73c7ce7, type: 3}
   needle: {fileID: 1139927472}
@@ -5455,7 +5454,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obj: {fileID: 0}
-  foregroundImage: {fileID: 0}
   parentInstantiate: {fileID: 1376606241}
   undoStitch: {fileID: 943057778271191091, guid: 6f78c7ea4d5724b4297d9fc144994e45, type: 3}
   needle: {fileID: 1139927472}
@@ -6453,14 +6451,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obj: {fileID: 0}
-  foregroundImage: {fileID: 2800000, guid: 0491b3f3b12dbe247ac1709e5f8bf690, type: 3}
   imagePrefabInstantiate: {fileID: 6332032395029392992, guid: f7635062841ee8f489993f80acd8e628, type: 3}
   parentInstantiate: {fileID: 1643269078}
   stitchColor: {r: 0, g: 0.14117648, b: 1, a: 1}
-  desiredImage: {fileID: 506758030}
-  sprites:
-  - {fileID: 21300000, guid: 828fd40e51dcc2b4bac97d72d5b80dba, type: 3}
-  - {fileID: 21300000, guid: 0491b3f3b12dbe247ac1709e5f8bf690, type: 3}
+  levelTexture2d:
+  - {fileID: 2800000, guid: 776c1ef9bc7447041b235d361a16040b, type: 3}
 --- !u!223 &1643269081
 Canvas:
   m_ObjectHideFlags: 0

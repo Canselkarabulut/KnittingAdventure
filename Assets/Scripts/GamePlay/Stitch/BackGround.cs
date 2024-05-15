@@ -11,13 +11,13 @@ public class BackGround : Tumbnails
     public GameObject imagePrefabInstantiate;
     public GameObject parentInstantiate;
     public Color stitchColor;
-    public Image desiredImage;
-    public List<Sprite> sprites;
-  
+   // public Image desiredImage;
+   // public List<Sprite> sprites;
+   public List<Texture2D> levelTexture2d;
 public void DesiredStitchLevel1()
     {
     //    desiredImage.sprite = sprites[0];
-       Stitch(imagePrefabInstantiate, parentInstantiate,0,22,0,22,stitchColor);
+       Stitch(imagePrefabInstantiate, parentInstantiate,0,22,0,22,levelTexture2d[0]);
         
 
     }
