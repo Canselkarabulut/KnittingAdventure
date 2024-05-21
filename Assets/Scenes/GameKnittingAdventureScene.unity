@@ -344,8 +344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 186.9, y: 127.30005}
-  m_SizeDelta: {x: 315, y: 235}
+  m_AnchoredPosition: {x: 206.1, y: 235.4}
+  m_SizeDelta: {x: 236.39, y: 176.35}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &47685479
 MonoBehaviour:
@@ -1266,7 +1266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &262782628
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3448,7 +3448,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1465759861}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.40891212
+  m_Size: 0.40891215
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5427,6 +5427,7 @@ MonoBehaviour:
   time: 0
   isDown: 0
   firstNeedleX: 0
+  firstNeedleY: 0
   i: 0
   j: 0
   lastXPos: 0
@@ -6453,8 +6454,9 @@ MonoBehaviour:
   _obj: {fileID: 0}
   imagePrefabInstantiate: {fileID: 6332032395029392992, guid: f7635062841ee8f489993f80acd8e628, type: 3}
   parentInstantiate: {fileID: 1643269078}
-  stitchColor: {r: 0, g: 0.14117648, b: 1, a: 1}
   levelTexture2d:
+  - {fileID: 2800000, guid: 51d0f80ba7ee7ba4e9c4157784d162e7, type: 3}
+  - {fileID: 2800000, guid: 2b3d15310a3fe304187db98295284de6, type: 3}
   - {fileID: 2800000, guid: 776c1ef9bc7447041b235d361a16040b, type: 3}
 --- !u!223 &1643269081
 Canvas:
@@ -6514,8 +6516,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -224.29, y: -715.2}
-  m_SizeDelta: {x: 315, y: 235}
+  m_AnchoredPosition: {x: 199.19, y: -846.5}
+  m_SizeDelta: {x: 222.58, y: 166.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1650029396
 MonoBehaviour:
@@ -7872,6 +7874,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00ca02d83f29af445991db553209d40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelMeneger: {fileID: 1741224138}
+  stitchControl: {fileID: 1376606244}
+  needle: {fileID: 1139927472}
+  star1: {fileID: 1421577712}
+  star2: {fileID: 1228376338}
+  star3: {fileID: 1394295317}
 --- !u!1 &1942073650
 GameObject:
   m_ObjectHideFlags: 0

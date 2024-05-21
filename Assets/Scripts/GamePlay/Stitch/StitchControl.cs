@@ -14,6 +14,7 @@ public class StitchControl : Tumbnails
     [HideInInspector] public float time;
     [HideInInspector] public bool isDown;
     [HideInInspector] public float firstNeedleX;
+    [HideInInspector] public float firstNeedleY;
     [HideInInspector] public int i = 0;
     [HideInInspector] public int j = 0;
     [HideInInspector] private UndoStitchControl undoStitchControl;
@@ -36,6 +37,7 @@ public class StitchControl : Tumbnails
         undoStitchControl = GetComponent<UndoStitchControl>();
         stitchCount = 0;
         firstNeedleX = needle.transform.position.x;
+        firstNeedleY = needle.transform.position.y;
         i = 0;
         j = 0;
     }
@@ -130,6 +132,7 @@ public class StitchControl : Tumbnails
                 
                hitColor = image.color;
                 Debug.Log("color : " + hitColor);
+                trueStitchInt++;
             }
         }
         else

@@ -24,6 +24,9 @@ public class LevelMeneger : MonoBehaviour
             case LevelStatus.Level2:
                 desiredStitch.DesiredStitchLevel2();
                 break;
+            case LevelStatus.Level3:
+                desiredStitch.DesiredStitchLevel3();
+                break;
         }
     }
 
@@ -34,7 +37,7 @@ public class LevelMeneger : MonoBehaviour
             //childleri temizlr
             Destroy(child.gameObject);
         }
-
+      
         DesiredLevelControl();
     }
 }
