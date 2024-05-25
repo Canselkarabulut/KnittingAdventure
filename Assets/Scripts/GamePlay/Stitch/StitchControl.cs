@@ -5,22 +5,26 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+
 public class StitchControl : Tumbnails
 {
-    public GameObject parentInstantiate;
+    [Header("Stitch")] public GameObject parentInstantiate;
     public GameObject stitch;
     public GameObject needle;
     public Animator needleAnim;
+    public float lastXPos;
+    public int stitchCount = 0;
     [HideInInspector] public float time;
     [HideInInspector] public bool isDown;
     [HideInInspector] public float firstNeedleX;
     [HideInInspector] public float firstNeedleY;
     [HideInInspector] public int i = 0;
     [HideInInspector] public int j = 0;
-    [HideInInspector] private UndoStitchControl undoStitchControl;
-    public float lastXPos;
-    public int stitchCount = 0;
-    public StarControl starControl;
+    private UndoStitchControl undoStitchControl;
+
+    [Header("Star")] public StarControl starControl;
+    [Header("TrueColorControl")] public BackGround backGroundDesired;
+    public int trueStitchInt;
 
     public void Down() //butona basılı tutuluyor
     {
@@ -40,6 +44,21 @@ public class StitchControl : Tumbnails
         firstNeedleY = needle.transform.position.y;
         i = 0;
         j = 0;
+
+        StartCoroutine(StartPixelColor());
+    }
+
+    IEnumerator StartPixelColor()
+    {
+        yield return new WaitForSeconds(.01f);
+        if (backGroundDesired.colorArrayList.Count > 0)
+        {
+            before2Image.color = Color.clear;
+            before1Image.color = Color.clear;
+            nowImage.color = backGroundDesired.colorArrayList[0];
+            after1Image.color = backGroundDesired.colorArrayList[1];
+            after2Image.color = backGroundDesired.colorArrayList[2];
+        }
     }
 
     private void Update()
@@ -52,18 +71,58 @@ public class StitchControl : Tumbnails
         }
     }
 
+   // public int arrayCountNow;
+
     public void DownStitch()
     {
         if (isDown)
         {
             needleAnim.SetBool("isNeedle", true);
-            undoStitchControl.lastStitchObject = 0;
             if (i < 22)
             {
                 if (j < 22)
                 {
-                   var stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
+                    var stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
                     j++;
+                    
+
+                    #region Pixel Color Box
+                    stitchCount++;
+                    if (backGroundDesired.colorArrayList.Count > 0 && backGroundDesired.colorArrayList.Count < 485)
+                    {
+                        Color clearColor = Color.clear;
+                        int startIndex = stitchCount - 2;
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int index = startIndex + i;
+                            Color color = index >= 0 && index < backGroundDesired.colorArrayList.Count
+                                ? backGroundDesired.colorArrayList[index]
+                                : clearColor;
+                            switch (i)
+                            {
+                                case 0:
+                                    before2Image.color = color;
+                                    break;
+                                case 1:
+                                    before1Image.color = color;
+                                    break;
+                                case 2:
+                                    nowImage.color = color;
+                                    break;
+                                case 3:
+                                    after1Image.color = color;
+                                    break;
+                                case 4:
+                                    after2Image.color = color;
+                                    break;
+                            }
+                        }
+                    }
+
+                    #endregion
+
+                    #region NeedlePosition
 
                     needle.transform.position += new Vector3(.2f, 0, 0);
                     if (j == 21)
@@ -71,16 +130,20 @@ public class StitchControl : Tumbnails
                         lastXPos = needle.transform.position.x;
                     }
 
-                    StitchColor(stitchObject);
-                    stitchCount++;
-
-                    starControl.StarActive();
+                    #endregion
+                    
+                    StitchColor(stitchObject); //ilmek rengi kontrolü
+                    starControl.StarActive(); // yıldız kontrolü
                 }
                 else
                 {
+                    #region NeedlePosition
+
                     needle.transform.position = new Vector3(firstNeedleX, needle.transform.position.y,
                         needle.transform.position.z);
                     needle.transform.position += new Vector3(0, .2f, 0);
+
+                    #endregion
                     i++;
                     j = 0;
                 }
@@ -99,98 +162,26 @@ public class StitchControl : Tumbnails
     }
 
 
-    public int trueStitchInt;
-    public int falseStitchInt;
-    public GameObject desired;
-
-
-    private Color desiredStitchColor;
-    private Color stitchColor;
-
-
-    public Color minDesiredStitchColor;
-    public Color maxDesiredStitchColor;
-    public Camera mainCamera; // Kamera referansı
-    //stitch renk kontrolleri
-    
-    public LayerMask canvasLayer; 
     public void StitchColor(GameObject obj)
     {
         Vector2 center = obj.GetComponent<RectTransform>().position;
         Vector2 rayDirection = new Vector2(-1, -1);
-        // Back yönünde bir ray oluştur
-        RaycastHit2D hit =  Physics2D.Raycast(center, rayDirection,1000);
+        RaycastHit2D hit = Physics2D.Raycast(center, rayDirection, 1000);
         if (hit.collider != null)
         {
-            // Ray bir şeye çarptıysa
-            Debug.Log("Ray bir şeye çarptı: " + hit.collider.gameObject.name);
-
-
-            Color32 hitColor;
             if (hit.transform.gameObject.TryGetComponent(out Image image))
             {
-                
-               hitColor = image.color;
-                Debug.Log("color : " + hitColor);
+                //bana değen renk varsa true kısmını çalıştırıyor haliyle şimdilik doğru çalışmıyor.
+                //ilmek rengi ve ray deki değen renk aynı olduğunda true olacak
+                //farklı olduğunda kullanıcıyı yanlış yaptığını anlaması için bir resim vs bir şey eklenebilir
                 trueStitchInt++;
+                Debug.Log("true");
             }
         }
         else
         {
             // Ray hiçbir şeye çarpmadıysa
-            Debug.Log("Ray hiçbir şeye çarpmadı.");
-            Debug.DrawLine(center, rayDirection, Color.green,1000);
+            Debug.DrawLine(center, rayDirection, Color.green, 1000);
         }
-        
-        
-        
-     //   Vector3 center = obj.GetComponent<RectTransform>().position;
-//
-     //   // Back yönünde bir ray oluştur
-     //   RaycastHit hit;
-     //   if (Physics.Raycast(center, -mainCamera.transform.forward, out hit,1000))
-     //   {
-     //       // Ray bir şeye çarptıysa
-     //       Debug.Log("Ray bir şeye çarptı: " + hit.collider.gameObject.name);
-     //       Debug.DrawRay(center, -mainCamera.transform.forward, Color.red,1000);
-//
-     //   }
-     //   else
-     //   {
-     //       // Ray hiçbir şeye çarpmadıysa
-     //       Debug.Log("Ray hiçbir şeye çarpmadı.");
-     //       Debug.DrawRay(center, -mainCamera.transform.forward, Color.green,1000);
-     //   }
-        
-        
-        
-        // oluşturulan ilmek ortasından bir ray atılsın ve arkasındaki renk istenilen renk ise doğru olsun
-        
-        
-        
-   //     stitchColor = transform.GetChild(stitchCount).GetComponent<Image>().color;
-   //     desiredStitchColor = desired.transform.GetChild(stitchCount).GetComponent<Image>().color;
-//
-//
-   //     minDesiredStitchColor.r = desiredStitchColor.r - .2f;
-   //     minDesiredStitchColor.g = desiredStitchColor.g - .2f;
-   //     minDesiredStitchColor.b = desiredStitchColor.b - .2f;
-//
-   //     maxDesiredStitchColor.r = desiredStitchColor.r + .2f;
-   //     maxDesiredStitchColor.g = desiredStitchColor.g + .2f;
-   //     maxDesiredStitchColor.b = desiredStitchColor.b + .2f;
-//
-   //     if (maxDesiredStitchColor.r > stitchColor.r && stitchColor.r > minDesiredStitchColor.r &&
-   //         maxDesiredStitchColor.g > stitchColor.g && stitchColor.g > minDesiredStitchColor.g &&
-   //         maxDesiredStitchColor.b > stitchColor.b && stitchColor.b > minDesiredStitchColor.b)
-   //     {
-   //         trueStitchInt++;
-   //     }
-   //     else
-   //     {
-   //           falseStitchInt++;
-   //         
-   //     }
-        
     }
 }

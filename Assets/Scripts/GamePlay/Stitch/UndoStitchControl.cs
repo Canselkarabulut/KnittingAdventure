@@ -5,24 +5,24 @@ using UnityEngine;
 
 public class UndoStitchControl : Tumbnails
 {
-    public GameObject parentInstantiate;
-    public GameObject undoStitch;
+  
     public GameObject needle;
     public Animator needleAnim;
     [HideInInspector] public float time;
     [HideInInspector] public float firstNeedleX;
     [HideInInspector] public StitchControl stitchControl;
-
+   
+    [Header("Star")]
+    public StarControl starControl;
+    [Header("TrueColorControl")]
+    public BackGround backGroundDesired;
+    
     private void Start()
     {
         firstNeedleX = needle.transform.position.x;
         stitchControl = GetComponent<StitchControl>();
     }
-
-    private Vector3 lastneedletransform;
-    public int lastStitchObject;
-    public StarControl starControl;
-
+    
     public void UndoStitch()
     {
         if (stitchControl.i > -1)
@@ -34,15 +34,41 @@ public class UndoStitchControl : Tumbnails
                 needle.transform.position += new Vector3(-.2f, 0, 0);
                 if (transform.childCount > 0)
                 {
-                    lastStitchObject++;
-                   
-              //      transform.GetChild(transform.childCount - lastStitchObject).gameObject.SetActive(false);
-                     var a = transform.GetChild(transform.childCount - 1).gameObject;
-                     Destroy(a);
-                     stitchControl.stitchCount--;
-                  
-                 
+          
+                    var lastStitch = transform.GetChild(transform.childCount - 1).gameObject;
+                    Destroy(lastStitch);
+                    stitchControl.stitchCount--;
                     starControl.StarActive();
+                   
+                    if (backGroundDesired.colorArrayList.Count > 0 && backGroundDesired.colorArrayList.Count < 485)
+                    {
+                        Color clearColor = Color.clear;
+                        int startIndex = stitchControl.stitchCount - 2;
+
+                        for (int i = 0; i < 5; i++)
+                        {
+                            int index = startIndex + i;
+                            Color color = index >= 0 && index < backGroundDesired.colorArrayList.Count ? backGroundDesired.colorArrayList[index] : clearColor;
+                            switch (i)
+                            {
+                                case 0:
+                                    before2Image.color = color;
+                                    break;
+                                case 1:
+                                    before1Image.color = color;
+                                    break;
+                                case 2:
+                                    nowImage.color = color;
+                                    break;
+                                case 3:
+                                    after1Image.color = color;
+                                    break;
+                                case 4:
+                                    after2Image.color = color;
+                                    break;
+                            }
+                        }
+                    }
                 }
             }
             else if (stitchControl.j == 0 && stitchControl.i > 0)

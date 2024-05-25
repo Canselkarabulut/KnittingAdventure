@@ -9,6 +9,8 @@ public class LevelMeneger : MonoBehaviour
     public LevelStatus levelStatus;
 
     public BackGround desiredStitch;
+    public StitchControl stitchControl;
+
     private void Start()
     {
         DesiredLevelControl();
@@ -16,6 +18,8 @@ public class LevelMeneger : MonoBehaviour
     }
     public void DesiredLevelControl()
     {
+        desiredStitch.colorArrayList.Clear();
+        stitchControl.stitchCount = 0;
         switch (levelStatus)
         {
             case LevelStatus.Level1:

@@ -7,10 +7,9 @@ using UnityEngine.UI;
 public abstract class Tumbnails : MonoBehaviour
 {
     private Vector3 _imageNewPosition;
-    [HideInInspector]public GameObject _obj;
-    
- 
-    
+    [HideInInspector] public GameObject _obj;
+
+
     /// <summary>
     /// 
     /// </summary>
@@ -33,14 +32,21 @@ public abstract class Tumbnails : MonoBehaviour
                 _obj.gameObject.name = "x: " + x + "y: " + y;
             }
         }
+
         return _obj;
     }
-   // public Texture2D foregroundImage; // Ön plan resmi
-    
+
+    // public Texture2D foregroundImage; // Ön plan resmi
+    [Header("PixelColors")] public Image before2Image;
+    public Image before1Image;
+    public Image nowImage;
+    public Image after1Image;
+    public Image after2Image;
+
     public GameObject Stitch(GameObject imagePrefabInstantiate, GameObject parentInstantiate, int startRow, int EndRow,
-        int startCol, int Endcol,Texture2D levelTexture2d) 
+        int startCol, int Endcol, Texture2D levelTexture2d, List<Color> colorArrayList)
     {
-       for (int y = startCol; y < Endcol; y++)
+        for (int y = startCol; y < Endcol; y++)
         {
             for (int x = startRow; x < EndRow; x++)
             {
@@ -51,8 +57,10 @@ public abstract class Tumbnails : MonoBehaviour
                 _obj.GetComponent<Image>().color = levelTexture2d.GetPixel(x, y);
                 _obj.gameObject.name = "bg.x: " + x + "bg.y: " + y;
                 var a = _obj.AddComponent<BoxCollider2D>().size = new Vector2(94, 94);
+                colorArrayList.Add(levelTexture2d.GetPixel(x, y));
             }
         }
+
         return _obj;
     }
 }
