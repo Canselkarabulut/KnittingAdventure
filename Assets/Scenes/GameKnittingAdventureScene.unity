@@ -2884,6 +2884,9 @@ MonoBehaviour:
   nowImage: {fileID: 1513900308}
   after1Image: {fileID: 520001966}
   after2Image: {fileID: 779785168}
+  woolBeforeImage: {fileID: 1549466969}
+  woolNowImage: {fileID: 1038964567}
+  woolAfterImage: {fileID: 1958184349}
   parentInstantiate: {fileID: 1376606241}
   stitch: {fileID: 6332032395029392992, guid: 54d805d02f93baf429eb9e56d73c7ce7, type: 3}
   needle: {fileID: 1139927472}
@@ -2917,6 +2920,9 @@ MonoBehaviour:
   nowImage: {fileID: 1513900308}
   after1Image: {fileID: 520001966}
   after2Image: {fileID: 779785168}
+  woolBeforeImage: {fileID: 1549466969}
+  woolNowImage: {fileID: 1038964567}
+  woolAfterImage: {fileID: 1958184349}
   needle: {fileID: 1139927472}
   needleAnim: {fileID: 1139927476}
   time: 0
@@ -3622,11 +3628,14 @@ MonoBehaviour:
   nowImage: {fileID: 1513900308}
   after1Image: {fileID: 520001966}
   after2Image: {fileID: 779785168}
+  woolBeforeImage: {fileID: 0}
+  woolNowImage: {fileID: 0}
+  woolAfterImage: {fileID: 0}
   imagePrefabInstantiate: {fileID: 6332032395029392992, guid: f7635062841ee8f489993f80acd8e628, type: 3}
   parentInstantiate: {fileID: 1643269078}
   colorArrayList: []
   levelTexture2d:
-  - {fileID: 2800000, guid: 51d0f80ba7ee7ba4e9c4157784d162e7, type: 3}
+  - {fileID: 2800000, guid: 471eaaf954e084f4ca8277ec57b166d1, type: 3}
   - {fileID: 2800000, guid: 2b3d15310a3fe304187db98295284de6, type: 3}
   - {fileID: 2800000, guid: 776c1ef9bc7447041b235d361a16040b, type: 3}
 --- !u!223 &1643269081

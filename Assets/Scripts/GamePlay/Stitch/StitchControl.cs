@@ -25,6 +25,8 @@ public class StitchControl : Tumbnails
     [Header("Star")] public StarControl starControl;
     [Header("TrueColorControl")] public BackGround backGroundDesired;
     public int trueStitchInt;
+    
+    
 
     public void Down() //butona basılı tutuluyor
     {
@@ -58,6 +60,15 @@ public class StitchControl : Tumbnails
             nowImage.color = backGroundDesired.colorArrayList[0];
             after1Image.color = backGroundDesired.colorArrayList[1];
             after2Image.color = backGroundDesired.colorArrayList[2];
+
+            woolBeforeImage.GetComponent<Colors>().color = Color.clear;
+            woolBeforeImage.transform.GetChild(1).GetComponent<Image>().color = Color.clear;
+            
+            woolNowImage.GetComponent<Colors>().color =  backGroundDesired.colorArrayList[0];
+            woolNowImage.transform.GetChild(1).GetComponent<Image>().color =  backGroundDesired.colorArrayList[0];
+            
+            woolAfterImage.GetComponent<Colors>().color =  backGroundDesired.colorArrayList[1];
+            woolAfterImage.transform.GetChild(1).GetComponent<Image>().color =  backGroundDesired.colorArrayList[1];
         }
     }
 
@@ -106,12 +117,18 @@ public class StitchControl : Tumbnails
                                     break;
                                 case 1:
                                     before1Image.color = color;
+                                    woolBeforeImage.GetComponent<Colors>().color = color;
+                                    woolBeforeImage.transform.GetChild(1).GetComponent<Image>().color = color;
                                     break;
                                 case 2:
                                     nowImage.color = color;
+                                    woolNowImage.GetComponent<Colors>().color =  color;
+                                    woolNowImage.transform.GetChild(1).GetComponent<Image>().color = color;
                                     break;
                                 case 3:
                                     after1Image.color = color;
+                                    woolAfterImage.GetComponent<Colors>().color = color;
+                                    woolAfterImage.transform.GetChild(1).GetComponent<Image>().color = color;
                                     break;
                                 case 4:
                                     after2Image.color = color;

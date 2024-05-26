@@ -43,6 +43,10 @@ public abstract class Tumbnails : MonoBehaviour
     public Image after1Image;
     public Image after2Image;
 
+
+    public Image woolBeforeImage;
+    public Image woolNowImage;
+    public Image woolAfterImage;
     public GameObject Stitch(GameObject imagePrefabInstantiate, GameObject parentInstantiate, int startRow, int EndRow,
         int startCol, int Endcol, Texture2D levelTexture2d, List<Color> colorArrayList)
     {

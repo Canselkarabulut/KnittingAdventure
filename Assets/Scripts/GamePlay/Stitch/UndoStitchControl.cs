@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Jobs;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UndoStitchControl : Tumbnails
 {
@@ -56,12 +57,18 @@ public class UndoStitchControl : Tumbnails
                                     break;
                                 case 1:
                                     before1Image.color = color;
+                                    woolBeforeImage.GetComponent<Colors>().color = color;
+                                    woolBeforeImage.transform.GetChild(1).GetComponent<Image>().color = color;
                                     break;
                                 case 2:
                                     nowImage.color = color;
+                                    woolNowImage.GetComponent<Colors>().color =  color;
+                                    woolNowImage.transform.GetChild(1).GetComponent<Image>().color = color;
                                     break;
                                 case 3:
                                     after1Image.color = color;
+                                    woolAfterImage.GetComponent<Colors>().color = color;
+                                    woolAfterImage.transform.GetChild(1).GetComponent<Image>().color = color;
                                     break;
                                 case 4:
                                     after2Image.color = color;
