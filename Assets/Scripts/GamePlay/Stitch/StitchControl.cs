@@ -20,12 +20,13 @@ public class StitchControl : Tumbnails
     [HideInInspector] public float firstNeedleY;
     [HideInInspector] public int i = 0;
     [HideInInspector] public int j = 0;
-    private UndoStitchControl undoStitchControl;
 
     [Header("Star")] public StarControl starControl;
     [Header("TrueColorControl")] public BackGround backGroundDesired;
     public int trueStitchInt;
     
+    
+    public GameObject undoStitch;
     
 
     public void Down() //butona basılı tutuluyor
@@ -40,7 +41,6 @@ public class StitchControl : Tumbnails
 
     private void Start()
     {
-        undoStitchControl = GetComponent<UndoStitchControl>();
         stitchCount = 0;
         firstNeedleX = needle.transform.position.x;
         firstNeedleY = needle.transform.position.y;
@@ -83,20 +83,22 @@ public class StitchControl : Tumbnails
     }
 
    // public int arrayCountNow;
-
+   private Color desiredColor;
     public void DownStitch()
     {
         if (isDown)
         {
             needleAnim.SetBool("isNeedle", true);
+            //ilmek doğruysa ilmek ör
+            //ilmek yanlışsa boş ilmek işareti koy
+            
             if (i < 22)
             {
                 if (j < 22)
                 {
+                    
                     var stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
                     j++;
-                    
-
                     #region Pixel Color Box
                     stitchCount++;
                     if (backGroundDesired.colorArrayList.Count > 0 && backGroundDesired.colorArrayList.Count < 485)
@@ -106,32 +108,32 @@ public class StitchControl : Tumbnails
 
                         for (int i = 0; i < 5; i++)
                         {
-                            int index = startIndex + i;
-                            Color color = index >= 0 && index < backGroundDesired.colorArrayList.Count
+                            int index = startIndex + i; 
+                            desiredColor = index >= 0 && index < backGroundDesired.colorArrayList.Count
                                 ? backGroundDesired.colorArrayList[index]
                                 : clearColor;
                             switch (i)
                             {
                                 case 0:
-                                    before2Image.color = color;
+                                    before2Image.color = desiredColor;
                                     break;
                                 case 1:
-                                    before1Image.color = color;
-                                    woolBeforeImage.GetComponent<Colors>().color = color;
-                                    woolBeforeImage.transform.GetChild(1).GetComponent<Image>().color = color;
+                                    before1Image.color = desiredColor;
+                                    woolBeforeImage.GetComponent<Colors>().color = desiredColor;
+                                    woolBeforeImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
                                     break;
                                 case 2:
-                                    nowImage.color = color;
-                                    woolNowImage.GetComponent<Colors>().color =  color;
-                                    woolNowImage.transform.GetChild(1).GetComponent<Image>().color = color;
+                                    nowImage.color = desiredColor;
+                                    woolNowImage.GetComponent<Colors>().color =  desiredColor;
+                                    woolNowImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
                                     break;
                                 case 3:
-                                    after1Image.color = color;
-                                    woolAfterImage.GetComponent<Colors>().color = color;
-                                    woolAfterImage.transform.GetChild(1).GetComponent<Image>().color = color;
+                                    after1Image.color = desiredColor;
+                                    woolAfterImage.GetComponent<Colors>().color = desiredColor;
+                                    woolAfterImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
                                     break;
                                 case 4:
-                                    after2Image.color = color;
+                                    after2Image.color = desiredColor;
                                     break;
                             }
                         }
@@ -149,7 +151,7 @@ public class StitchControl : Tumbnails
 
                     #endregion
                     
-                    StitchColor(stitchObject); //ilmek rengi kontrolü
+                    StitchColor(stitchObject,before1Image.color); //ilmek rengi kontrolü
                     starControl.StarActive(); // yıldız kontrolü
                 }
                 else
@@ -178,8 +180,8 @@ public class StitchControl : Tumbnails
         }
     }
 
-
-    public void StitchColor(GameObject obj)
+    private GameObject stitchObject;
+    public void StitchColor(GameObject obj,Color32 color)
     {
         Vector2 center = obj.GetComponent<RectTransform>().position;
         Vector2 rayDirection = new Vector2(-1, -1);
@@ -188,11 +190,27 @@ public class StitchControl : Tumbnails
         {
             if (hit.transform.gameObject.TryGetComponent(out Image image))
             {
-                //bana değen renk varsa true kısmını çalıştırıyor haliyle şimdilik doğru çalışmıyor.
-                //ilmek rengi ve ray deki değen renk aynı olduğunda true olacak
-                //farklı olduğunda kullanıcıyı yanlış yaptığını anlaması için bir resim vs bir şey eklenebilir
-                trueStitchInt++;
-                Debug.Log("true");
+              
+                Color32 stitchColor = obj.GetComponent<Image>().color;
+              //  if (stitchColor == desiredColor)
+              //  {
+              //      Debug.Log("işte şimdi doğruuuu");
+              //  }
+              if (stitchColor.a == color.a && stitchColor.r == color.r && stitchColor.g == color.g &&
+                  stitchColor.b == color.b)
+              {
+                  Debug.Log("doğru");
+                  //stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
+                  trueStitchInt++;
+              }
+              else
+              {
+                  //farklı olduğunda kullanıcıyı yanlış yaptığını anlaması için bir resim vs bir şey eklenebilir
+                  Debug.Log("yanlış");
+                 // stitchObject = Stitch(undoStitch, parentInstantiate, j, j + 1, i, 1 + i);
+
+              }
+                
             }
         }
         else

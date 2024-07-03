@@ -17,7 +17,9 @@ public class UndoStitchControl : Tumbnails
     public StarControl starControl;
     [Header("TrueColorControl")]
     public BackGround backGroundDesired;
-    
+
+   // public GameObject undostitchImage;
+   // public GameObject parentInstantiate;
     private void Start()
     {
         firstNeedleX = needle.transform.position.x;
@@ -37,7 +39,9 @@ public class UndoStitchControl : Tumbnails
                 {
           
                     var lastStitch = transform.GetChild(transform.childCount - 1).gameObject;
+                //    var lastStitchPosition = lastStitch.transform.position;
                     Destroy(lastStitch);
+                   // var stitchObject = Stitch(undostitchImage, parentInstantiate, stitchControl.j, stitchControl.j -1, stitchControl.i, stitchControl.i-1);
                     stitchControl.stitchCount--;
                     starControl.StarActive();
                    
