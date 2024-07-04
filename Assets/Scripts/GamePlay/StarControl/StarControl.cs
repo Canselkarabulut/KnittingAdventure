@@ -13,8 +13,6 @@ public class StarControl : MonoBehaviour
 
     public void StarActive()
     {
-        //burası şu anda ilmik sayıyor ama bir şart daha olmalı oda 
-        //doğruluk kontrolü yapılacak . desireddeki ilmik ile oluşan ilmik eşleştiyse stitchcount artmalı
         if (stitchControl.trueStitchInt >= 100)
         {
             star1.interactable = true;

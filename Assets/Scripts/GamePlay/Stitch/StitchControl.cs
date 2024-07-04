@@ -24,10 +24,10 @@ public class StitchControl : Tumbnails
     [Header("Star")] public StarControl starControl;
     [Header("TrueColorControl")] public BackGround backGroundDesired;
     public int trueStitchInt;
-    
-    
+
+    private Color desiredColor;
     public GameObject undoStitch;
-    
+
 
     public void Down() //butona basılı tutuluyor
     {
@@ -63,12 +63,12 @@ public class StitchControl : Tumbnails
 
             woolBeforeImage.GetComponent<Colors>().color = Color.clear;
             woolBeforeImage.transform.GetChild(1).GetComponent<Image>().color = Color.clear;
-            
-            woolNowImage.GetComponent<Colors>().color =  backGroundDesired.colorArrayList[0];
-            woolNowImage.transform.GetChild(1).GetComponent<Image>().color =  backGroundDesired.colorArrayList[0];
-            
-            woolAfterImage.GetComponent<Colors>().color =  backGroundDesired.colorArrayList[1];
-            woolAfterImage.transform.GetChild(1).GetComponent<Image>().color =  backGroundDesired.colorArrayList[1];
+
+            woolNowImage.GetComponent<Colors>().color = backGroundDesired.colorArrayList[0];
+            woolNowImage.transform.GetChild(1).GetComponent<Image>().color = backGroundDesired.colorArrayList[0];
+
+            woolAfterImage.GetComponent<Colors>().color = backGroundDesired.colorArrayList[1];
+            woolAfterImage.transform.GetChild(1).GetComponent<Image>().color = backGroundDesired.colorArrayList[1];
         }
     }
 
@@ -82,24 +82,22 @@ public class StitchControl : Tumbnails
         }
     }
 
-   // public int arrayCountNow;
-   private Color desiredColor;
+
+
     public void DownStitch()
     {
         if (isDown)
         {
             needleAnim.SetBool("isNeedle", true);
-            //ilmek doğruysa ilmek ör
-            //ilmek yanlışsa boş ilmek işareti koy
-            
             if (i < 22)
             {
                 if (j < 22)
                 {
-                    
                     var stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
                     j++;
+
                     #region Pixel Color Box
+
                     stitchCount++;
                     if (backGroundDesired.colorArrayList.Count > 0 && backGroundDesired.colorArrayList.Count < 485)
                     {
@@ -108,7 +106,7 @@ public class StitchControl : Tumbnails
 
                         for (int i = 0; i < 5; i++)
                         {
-                            int index = startIndex + i; 
+                            int index = startIndex + i;
                             desiredColor = index >= 0 && index < backGroundDesired.colorArrayList.Count
                                 ? backGroundDesired.colorArrayList[index]
                                 : clearColor;
@@ -124,7 +122,7 @@ public class StitchControl : Tumbnails
                                     break;
                                 case 2:
                                     nowImage.color = desiredColor;
-                                    woolNowImage.GetComponent<Colors>().color =  desiredColor;
+                                    woolNowImage.GetComponent<Colors>().color = desiredColor;
                                     woolNowImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
                                     break;
                                 case 3:
@@ -150,8 +148,8 @@ public class StitchControl : Tumbnails
                     }
 
                     #endregion
-                    
-                    StitchColor(stitchObject,before1Image.color); //ilmek rengi kontrolü
+
+                    StitchColor(stitchObject, before1Image.color ); //ilmek rengi kontrolü
                     starControl.StarActive(); // yıldız kontrolü
                 }
                 else
@@ -163,6 +161,7 @@ public class StitchControl : Tumbnails
                     needle.transform.position += new Vector3(0, .2f, 0);
 
                     #endregion
+
                     i++;
                     j = 0;
                 }
@@ -181,7 +180,8 @@ public class StitchControl : Tumbnails
     }
 
     private GameObject stitchObject;
-    public void StitchColor(GameObject obj,Color32 color)
+
+    public void StitchColor(GameObject obj, Color32 color)
     {
         Vector2 center = obj.GetComponent<RectTransform>().position;
         Vector2 rayDirection = new Vector2(-1, -1);
@@ -190,32 +190,23 @@ public class StitchControl : Tumbnails
         {
             if (hit.transform.gameObject.TryGetComponent(out Image image))
             {
-              
                 Color32 stitchColor = obj.GetComponent<Image>().color;
-              //  if (stitchColor == desiredColor)
-              //  {
-              //      Debug.Log("işte şimdi doğruuuu");
-              //  }
-              if (stitchColor.a == color.a && stitchColor.r == color.r && stitchColor.g == color.g &&
-                  stitchColor.b == color.b)
-              {
-                  Debug.Log("doğru");
-                  //stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
-                  trueStitchInt++;
-              }
-              else
-              {
-                  //farklı olduğunda kullanıcıyı yanlış yaptığını anlaması için bir resim vs bir şey eklenebilir
-                  Debug.Log("yanlış");
-                 // stitchObject = Stitch(undoStitch, parentInstantiate, j, j + 1, i, 1 + i);
-
-              }
-                
+                if (stitchColor.a == color.a && stitchColor.r == color.r && stitchColor.g == color.g &&
+                    stitchColor.b == color.b)
+                {
+                    Debug.Log("doğru");
+                    trueStitchInt++;
+                }
+                else
+                {
+                    Debug.Log("yanlış");
+                    Destroy(obj);
+                    obj  = Stitch(undoStitch, parentInstantiate, j-1, j, i, i+1);
+                }
             }
         }
         else
         {
-            // Ray hiçbir şeye çarpmadıysa
             Debug.DrawLine(center, rayDirection, Color.green, 1000);
         }
     }

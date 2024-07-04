@@ -99,7 +99,7 @@ public class LevelMeneger : MonoBehaviour
     {
         foreach (Transform child in desiredStitch.transform)
         {
-            //childleri temizlr
+            //childleri temizle
             Destroy(child.gameObject);
         }
       
