@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using Unity.Collections;
 
 public class StitchControl : Tumbnails
 {
@@ -27,7 +28,6 @@ public class StitchControl : Tumbnails
 
     private Color desiredColor;
     public GameObject undoStitch;
-
 
     public void Down() //butona basılı tutuluyor
     {
@@ -83,7 +83,7 @@ public class StitchControl : Tumbnails
     }
 
 
-
+    //public GameObject stitchEffect;
     public void DownStitch()
     {
         if (isDown)
@@ -179,8 +179,8 @@ public class StitchControl : Tumbnails
         }
     }
 
-    private GameObject stitchObject;
-
+    //private GameObject stitchObject;
+    public GameObject falseStitchEffect;
     public void StitchColor(GameObject obj, Color32 color)
     {
         Vector2 center = obj.GetComponent<RectTransform>().position;
@@ -202,6 +202,13 @@ public class StitchControl : Tumbnails
                     Debug.Log("yanlış");
                     Destroy(obj);
                     obj  = Stitch(undoStitch, parentInstantiate, j-1, j, i, i+1);
+                  //  falseStitchEffect.transform.position = obj.transform.position;
+                  //  falseStitchEffect.GetComponent<ParticleSystem>().Play();
+                 //    var stitchEffects = Stitch(falseStitchEffect, parentInstantiate, j-1, j , i, 1 + i);
+                     falseStitchEffect.transform.position = new Vector3(falseStitchEffect.transform.position.x,falseStitchEffect.transform.position.y,-3);
+                     falseStitchEffect.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+                     falseStitchEffect.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+                     falseStitchEffect.transform.GetChild(2).GetComponent<ParticleSystem>().Play();
                 }
             }
         }

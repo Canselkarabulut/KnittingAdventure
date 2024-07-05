@@ -32,6 +32,7 @@ public class UndoStitchControl : Tumbnails
             if (stitchControl.j > 0)
             {
                 stitchControl.j--;
+                stitchControl.trueStitchInt--;
                 needle.transform.position += new Vector3(-.2f, 0, 0);
                 if (transform.childCount > 0)
                 {
@@ -46,7 +47,7 @@ public class UndoStitchControl : Tumbnails
                     {
                         Color clearColor = Color.clear;
                         int startIndex = stitchControl.stitchCount - 2;
-
+//
                         for (int i = 0; i < 5; i++)
                         {
                             int index = startIndex + i;
