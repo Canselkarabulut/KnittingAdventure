@@ -12,5 +12,6 @@ public class Colors : MonoBehaviour
     public void ColorsButton()
     {
         stitchPrefab.color = color;
+        transform.GetChild(2).transform.GetChild(0).GetComponent<ParticleSystem>().Play();
     }
 }

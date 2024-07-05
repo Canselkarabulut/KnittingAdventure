@@ -17,7 +17,7 @@ public class UndoStitchControl : Tumbnails
     public StarControl starControl;
     [Header("TrueColorControl")]
     public BackGround backGroundDesired;
-
+    public ParticleSystem undoButtonEffect;
     private void Start()
     {
         firstNeedleX = needle.transform.position.x;
@@ -26,6 +26,7 @@ public class UndoStitchControl : Tumbnails
     
     public void UndoStitch()
     {
+        undoButtonEffect.Play();
         if (stitchControl.i > -1)
         {
             needleAnim.SetBool("isNeedle", true);
