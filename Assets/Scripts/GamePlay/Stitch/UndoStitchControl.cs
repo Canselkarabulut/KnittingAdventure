@@ -6,24 +6,22 @@ using UnityEngine.UI;
 
 public class UndoStitchControl : Tumbnails
 {
-  
     public GameObject needle;
     public Animator needleAnim;
     [HideInInspector] public float time;
     [HideInInspector] public float firstNeedleX;
     [HideInInspector] public StitchControl stitchControl;
-   
-    [Header("Star")]
-    public StarControl starControl;
-    [Header("TrueColorControl")]
-    public BackGround backGroundDesired;
+
+    [Header("Star")] public StarControl starControl;
+    [Header("TrueColorControl")] public BackGround backGroundDesired;
     public ParticleSystem undoButtonEffect;
+
     private void Start()
     {
         firstNeedleX = needle.transform.position.x;
         stitchControl = GetComponent<StitchControl>();
     }
-    
+
     public void UndoStitch()
     {
         undoButtonEffect.Play();
@@ -33,26 +31,26 @@ public class UndoStitchControl : Tumbnails
             if (stitchControl.j > 0)
             {
                 stitchControl.j--;
-                stitchControl.trueStitchInt--;
                 needle.transform.position += new Vector3(-.2f, 0, 0);
+
                 if (transform.childCount > 0)
                 {
-          
                     var lastStitch = transform.GetChild(transform.childCount - 1).gameObject;
-          
-                Destroy(lastStitch);
+                    Destroy(lastStitch);
                     stitchControl.stitchCount--;
                     starControl.StarActive();
-                   
+
                     if (backGroundDesired.colorArrayList.Count > 0 && backGroundDesired.colorArrayList.Count < 485)
                     {
                         Color clearColor = Color.clear;
                         int startIndex = stitchControl.stitchCount - 2;
-//
+
                         for (int i = 0; i < 5; i++)
                         {
                             int index = startIndex + i;
-                            Color color = index >= 0 && index < backGroundDesired.colorArrayList.Count ? backGroundDesired.colorArrayList[index] : clearColor;
+                            Color color = index >= 0 && index < backGroundDesired.colorArrayList.Count
+                                ? backGroundDesired.colorArrayList[index]
+                                : clearColor;
                             switch (i)
                             {
                                 case 0:
@@ -65,7 +63,7 @@ public class UndoStitchControl : Tumbnails
                                     break;
                                 case 2:
                                     nowImage.color = color;
-                                    woolNowImage.GetComponent<Colors>().color =  color;
+                                    woolNowImage.GetComponent<Colors>().color = color;
                                     woolNowImage.transform.GetChild(1).GetComponent<Image>().color = color;
                                     break;
                                 case 3:

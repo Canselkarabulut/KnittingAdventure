@@ -18,6 +18,7 @@ public class StarControl : MonoBehaviour
     private bool isAnimStar3=false;
     public void StarActive()
     {
+        Debug.Log("trueStitch" +stitchControl.trueStitchInt );
         if (stitchControl.trueStitchInt >= 100)
         {
             star1.interactable = true;

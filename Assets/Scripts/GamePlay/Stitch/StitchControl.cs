@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 using Unity.Collections;
 
 public class StitchControl : Tumbnails
@@ -25,6 +24,7 @@ public class StitchControl : Tumbnails
     [Header("Star")] public StarControl starControl;
     [Header("TrueColorControl")] public BackGround backGroundDesired;
     public int trueStitchInt;
+    public int falseStitchInt;
 
     private Color desiredColor;
     public GameObject undoStitch;
@@ -83,7 +83,8 @@ public class StitchControl : Tumbnails
     }
 
 
-    //public GameObject stitchEffect;
+    [HideInInspector] public GameObject stitchObject;
+
     public void DownStitch()
     {
         if (isDown)
@@ -93,7 +94,8 @@ public class StitchControl : Tumbnails
             {
                 if (j < 22)
                 {
-                    var stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
+                    stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
+
                     j++;
 
                     #region Pixel Color Box
@@ -149,7 +151,7 @@ public class StitchControl : Tumbnails
 
                     #endregion
 
-                    StitchColor(stitchObject, before1Image.color ); //ilmek rengi kontrolü
+                    StitchColor(stitchObject, before1Image.color); //ilmek rengi kontrolü
                     starControl.StarActive(); // yıldız kontrolü
                 }
                 else
@@ -181,6 +183,7 @@ public class StitchControl : Tumbnails
 
     //private GameObject stitchObject;
     public GameObject falseStitchEffect;
+
     public void StitchColor(GameObject obj, Color32 color)
     {
         Vector2 center = obj.GetComponent<RectTransform>().position;
@@ -194,21 +197,19 @@ public class StitchControl : Tumbnails
                 if (stitchColor.a == color.a && stitchColor.r == color.r && stitchColor.g == color.g &&
                     stitchColor.b == color.b)
                 {
-                    Debug.Log("doğru");
                     trueStitchInt++;
                 }
                 else
                 {
-                    Debug.Log("yanlış");
+                    falseStitchInt++;
                     Destroy(obj);
-                    obj  = Stitch(undoStitch, parentInstantiate, j-1, j, i, i+1);
-                  //  falseStitchEffect.transform.position = obj.transform.position;
-                  //  falseStitchEffect.GetComponent<ParticleSystem>().Play();
-                 //    var stitchEffects = Stitch(falseStitchEffect, parentInstantiate, j-1, j , i, 1 + i);
-                     falseStitchEffect.transform.position = new Vector3(falseStitchEffect.transform.position.x,falseStitchEffect.transform.position.y,-3);
-                     falseStitchEffect.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-                     falseStitchEffect.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
-                     falseStitchEffect.transform.GetChild(2).GetComponent<ParticleSystem>().Play();
+                    obj = Stitch(undoStitch, parentInstantiate, j - 1, j, i, i + 1);
+                    falseStitchEffect.transform.position = new Vector3(falseStitchEffect.transform.position.x,
+                        falseStitchEffect.transform.position.y, -3);
+                    falseStitchEffect.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+                    falseStitchEffect.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
+                    falseStitchEffect.transform.GetChild(2).GetComponent<ParticleSystem>().Play();
+                   
                 }
             }
         }

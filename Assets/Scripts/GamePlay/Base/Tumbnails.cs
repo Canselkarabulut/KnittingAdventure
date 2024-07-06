@@ -67,4 +67,5 @@ public abstract class Tumbnails : MonoBehaviour
 
         return _obj;
     }
+    
 }
