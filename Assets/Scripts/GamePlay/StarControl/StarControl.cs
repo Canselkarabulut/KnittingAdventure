@@ -13,13 +13,13 @@ public class StarControl : MonoBehaviour
     public ParticleSystem star1Effect;
     public ParticleSystem star2Effect;
     public ParticleSystem star3Effect;
-    private bool isAnimStar1=false;
-    private bool isAnimStar2=false;
-    private bool isAnimStar3=false;
+    private bool isAnimStar1 = false;
+    private bool isAnimStar2 = false;
+    private bool isAnimStar3 = false;
+
     public void StarActive()
     {
-        Debug.Log("trueStitch" +stitchControl.trueStitchInt );
-        if (stitchControl.trueStitchInt >= 100)
+        if (stitchControl.trueStitchInt >= 100) 
         {
             star1.interactable = true;
             if (!isAnimStar1)
@@ -28,7 +28,8 @@ public class StarControl : MonoBehaviour
                 star1Effect.Play();
                 isAnimStar1 = true;
             }
-            if (stitchControl.trueStitchInt >= 300)
+
+            if (stitchControl.trueStitchInt >= 300) 
             {
                 star2.interactable = true;
                 if (!isAnimStar2)
@@ -37,7 +38,8 @@ public class StarControl : MonoBehaviour
                     star2Effect.Play();
                     isAnimStar2 = true;
                 }
-                if (stitchControl.trueStitchInt >= 475)
+
+                if (stitchControl.trueStitchInt >= 475) 
                 {
                     star3.interactable = true;
                     if (!isAnimStar3)
@@ -63,7 +65,6 @@ public class StarControl : MonoBehaviour
         {
             star1.interactable = false;
             isAnimStar1 = false;
-
         }
     }
 }

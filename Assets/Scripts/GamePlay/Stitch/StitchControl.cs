@@ -72,6 +72,8 @@ public class StitchControl : Tumbnails
         }
     }
 
+    public Image autoTimeImage;
+
     private void Update()
     {
         time += Time.deltaTime;
@@ -89,94 +91,17 @@ public class StitchControl : Tumbnails
     {
         if (isDown)
         {
-            needleAnim.SetBool("isNeedle", true);
-            if (i < 22)
+            autoTimeImage.fillAmount += .1f;
+            if (autoTimeImage.fillAmount >= .95f)
             {
-                if (j < 22)
-                {
-                    stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
-
-                    j++;
-
-                    #region Pixel Color Box
-
-                    stitchCount++;
-                    if (backGroundDesired.colorArrayList.Count > 0 && backGroundDesired.colorArrayList.Count < 485)
-                    {
-                        Color clearColor = Color.clear;
-                        int startIndex = stitchCount - 2;
-
-                        for (int i = 0; i < 5; i++)
-                        {
-                            int index = startIndex + i;
-                            desiredColor = index >= 0 && index < backGroundDesired.colorArrayList.Count
-                                ? backGroundDesired.colorArrayList[index]
-                                : clearColor;
-                            switch (i)
-                            {
-                                case 0:
-                                    before2Image.color = desiredColor;
-                                    break;
-                                case 1:
-                                    before1Image.color = desiredColor;
-                                    woolBeforeImage.GetComponent<Colors>().color = desiredColor;
-                                    woolBeforeImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
-                                    break;
-                                case 2:
-                                    nowImage.color = desiredColor;
-                                    woolNowImage.GetComponent<Colors>().color = desiredColor;
-                                    woolNowImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
-                                    break;
-                                case 3:
-                                    after1Image.color = desiredColor;
-                                    woolAfterImage.GetComponent<Colors>().color = desiredColor;
-                                    woolAfterImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
-                                    break;
-                                case 4:
-                                    after2Image.color = desiredColor;
-                                    break;
-                            }
-                        }
-                    }
-
-                    #endregion
-
-                    #region NeedlePosition
-
-                    needle.transform.position += new Vector3(.2f, 0, 0);
-                    if (j == 21)
-                    {
-                        lastXPos = needle.transform.position.x;
-                    }
-
-                    #endregion
-
-                    StitchColor(stitchObject, before1Image.color); //ilmek rengi kontrolü
-                    starControl.StarActive(); // yıldız kontrolü
-                }
-                else
-                {
-                    #region NeedlePosition
-
-                    needle.transform.position = new Vector3(firstNeedleX, needle.transform.position.y,
-                        needle.transform.position.z);
-                    needle.transform.position += new Vector3(0, .2f, 0);
-
-                    #endregion
-
-                    i++;
-                    j = 0;
-                }
+                Knit();
             }
-            else
-            {
-                //    needle anim dursun
-                needleAnim.SetBool("isNeedle", false);
-            }
+            
         }
         else
         {
             //    needle anim dursun
+            autoTimeImage.fillAmount = 0;
             needleAnim.SetBool("isNeedle", false);
         }
     }
@@ -194,14 +119,32 @@ public class StitchControl : Tumbnails
             if (hit.transform.gameObject.TryGetComponent(out Image image))
             {
                 Color32 stitchColor = obj.GetComponent<Image>().color;
-                if (stitchColor.a == color.a && stitchColor.r == color.r && stitchColor.g == color.g &&
-                    stitchColor.b == color.b)
+                var minColorA = color.a - 20;
+                var maxColorA = color.a + 20;
+                var minColorR = color.r - 20;
+                var maxColorR = color.r + 20;
+                var minColorG = color.g - 20;
+                var maxColorG = color.g + 20;
+                var minColorB = color.b - 20;
+                var maxColorB = color.b + 20;
+
+
+                //if (stitchColor.a == color.a && stitchColor.r == color.r && stitchColor.g == color.g &&
+                //     stitchColor.b == color.b)
+
+                if (minColorA < stitchColor.a && stitchColor.a < maxColorA &&
+                    minColorR < stitchColor.r && stitchColor.r < maxColorR &&
+                    minColorG < stitchColor.g && stitchColor.g < maxColorG &&
+                    minColorB < stitchColor.b && stitchColor.b < maxColorB)
                 {
                     trueStitchInt++;
+                    obj.GetComponent<StitchState>().isTrueStitch = true;
+                    obj.GetComponent<StitchState>().isFalseStitch = false;
                 }
                 else
                 {
                     falseStitchInt++;
+
                     Destroy(obj);
                     obj = Stitch(undoStitch, parentInstantiate, j - 1, j, i, i + 1);
                     falseStitchEffect.transform.position = new Vector3(falseStitchEffect.transform.position.x,
@@ -209,13 +152,108 @@ public class StitchControl : Tumbnails
                     falseStitchEffect.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
                     falseStitchEffect.transform.GetChild(1).GetComponent<ParticleSystem>().Play();
                     falseStitchEffect.transform.GetChild(2).GetComponent<ParticleSystem>().Play();
-                   
+                    obj.GetComponent<StitchState>().isTrueStitch = false;
+                    obj.GetComponent<StitchState>().isFalseStitch = true;
                 }
             }
         }
         else
         {
+            autoTimeImage.fillAmount = 0;
             Debug.DrawLine(center, rayDirection, Color.green, 1000);
         }
     }
+
+    public void Click()
+    {
+        Knit();
+    }
+
+    public void Knit()
+     {
+                needleAnim.SetBool("isNeedle", true);
+                if (i < 22)
+                {
+                    if (j < 22)
+                    {
+                        stitchObject = Stitch(stitch, parentInstantiate, j, j + 1, i, 1 + i);
+                        j++;
+
+                        #region Pixel Color Box
+
+                        stitchCount++;
+                        if (backGroundDesired.colorArrayList.Count > 0 && backGroundDesired.colorArrayList.Count < 485)
+                        {
+                            Color clearColor = Color.clear;
+                            int startIndex = stitchCount - 2;
+
+                            for (int i = 0; i < 5; i++)
+                            {
+                                int index = startIndex + i;
+                                desiredColor = index >= 0 && index < backGroundDesired.colorArrayList.Count
+                                    ? backGroundDesired.colorArrayList[index]
+                                    : clearColor;
+                                switch (i)
+                                {
+                                    case 0:
+                                        before2Image.color = desiredColor;
+                                        break;
+                                    case 1:
+                                        before1Image.color = desiredColor;
+                                        woolBeforeImage.GetComponent<Colors>().color = desiredColor;
+                                        woolBeforeImage.transform.GetChild(1).GetComponent<Image>().color =
+                                            desiredColor;
+                                        break;
+                                    case 2:
+                                        nowImage.color = desiredColor;
+                                        woolNowImage.GetComponent<Colors>().color = desiredColor;
+                                        woolNowImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
+                                        break;
+                                    case 3:
+                                        after1Image.color = desiredColor;
+                                        woolAfterImage.GetComponent<Colors>().color = desiredColor;
+                                        woolAfterImage.transform.GetChild(1).GetComponent<Image>().color = desiredColor;
+                                        break;
+                                    case 4:
+                                        after2Image.color = desiredColor;
+                                        break;
+                                }
+                            }
+                        }
+
+                        #endregion
+
+                        #region NeedlePosition
+
+                        needle.transform.position += new Vector3(.2f, 0, 0);
+                        if (j == 21)
+                        {
+                            lastXPos = needle.transform.position.x;
+                        }
+
+                        #endregion
+
+                        StitchColor(stitchObject, before1Image.color); //ilmek rengi kontrolü
+                        starControl.StarActive(); // yıldız kontrolü
+                    }
+                    else
+                    {
+                        #region NeedlePosition
+
+                        needle.transform.position = new Vector3(firstNeedleX, needle.transform.position.y,
+                            needle.transform.position.z);
+                        needle.transform.position += new Vector3(0, .2f, 0);
+
+                        #endregion
+
+                        i++;
+                        j = 0;
+                    }
+                }
+                else
+                {
+                    //    needle anim dursun
+                    needleAnim.SetBool("isNeedle", false);
+                }
+            }
 }

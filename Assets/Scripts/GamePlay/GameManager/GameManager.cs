@@ -22,5 +22,4 @@ public class GameManager : MonoBehaviour
             nextButton.gameObject.SetActive(true);
         }
     }
-    
 }

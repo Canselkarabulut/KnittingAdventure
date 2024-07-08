@@ -15,6 +15,7 @@ public class UndoStitchControl : Tumbnails
     [Header("Star")] public StarControl starControl;
     [Header("TrueColorControl")] public BackGround backGroundDesired;
     public ParticleSystem undoButtonEffect;
+    private Color32 lastColor;
 
     private void Start()
     {
@@ -32,11 +33,10 @@ public class UndoStitchControl : Tumbnails
             {
                 stitchControl.j--;
                 needle.transform.position += new Vector3(-.2f, 0, 0);
-
                 if (transform.childCount > 0)
                 {
                     var lastStitch = transform.GetChild(transform.childCount - 1).gameObject;
-                    Destroy(lastStitch);
+                
                     stitchControl.stitchCount--;
                     starControl.StarActive();
 
@@ -77,6 +77,8 @@ public class UndoStitchControl : Tumbnails
                             }
                         }
                     }
+                    StitchColor(lastStitch);
+                    Destroy(lastStitch);
                 }
             }
             else if (stitchControl.j == 0 && stitchControl.i > 0)
@@ -91,6 +93,18 @@ public class UndoStitchControl : Tumbnails
         else
         {
             needleAnim.SetBool("isNeedle", false);
+        }
+    }
+    public void StitchColor(GameObject obj)
+    {
+        if (obj.GetComponent<StitchState>().isTrueStitch)
+        {
+            stitchControl.trueStitchInt--;
+        }
+
+        if (obj.GetComponent<StitchState>().isFalseStitch)
+        {
+            stitchControl.falseStitchInt--;
         }
     }
 }

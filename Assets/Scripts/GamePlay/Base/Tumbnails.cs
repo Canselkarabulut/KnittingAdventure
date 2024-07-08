@@ -18,6 +18,9 @@ public abstract class Tumbnails : MonoBehaviour
     ///
     /// startRow // satır başlangıcı
     /// startCol // stun Başlangını
+    ///
+    
+
     public GameObject Stitch(GameObject imagePrefabInstantiate, GameObject parentInstantiate, int startRow, int EndRow,
         int startCol, int Endcol) //Kare diz
     {
@@ -30,6 +33,9 @@ public abstract class Tumbnails : MonoBehaviour
                 _obj = Instantiate(imagePrefabInstantiate, _imageNewPosition, transform.rotation,
                     parentInstantiate.transform);
                 _obj.gameObject.name = "x: " + x + "y: " + y;
+                _obj.AddComponent<StitchState>();
+
+
             }
         }
 
@@ -48,7 +54,7 @@ public abstract class Tumbnails : MonoBehaviour
     public Image woolNowImage;
     public Image woolAfterImage;
     public GameObject Stitch(GameObject imagePrefabInstantiate, GameObject parentInstantiate, int startRow, int EndRow,
-        int startCol, int Endcol, Texture2D levelTexture2d, List<Color> colorArrayList)
+        int startCol, int Endcol, Texture2D levelTexture2d, List<Color> colorArrayList) //backgroundStitch
     {
         for (int y = startCol; y < Endcol; y++)
         {
@@ -62,6 +68,7 @@ public abstract class Tumbnails : MonoBehaviour
                 _obj.gameObject.name = "bg.x: " + x + "bg.y: " + y;
                 var a = _obj.AddComponent<BoxCollider2D>().size = new Vector2(94, 94);
                 colorArrayList.Add(levelTexture2d.GetPixel(x, y));
+                _obj.AddComponent<StitchState>();
             }
         }
 
