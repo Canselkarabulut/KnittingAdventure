@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: DefaultCompany
+  companyName: EmsyenGames
   productName: KnittingAdvanture
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -134,7 +134,10 @@ PlayerSettings:
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
   bundleVersion: 1.0
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -3911985745481607356, guid: 27e58f3f90809d14b914d8a3a9c5da52, type: 2}
+  - {fileID: 11400000, guid: 3b44f648ccbe82345b38c9538bca0b4a, type: 2}
+  - {fileID: 11400000, guid: 6bb5aaa30a47cad47bda7f5ab9f93aaa, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -154,6 +157,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.EmsyenGames.KnittingAdvanture
     Standalone: com.DefaultCompany.2DProject
   buildNumber:
     Standalone: 0
@@ -163,7 +167,7 @@ PlayerSettings:
   overrideDefaultApplicationIdentifier: 1
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 22
-  AndroidTargetSdkVersion: 0
+  AndroidTargetSdkVersion: 32
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   stripEngineCode: 1
@@ -867,7 +871,13 @@ PlayerSettings:
   XboxOneOverrideIdentityName: 
   XboxOneOverrideIdentityPublisher: 
   vrEditorSettings: {}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    Build: 0
+    Game Performance: 0
+    Legacy Analytics: 0
+    Purchasing: 0
+    UDP: 0
+    Unity Ads: 0
   luminIcon:
     m_Name: 
     m_ModelFolderPath: 
@@ -887,11 +897,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: f3855692-ea80-403e-bb7a-1eea77a89360
+  cloudProjectId: 9e571250-cc5c-4e2d-bce8-5afa35c85a00
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Weave2D
-  organizationId: canselkarabulutt
+  projectName: KnittingAdvanture (1)
+  organizationId: galatasaraycansel
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
