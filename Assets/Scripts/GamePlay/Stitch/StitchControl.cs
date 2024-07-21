@@ -48,12 +48,12 @@ public class StitchControl : Tumbnails
         i = 0;
         j = 0;
 
-        StartCoroutine(StartPixelColor());
+        StartPixelColor();
     }
 
-    IEnumerator StartPixelColor()
+   public void StartPixelColor()
     {
-        yield return new WaitForSeconds(.01f);
+       
         if (backGroundDesired.colorArrayList.Count > 0)
         {
             before2Image.color = Color.clear;

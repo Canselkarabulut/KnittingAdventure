@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class FinishNextButton : MonoBehaviour
 {
+   public GameObject gameFnishScene;
+   public GameObject levelScene;
    public static int levelDoneCount;
+   public LevelMeneger levelMeneger;
    public void FinishNext()
    {
-      switch (LevelMeneger.levelStatus)
+      switch (levelMeneger.levelStatus)
       {
          case LevelStatus.Level1 :
             levelDoneCount = 1;
@@ -80,6 +83,8 @@ public class FinishNextButton : MonoBehaviour
             levelDoneCount = 23;
             break;
       }
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+      //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+      gameFnishScene.SetActive(false);
+      levelScene.SetActive(true);
    }
 }

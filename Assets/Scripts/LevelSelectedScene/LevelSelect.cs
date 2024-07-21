@@ -7,11 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelSelect : MonoBehaviour
 {
+    public GameObject levelScene;
+    public GameObject gameScene;
     public GameObject lockPanel;
     public LevelCount levelCount;
     public GameObject Star1;
     public GameObject Star2;
     public GameObject Star3;
+    public LevelMeneger levelMeneger;
+    public StitchControl stitchControl;
     private void Start()
     {
         switch (FinishNextButton.levelDoneCount)
@@ -603,97 +607,84 @@ public class LevelSelect : MonoBehaviour
         switch (levelCount)
         {
             case LevelCount.lvl1:
-                LevelMeneger.levelStatus = LevelStatus.Level1;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level1);
                 break;
             case LevelCount.lvl2:
-                LevelMeneger.levelStatus = LevelStatus.Level2;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level2);
                 break;
             case LevelCount.lvl3:
-                LevelMeneger.levelStatus = LevelStatus.Level3;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level3);
                 break;
             case LevelCount.lvl4:
-                LevelMeneger.levelStatus = LevelStatus.Level4;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level4);
                 break;
             case LevelCount.lvl5:
-                LevelMeneger.levelStatus = LevelStatus.Level5;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level5);
                 break;
             case LevelCount.lvl6:
-                LevelMeneger.levelStatus = LevelStatus.Level6;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level6);
                 break;
             case LevelCount.lvl7:
-                LevelMeneger.levelStatus = LevelStatus.Level7;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level7);
                 break;
             case LevelCount.lvl8:
-                LevelMeneger.levelStatus = LevelStatus.Level8;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level8);
                 break;
             case LevelCount.lvl9:
-                LevelMeneger.levelStatus = LevelStatus.Level9;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level9);
                 break;
             case LevelCount.lvl10:
-                LevelMeneger.levelStatus = LevelStatus.Level10;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level10);
                 break;
             case LevelCount.lvl11:
-                LevelMeneger.levelStatus = LevelStatus.Level11;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level11);
                 break;
             case LevelCount.lvl12:
-                LevelMeneger.levelStatus = LevelStatus.Level12;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level12);
                 break;
             case LevelCount.lvl13:
-                LevelMeneger.levelStatus = LevelStatus.Level13;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level13);
                 break;
             case LevelCount.lvl14:
-                LevelMeneger.levelStatus = LevelStatus.Level14;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level14);
                 break;
             case LevelCount.lvl15:
-                LevelMeneger.levelStatus = LevelStatus.Level15;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level15);
                 break;
             case LevelCount.lvl16:
-                LevelMeneger.levelStatus = LevelStatus.Level16;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level16);
                 break;
             case LevelCount.lvl17:
-                LevelMeneger.levelStatus = LevelStatus.Level17;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level17);
                 break;
             case LevelCount.lvl18:
-                LevelMeneger.levelStatus = LevelStatus.Level18;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level18);
                 break;
             case LevelCount.lvl19:
-                LevelMeneger.levelStatus = LevelStatus.Level19;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level19);
                 break;
             case LevelCount.lvl20:
-                LevelMeneger.levelStatus = LevelStatus.Level20;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level20);
                 break;
             case LevelCount.lvl21:
-                LevelMeneger.levelStatus = LevelStatus.Level21;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level21);
                 break;
             case LevelCount.lvl22:
-                LevelMeneger.levelStatus = LevelStatus.Level22;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level22);
                 break;
             case LevelCount.lvl23:
-                LevelMeneger.levelStatus = LevelStatus.Level23;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                LevelControl(LevelStatus.Level23);
                 break;
         }
+    }
+
+    public void LevelControl(LevelStatus level)
+    {
+        levelMeneger.levelStatus  = level;
+        levelScene.SetActive(false);
+        gameScene.SetActive(true);
+        levelMeneger.DesiredLevelControl();
+        stitchControl.StartPixelColor();
+       
     }
 }

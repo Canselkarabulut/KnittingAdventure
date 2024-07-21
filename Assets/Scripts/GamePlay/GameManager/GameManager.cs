@@ -6,24 +6,46 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //ilmek sayısı 480 olduğunda bir  sonraki sahneye geçme buttonu açılacak
-    public Button nextButton;
-    public StitchControl stitchControl;
+    #region Singelton
 
-    private void Start()
+    public static GameManager _instance { get; set; }
+
+    private void Awake()
     {
-        if (nextButton != null)
-            nextButton.gameObject.SetActive(false);
+        SingletonThidGameManager();
     }
-
-    private void Update()
+    void SingletonThidGameManager()
     {
-        if (stitchControl != null && nextButton != null)
+        if (_instance == null)
         {
-            if (stitchControl.stitchCount >= 480 && stitchControl.trueStitchInt >= 475)
-            {
-                nextButton.gameObject.SetActive(true);
-            }
+            _instance = this;
+            DontDestroyOnLoad(this);
+        }
+        else
+        {
+            Destroy(this.gameObject);
         }
     }
+
+    #endregion
+
+   // public GameObject needleEffect1;
+   // public GameObject needleEffect2;
+   // public GameObject stitchArrowEffect;
+   // public GameObject miniImageEffectParent;
+//
+   // private void Start()
+   // {
+   //     EffectOnOff(false, false, false, false);
+   // }
+//
+   // public void EffectOnOff( bool needle1, bool needle2,bool stitchArrow,bool miniImageParent)
+   // {
+   //     needleEffect1.SetActive(needle1);
+   //     needleEffect2.SetActive(needle2);
+   //     stitchArrowEffect.SetActive(stitchArrow);
+   //     miniImageEffectParent.SetActive(miniImageParent);
+   //     
+   //     
+   // }
 }

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class DoneButton : MonoBehaviour
 {
+    public GameObject gameScene;
+    public GameObject finishScene;
     public StitchControl stitchControl;
     public GameObject needle;
     public Button star1;
@@ -34,6 +36,8 @@ public class DoneButton : MonoBehaviour
         star2.interactable = false;
         star3.interactable = false;
         gameObject.SetActive(false);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        gameScene.SetActive(false);
+        finishScene.SetActive(true);
+      //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -6,9 +6,9 @@ using UnityEngine.UI;
 
 public class LevelMeneger : MonoBehaviour
 {
-    public static LevelStatus levelStatus;
-    private BackGround desiredStitch;
-    private StitchControl stitchControl;
+    public  LevelStatus levelStatus;
+    public BackGround desiredStitch;
+    public StitchControl stitchControl;
     public static LevelMeneger _instance { get; set; }
 
     private void Awake()
@@ -27,10 +27,10 @@ public class LevelMeneger : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    private void Start()
-    {
-        StartCoroutine(WaitStart());
-    }
+   // private void Start()
+   // {
+   //   //  StartCoroutine(WaitStart());
+   // }
     public void DesiredLevelControl()
     {
         desiredStitch.colorArrayList.Clear();
@@ -39,12 +39,11 @@ public class LevelMeneger : MonoBehaviour
         switch (levelStatus)
         {
             case LevelStatus.Level1:
-                StartCoroutine(WaitDesiredStitchLevel(0));
-             //   desiredStitch.DesiredStitchLevel(0);
+                desiredStitch.DesiredStitchLevel(0);
                 break;
             case LevelStatus.Level2:
-                StartCoroutine(WaitDesiredStitchLevel(1));
-            //    desiredStitch.DesiredStitchLevel(1);
+         
+                desiredStitch.DesiredStitchLevel(1);
                 break;
             case LevelStatus.Level3:
                 desiredStitch.DesiredStitchLevel(2);
@@ -112,17 +111,11 @@ public class LevelMeneger : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitStart()
-    {
-        yield return new WaitForSeconds(.001f);
-        desiredStitch = GameObject.FindObjectOfType<BackGround>();
-        stitchControl = GameObject.FindObjectOfType<StitchControl>();
-        DesiredLevelControl();
-    }
-
-    IEnumerator WaitDesiredStitchLevel(int textureIndex)
-    {
-        yield return new WaitForSeconds(.001f);
-        desiredStitch.DesiredStitchLevel(textureIndex);
-    }
+  //  private IEnumerator WaitStart()
+  //  {
+  //      yield return new WaitForSeconds(.001f);
+  //   //   desiredStitch = GameObject.FindObjectOfType<BackGround>();
+  //    //  stitchControl = GameObject.FindObjectOfType<StitchControl>();
+  //      DesiredLevelControl();
+  //  }
 }
