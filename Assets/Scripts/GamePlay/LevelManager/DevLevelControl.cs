@@ -89,117 +89,117 @@ public class DevLevelControl : MonoBehaviour
     }
     public void Level1()
    {
-       levelMeneger.levelStatus = LevelStatus.Level1;
+       LevelMeneger.levelStatus = LevelStatus.Level1;
        levelText.text = "Bölüm 1";
    }
    public void Level2()
    {
-       levelMeneger.levelStatus = LevelStatus.Level2;
+       LevelMeneger.levelStatus = LevelStatus.Level2;
        levelText.text = "Bölüm 2";
    }
    public void Level3()
    {
-       levelMeneger.levelStatus = LevelStatus.Level3;
+       LevelMeneger.levelStatus = LevelStatus.Level3;
        levelText.text = "Bölüm 3";
    }
    public void Level4()
    {
-       levelMeneger.levelStatus = LevelStatus.Level4;
+       LevelMeneger.levelStatus = LevelStatus.Level4;
        levelText.text = "Bölüm 4";
    }
    public void Level5()
    {
-       levelMeneger.levelStatus = LevelStatus.Level5;
+       LevelMeneger.levelStatus = LevelStatus.Level5;
        levelText.text = "Bölüm 5";
    }
    public void Level6()
    {
-       levelMeneger.levelStatus = LevelStatus.Level6;
+       LevelMeneger.levelStatus = LevelStatus.Level6;
        levelText.text = "Bölüm 6";
    }
    public void Level7()
    {
-       levelMeneger.levelStatus = LevelStatus.Level7;
+       LevelMeneger.levelStatus = LevelStatus.Level7;
        levelText.text = "Bölüm 7";
    }
    public void Level8()
    {
-       levelMeneger.levelStatus = LevelStatus.Level8;
+       LevelMeneger.levelStatus = LevelStatus.Level8;
        levelText.text = "Bölüm 8";
    }
    public void Level9()
    {
-       levelMeneger.levelStatus = LevelStatus.Level9;
+       LevelMeneger.levelStatus = LevelStatus.Level9;
        levelText.text = "Bölüm 9";
    }
    public void Level10()
    {
-       levelMeneger.levelStatus = LevelStatus.Level10;
+       LevelMeneger.levelStatus = LevelStatus.Level10;
        levelText.text = "Bölüm 10";
    }
    public void Level11()
    {
-       levelMeneger.levelStatus = LevelStatus.Level11;
+       LevelMeneger.levelStatus = LevelStatus.Level11;
        levelText.text = "Bölüm 11";
    }
    public void Level12()
    {
-       levelMeneger.levelStatus = LevelStatus.Level12;
+       LevelMeneger.levelStatus = LevelStatus.Level12;
        levelText.text = "Bölüm 12";
    }
    public void Level13()
    {
-       levelMeneger.levelStatus = LevelStatus.Level13;
+       LevelMeneger.levelStatus = LevelStatus.Level13;
        levelText.text = "Bölüm 13";
    }
    public void Level14()
    {
-       levelMeneger.levelStatus = LevelStatus.Level14;
+       LevelMeneger.levelStatus = LevelStatus.Level14;
        levelText.text = "Bölüm 14";
    }
    public void Level15()
    {
-       levelMeneger.levelStatus = LevelStatus.Level15;
+       LevelMeneger.levelStatus = LevelStatus.Level15;
        levelText.text = "Bölüm 15";
    }
    public void Level16()
    {
-       levelMeneger.levelStatus = LevelStatus.Level16;
+       LevelMeneger.levelStatus = LevelStatus.Level16;
        levelText.text = "Bölüm 16";
    }
    public void Level17()
    {
-       levelMeneger.levelStatus = LevelStatus.Level17;
+       LevelMeneger.levelStatus = LevelStatus.Level17;
        levelText.text = "Bölüm 17";
    }
    public void Level18()
    {
-       levelMeneger.levelStatus = LevelStatus.Level18;
+       LevelMeneger.levelStatus = LevelStatus.Level18;
        levelText.text = "Bölüm 18";
    }
    public void Level19()
    {
-       levelMeneger.levelStatus = LevelStatus.Level19;
+       LevelMeneger.levelStatus = LevelStatus.Level19;
        levelText.text = "Bölüm 19";
    }
    public void Level20()
    {
-       levelMeneger.levelStatus = LevelStatus.Level20;
+       LevelMeneger.levelStatus = LevelStatus.Level20;
        levelText.text = "Bölüm 20";
    }
    public void Level21()
    {
-       levelMeneger.levelStatus = LevelStatus.Level21;
+       LevelMeneger.levelStatus = LevelStatus.Level21;
        levelText.text = "Bölüm 21";
    }
    public void Level22()
    {
-       levelMeneger.levelStatus = LevelStatus.Level22;
+       LevelMeneger.levelStatus = LevelStatus.Level22;
        levelText.text = "Bölüm 22";
    }
    public void Level23()
    {
-       levelMeneger.levelStatus = LevelStatus.Level23;
+       LevelMeneger.levelStatus = LevelStatus.Level23;
        levelText.text = "Bölüm 23";
    }
    

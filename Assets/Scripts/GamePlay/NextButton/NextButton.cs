@@ -33,13 +33,13 @@ public class NextButton : MonoBehaviour
         star2.interactable = false;
         star3.interactable = false;
 
-        switch (levelMeneger.levelStatus)
+        switch (LevelMeneger.levelStatus)
         {
             case LevelStatus.Level1:
-                levelMeneger.levelStatus = LevelStatus.Level2;
+                LevelMeneger.levelStatus = LevelStatus.Level2;
                 break;
             case LevelStatus.Level2:
-                levelMeneger.levelStatus = LevelStatus.Level3;
+                LevelMeneger.levelStatus = LevelStatus.Level3;
                 break;
         }
         gameObject.SetActive(false);

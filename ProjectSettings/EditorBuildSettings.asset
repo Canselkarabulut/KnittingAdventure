@@ -5,21 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/MenuScene.unity
-    guid: dd74696c7b7c20b47b8d00ff4e82d99d
-  - enabled: 0
-    path: Assets/Scenes/SelectedScene.unity
-    guid: 021dc1b8871fb5f41be0a27e56e51634
   - enabled: 1
-    path: Assets/Scenes/EntryScene.unity
+    path: Assets/Scenes/0-EntryScene.unity
     guid: 1e5d64c43aaea204a9204d08f7d4962d
   - enabled: 1
-    path: Assets/Scenes/GameKnittingAdventureScene.unity
+    path: Assets/Scenes/1-LevelScene.unity
+    guid: 9421fef105ed9cd4e88caf7905c709f5
+  - enabled: 1
+    path: Assets/Scenes/2-GameKnittingAdventureScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/WardrobeScene.unity
-    guid: 78dd3dd67b54c0d40a97ac972d217e2a
+  - enabled: 1
+    path: Assets/Scenes/3-GameFinishScene.unity
+    guid: 578c29e73f350f84fbcf5ae25c98fb7f
   m_configObjects:
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 6bb5aaa30a47cad47bda7f5ab9f93aaa, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 27e58f3f90809d14b914d8a3a9c5da52, type: 2}

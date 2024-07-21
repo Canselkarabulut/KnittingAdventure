@@ -1,0 +1,29 @@
+﻿namespace GamePlay.Enum
+{
+    public enum LevelCount
+    {
+        lvl1,
+        lvl2,
+        lvl3,
+        lvl4,
+        lvl5,
+        lvl6,
+        lvl7,
+        lvl8,
+        lvl9,
+        lvl10,
+        lvl11,
+        lvl12,
+        lvl13,
+        lvl14,
+        lvl15,
+        lvl16,
+        lvl17,
+        lvl18,
+        lvl19,
+        lvl20,
+        lvl21,
+        lvl22,
+        lvl23,
+    }
+}

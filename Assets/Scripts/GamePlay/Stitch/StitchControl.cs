@@ -20,7 +20,8 @@ public class StitchControl : Tumbnails
     [HideInInspector] public float firstNeedleY;
     [HideInInspector] public int i = 0;
     [HideInInspector] public int j = 0;
-
+    public Button stitchButton;
+    
     [Header("Star")] public StarControl starControl;
     [Header("TrueColorControl")] public BackGround backGroundDesired;
     public int trueStitchInt;
@@ -28,7 +29,7 @@ public class StitchControl : Tumbnails
 
     private Color desiredColor;
     public GameObject undoStitch;
-
+  
     public void Down() //butona basılı tutuluyor
     {
         isDown = true;
@@ -89,21 +90,25 @@ public class StitchControl : Tumbnails
 
     public void DownStitch()
     {
-        if (isDown)
+        if (stitchButton.interactable)
         {
-            autoTimeImage.fillAmount += .1f;
-            if (autoTimeImage.fillAmount >= .95f)
+            if (isDown)
             {
-                Knit();
-            }
+                autoTimeImage.fillAmount += .1f;
+                if (autoTimeImage.fillAmount >= .95f)
+                {
+                    Knit();
+                }
             
+            }
+            else
+            {
+                //    needle anim dursun
+                autoTimeImage.fillAmount = 0;
+                needleAnim.SetBool("isNeedle", false);
+            } 
         }
-        else
-        {
-            //    needle anim dursun
-            autoTimeImage.fillAmount = 0;
-            needleAnim.SetBool("isNeedle", false);
-        }
+       
     }
 
     //private GameObject stitchObject;

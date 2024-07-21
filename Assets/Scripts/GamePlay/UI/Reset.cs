@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class Reset : MonoBehaviour
 {
-   public void ResetButton()
-   {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-   }
+    public void ResetButton()
+    {
+        PlayerPrefs.SetInt("DiamondCount", 0);
+        PlayerPrefs.GetInt("DiamondCount").ToString();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }

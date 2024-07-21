@@ -12,14 +12,18 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        nextButton.gameObject.SetActive(false);
+        if (nextButton != null)
+            nextButton.gameObject.SetActive(false);
     }
 
     private void Update()
     {
-        if (stitchControl.stitchCount >= 480 && stitchControl.trueStitchInt>=475)
+        if (stitchControl != null && nextButton != null)
         {
-            nextButton.gameObject.SetActive(true);
+            if (stitchControl.stitchCount >= 480 && stitchControl.trueStitchInt >= 475)
+            {
+                nextButton.gameObject.SetActive(true);
+            }
         }
     }
 }
