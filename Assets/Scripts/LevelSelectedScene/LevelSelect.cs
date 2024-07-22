@@ -18,12 +18,17 @@ public class LevelSelect : MonoBehaviour
     public StitchControl stitchControl;
     private void Start()
     {
+        LevelVizitControl();
+    }
+
+    public void LevelVizitControl()
+    {
         switch (FinishNextButton.levelDoneCount)
         {
             case 1:
                 if (levelCount == LevelCount.lvl1)
                 {
-                    transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);
+                    transform.GetChild(transform.childCount - 1).gameObject.SetActive(true); // lock paneli aç
                     if (DoneButton.lastStarCount == 1)
                     {
                         Star1.SetActive(true);
@@ -591,9 +596,8 @@ public class LevelSelect : MonoBehaviour
                     }
                 }
                 break;
-        }
+        } 
     }
-
     public void LevelSceneSelect()
     {
         if (!lockPanel.gameObject.activeInHierarchy)

@@ -14,10 +14,8 @@ public class NextButton : MonoBehaviour
     public Button star1;
     public Button star2;
     public Button star3;
-
     public void NextBtn()
     {
-        //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         foreach (Transform child in stitchControl.transform)
         {
             //childleri temizlr

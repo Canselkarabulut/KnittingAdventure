@@ -9,6 +9,8 @@ public class FinishNextButton : MonoBehaviour
    public GameObject levelScene;
    public static int levelDoneCount;
    public LevelMeneger levelMeneger;
+   public LevelTextControl levelTextControl;
+   public LevelSelect levelSelect;
    public void FinishNext()
    {
       switch (levelMeneger.levelStatus)
@@ -83,8 +85,9 @@ public class FinishNextButton : MonoBehaviour
             levelDoneCount = 23;
             break;
       }
-      //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
       gameFnishScene.SetActive(false);
       levelScene.SetActive(true);
+      levelTextControl.DiamondCountUpdate();
+      levelSelect.LevelVizitControl();
    }
 }

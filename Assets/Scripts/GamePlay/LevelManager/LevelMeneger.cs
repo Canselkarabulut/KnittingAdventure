@@ -27,10 +27,6 @@ public class LevelMeneger : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-   // private void Start()
-   // {
-   //   //  StartCoroutine(WaitStart());
-   // }
     public void DesiredLevelControl()
     {
         desiredStitch.colorArrayList.Clear();
@@ -110,12 +106,4 @@ public class LevelMeneger : MonoBehaviour
                 break;
         }
     }
-
-  //  private IEnumerator WaitStart()
-  //  {
-  //      yield return new WaitForSeconds(.001f);
-  //   //   desiredStitch = GameObject.FindObjectOfType<BackGround>();
-  //    //  stitchControl = GameObject.FindObjectOfType<StitchControl>();
-  //      DesiredLevelControl();
-  //  }
 }

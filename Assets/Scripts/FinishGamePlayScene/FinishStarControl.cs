@@ -18,7 +18,7 @@ public class FinishStarControl : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StarActiveWait());
+        StarActiveWait();
     }
 
     public void StarActive(bool star1bool, bool star2bool, bool star3bool)
@@ -40,9 +40,9 @@ public class FinishStarControl : MonoBehaviour
         }
     }
 
-    IEnumerator StarActiveWait()
+   public void StarActiveWait()
     {
-        yield return new WaitForSeconds(.5f);
+        
         switch (DoneButton.lastStarCount)
         {
             case 0:

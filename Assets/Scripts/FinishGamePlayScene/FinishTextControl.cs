@@ -12,7 +12,7 @@ public class FinishTextControl : MonoBehaviour
     private int conclusion;
     private int count;
 
-    private void Start()
+    public void Conclusion()
     {
         lastStitchCountText.text = DoneButton.lastStitchCount.ToString();
         lasrStarCountText.text = DoneButton.lastStarCount.ToString();
@@ -20,7 +20,6 @@ public class FinishTextControl : MonoBehaviour
         count = 0;
         StartCoroutine(ConclusionAnim());
     }
-
     private IEnumerator ConclusionAnim()
     {
         yield return new WaitForSeconds(.01f);

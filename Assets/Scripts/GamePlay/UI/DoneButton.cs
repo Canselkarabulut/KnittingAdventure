@@ -16,6 +16,8 @@ public class DoneButton : MonoBehaviour
     public StarControl starControl;
     public static int lastStarCount;
     public static int lastStitchCount;
+    public FinishTextControl finishTextControl;
+    public FinishStarControl finishStarControl;
     public void Done()
     {
         //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -38,6 +40,9 @@ public class DoneButton : MonoBehaviour
         gameObject.SetActive(false);
         gameScene.SetActive(false);
         finishScene.SetActive(true);
-      //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        finishTextControl.Conclusion();
+        finishStarControl.StarActiveWait();
+
+        //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
