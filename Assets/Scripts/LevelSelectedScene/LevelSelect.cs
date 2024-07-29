@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using GamePlay.Enum;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class LevelSelect : MonoBehaviour
     public GameObject Star3;
     public LevelMeneger levelMeneger;
     public StitchControl stitchControl;
+   
     private void Start()
     {
         LevelVizitControl();
@@ -35,12 +37,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -60,12 +64,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -78,19 +84,21 @@ public class LevelSelect : MonoBehaviour
             case 3:
                 if (levelCount == LevelCount.lvl3)
                 {
-                    transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);  
+                    transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);
                     if (DoneButton.lastStarCount == 1)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -110,12 +118,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -135,12 +145,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -160,12 +172,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -185,12 +199,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -210,12 +226,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -235,12 +253,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -260,12 +280,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -285,12 +307,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -310,12 +334,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -335,12 +361,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -360,12 +388,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -385,12 +415,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -410,12 +442,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -435,12 +469,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -460,12 +496,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -485,12 +523,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -510,12 +550,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -523,6 +565,7 @@ public class LevelSelect : MonoBehaviour
                         Star3.SetActive(true);
                     }
                 }
+
                 break;
             case 21:
                 if (levelCount == LevelCount.lvl21)
@@ -534,12 +577,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -547,6 +592,7 @@ public class LevelSelect : MonoBehaviour
                         Star3.SetActive(true);
                     }
                 }
+
                 break;
             case 22:
                 if (levelCount == LevelCount.lvl22)
@@ -558,12 +604,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -571,6 +619,7 @@ public class LevelSelect : MonoBehaviour
                         Star3.SetActive(true);
                     }
                 }
+
                 break;
             case 23:
                 if (levelCount == LevelCount.lvl23)
@@ -582,12 +631,14 @@ public class LevelSelect : MonoBehaviour
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
+
                     if (DoneButton.lastStarCount == 3)
                     {
                         Star1.SetActive(true);
@@ -595,9 +646,11 @@ public class LevelSelect : MonoBehaviour
                         Star3.SetActive(true);
                     }
                 }
+
                 break;
-        } 
+        }
     }
+
     public void LevelSceneSelect()
     {
         if (!lockPanel.gameObject.activeInHierarchy)
@@ -682,13 +735,14 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
+
     public void LevelControl(LevelStatus level)
     {
-        levelMeneger.levelStatus  = level;
+        levelMeneger.levelStatus = level;
         levelScene.SetActive(false);
         gameScene.SetActive(true);
         levelMeneger.DesiredLevelControl();
         stitchControl.StartPixelColor();
-       
+        
     }
 }

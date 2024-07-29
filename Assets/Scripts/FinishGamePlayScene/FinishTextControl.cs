@@ -18,22 +18,44 @@ public class FinishTextControl : MonoBehaviour
         lasrStarCountText.text = DoneButton.lastStarCount.ToString();
         conclusion = DoneButton.lastStitchCount * DoneButton.lastStarCount;
         count = 0;
-        StartCoroutine(ConclusionAnim());
+        isCount = true;
+     //   StartCoroutine(ConclusionAnim());
     }
-    private IEnumerator ConclusionAnim()
+
+   // private IEnumerator ConclusionAnim()
+   // {
+   //     yield return new WaitForSeconds(.01f);
+   //     if (count <= conclusion)
+   //     {
+   //         conclusionText.text = count.ToString();
+   //         count++;
+   //         StartCoroutine(ConclusionAnim());
+   //     }
+   //     else
+   //     {
+   //         PlayerPrefs.SetInt("DiamondCount", count - 1);
+   //     }
+   // }
+
+    private float time;
+    private bool isCount;
+    private void FixedUpdate()
     {
-        yield return new WaitForSeconds(.01f);
-        if (count <= conclusion)
+        if (isCount)
         {
-            conclusionText.text = count.ToString();
-            count++;
-            StartCoroutine(ConclusionAnim());
- 
+            time += Time.deltaTime;
+            if (count <= conclusion)
+            {
+                conclusionText.text = count.ToString();
+                count++;
+            }
+            else
+            {
+                isCount = false;
+                time = 0;
+                PlayerPrefs.SetInt("DiamondCount", count - 1);
+            }
         }
-        else
-        {
-            PlayerPrefs.SetInt("DiamondCount", count-1);
-          
-        }
+        
     }
 }

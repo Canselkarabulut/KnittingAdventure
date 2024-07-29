@@ -17,10 +17,11 @@ public class BackGround : Tumbnails
     public List<Color> colorArrayList;
     public List<Texture2D> levelTexture2d;
     public List<Texture2D> miniImageLevel;
-  
+
+   
 
     public void DesiredStitchLevel(int textureIndex)
-    {
+    { 
         if (levelTexture2d.Count > 0)
         {
             Stitch(imagePrefabInstantiate, parentInstantiate, 0, 22, 0, 22, levelTexture2d[textureIndex],
@@ -32,4 +33,5 @@ public class BackGround : Tumbnails
 
         }
     }
+ 
 }

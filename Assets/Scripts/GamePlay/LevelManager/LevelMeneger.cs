@@ -6,15 +6,27 @@ using UnityEngine.UI;
 
 public class LevelMeneger : MonoBehaviour
 {
-    public  LevelStatus levelStatus;
+    public LevelStatus levelStatus;
     public BackGround desiredStitch;
     public StitchControl stitchControl;
     public static LevelMeneger _instance { get; set; }
-
+public GameObject entryScene;
+public GameObject levelScene;
+public GameObject gameScene;
+public GameObject gaemFinishScene;
     private void Awake()
     {
         SingletonThidGameManager();
     }
+
+    private void Start()
+    {
+        entryScene.SetActive(true);
+        levelScene.SetActive(false);
+        gameScene.SetActive(false);
+        gaemFinishScene.SetActive(false);
+    }
+
     void SingletonThidGameManager()
     {
         if (_instance == null)
@@ -27,6 +39,7 @@ public class LevelMeneger : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
     public void DesiredLevelControl()
     {
         desiredStitch.colorArrayList.Clear();
@@ -38,7 +51,7 @@ public class LevelMeneger : MonoBehaviour
                 desiredStitch.DesiredStitchLevel(0);
                 break;
             case LevelStatus.Level2:
-         
+
                 desiredStitch.DesiredStitchLevel(1);
                 break;
             case LevelStatus.Level3:
