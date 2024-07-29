@@ -28,7 +28,7 @@ public abstract class Tumbnails : MonoBehaviour
         {
             for (int x = startRow; x < EndRow; x++)
             {
-                _imageNewPosition = new Vector3(transform.position.x + x * .2f, transform.position.y + y * .2f,
+                _imageNewPosition = new Vector3(transform.position.x + x * .155f, transform.position.y + y * .155f,
                     transform.position.z);
                 _obj = Instantiate(imagePrefabInstantiate, _imageNewPosition, transform.rotation,
                     parentInstantiate.transform);
@@ -60,7 +60,7 @@ public abstract class Tumbnails : MonoBehaviour
         {
             for (int x = startRow; x < EndRow; x++)
             {
-                _imageNewPosition = new Vector3(transform.position.x + x * .2f, transform.position.y + y * .2f,
+                _imageNewPosition = new Vector3(transform.position.x + x * .155f, transform.position.y + y * .155f,
                     transform.position.z);
                 _obj = Instantiate(imagePrefabInstantiate, _imageNewPosition, transform.rotation,
                     parentInstantiate.transform);

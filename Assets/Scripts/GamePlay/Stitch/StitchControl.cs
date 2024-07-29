@@ -230,7 +230,7 @@ public class StitchControl : Tumbnails
 
                         #region NeedlePosition
 
-                        needle.transform.position += new Vector3(.2f, 0, 0);
+                        needle.transform.position += new Vector3(.155f, 0, 0);
                         if (j == 21)
                         {
                             lastXPos = needle.transform.position.x;
@@ -247,7 +247,7 @@ public class StitchControl : Tumbnails
 
                         needle.transform.position = new Vector3(firstNeedleX, needle.transform.position.y,
                             needle.transform.position.z);
-                        needle.transform.position += new Vector3(0, .2f, 0);
+                        needle.transform.position += new Vector3(0, .155f, 0);
 
                         #endregion
 
