@@ -19,6 +19,7 @@ public class DoneButton : MonoBehaviour
     public FinishTextControl finishTextControl;
     public FinishStarControl finishStarControl;
     public BonusButton bonusButton;
+    public LevelMeneger levelMeneger;
     public void Done()
     {
         //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

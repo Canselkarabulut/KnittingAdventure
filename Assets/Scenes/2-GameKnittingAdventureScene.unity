@@ -297,6 +297,7 @@ MonoBehaviour:
   finishTextControl: {fileID: 1780903559}
   finishStarControl: {fileID: 1206685290}
   bonusButton: {fileID: 273770106}
+  levelMeneger: {fileID: 1741224138}
 --- !u!95 &6544799
 Animator:
   serializedVersion: 5
@@ -708,6 +709,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 22
@@ -1642,6 +1647,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 7
       objectReference: {fileID: 0}
@@ -2207,6 +2216,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 1
@@ -3393,6 +3406,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 6
@@ -6704,6 +6721,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 11
       objectReference: {fileID: 0}
@@ -6896,6 +6917,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 0
@@ -8590,6 +8615,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 16
       objectReference: {fileID: 0}
@@ -9582,6 +9611,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 12
       objectReference: {fileID: 0}
@@ -10043,6 +10076,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 3
@@ -11167,6 +11204,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 21
       objectReference: {fileID: 0}
@@ -11365,6 +11406,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 13
@@ -11803,6 +11848,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 8
@@ -13022,6 +13071,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 20
@@ -14390,6 +14443,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 17
       objectReference: {fileID: 0}
@@ -14584,6 +14641,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 2
@@ -15173,6 +15234,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 10
       objectReference: {fileID: 0}
@@ -15692,6 +15757,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 9
@@ -16561,6 +16630,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 5
       objectReference: {fileID: 0}
@@ -16885,6 +16958,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 15
@@ -17224,6 +17301,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 19
@@ -17864,6 +17945,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 334676216}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 4
       objectReference: {fileID: 0}
@@ -18453,6 +18538,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 14
@@ -19628,6 +19717,10 @@ PrefabInstance:
       propertyPath: gameScene
       value: 
       objectReference: {fileID: 334676216}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: doneButton
+      value: 
+      objectReference: {fileID: 6544798}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelCount
       value: 18
