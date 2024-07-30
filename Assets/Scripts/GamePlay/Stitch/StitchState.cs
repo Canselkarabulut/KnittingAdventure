@@ -10,21 +10,7 @@ public class StitchState : MonoBehaviour
 
     private void Awake()
     {
-              isTrueStitch = false;
-               isFalseStitch = false;
+        isTrueStitch = false;
+        isFalseStitch = false;
     }
-    //  private void Start()
-  //  {
-  //      isTrueStitch = false;
-  //      isFalseStitch = false;
-  //  }
-
-  //  public void TrueStitchStateTrue()
-  //  {
-  //      isTrueStitch = true;
-  //  }
-  //  public void FalseStitchStateTrue()
-  //  {
-  //       isFalseStitch = true;
-  //  }
 }

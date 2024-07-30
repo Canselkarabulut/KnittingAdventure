@@ -723,6 +723,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -1660,6 +1664,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -2229,6 +2237,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -3419,6 +3431,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -6734,6 +6750,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -6930,6 +6950,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -8628,6 +8652,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -9624,6 +9652,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -10090,6 +10122,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -11218,6 +11254,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -11420,6 +11460,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -11862,6 +11906,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -13087,6 +13135,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -14459,6 +14511,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -14657,6 +14713,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -15250,6 +15310,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -15773,6 +15837,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -16647,6 +16715,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -16975,6 +17047,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -17318,6 +17394,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -17962,6 +18042,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1990216530}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
       objectReference: {fileID: 1741224138}
@@ -18555,6 +18639,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 
@@ -19734,6 +19822,10 @@ PrefabInstance:
       propertyPath: levelScene
       value: 
       objectReference: {fileID: 1990216530}
+    - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
+      propertyPath: starControl
+      value: 
+      objectReference: {fileID: 1613089768}
     - target: {fileID: 7035591844001709010, guid: 8cb976f6562a3e9478f9acd6f98d02dc, type: 3}
       propertyPath: levelMeneger
       value: 

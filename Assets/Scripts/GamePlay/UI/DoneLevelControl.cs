@@ -11,17 +11,9 @@ public class DoneLevelControl : MonoBehaviour
     public GameObject gameStar2;
     public GameObject gameStar3;
 
-    private void Start()
+    public void DonePanelActiveCount()
     {
-        StartControl();
-    }
-
-    public void StartControl()
-    {
-        donePanelActivecountbool = PlayerPrefs.GetInt("dlc" );
-        doneStarCount = PlayerPrefs.GetInt("sc");
-        StarState(doneStarCount);
-        
+        donePanelActivecountbool = 1;
     }
 
     public void StarState(int starCount)

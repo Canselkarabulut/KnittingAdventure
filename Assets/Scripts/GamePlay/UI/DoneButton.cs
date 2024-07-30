@@ -46,6 +46,5 @@ public class DoneButton : MonoBehaviour
         finishTextControl.Conclusion();
         finishStarControl.StarActiveWait();
         bonusButton.BonusText();
-        //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

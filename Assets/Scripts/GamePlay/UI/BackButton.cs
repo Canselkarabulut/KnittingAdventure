@@ -18,10 +18,8 @@ public class BackButton : MonoBehaviour
   
     public void Back()
     {
-        //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         foreach (Transform child in stitchControl.transform)
         {
-            //childleri temizlr
             Destroy(child.gameObject);
         }
         stitchControl.i = 0;

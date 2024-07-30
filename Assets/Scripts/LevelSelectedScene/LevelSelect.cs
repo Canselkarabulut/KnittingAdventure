@@ -17,16 +17,19 @@ public class LevelSelect : MonoBehaviour
     public GameObject Star3;
     public LevelMeneger levelMeneger;
     public StitchControl stitchControl;
+   
+    public StarControl starControl;
     public DoneLevelControl doneLevelControl;
-    
 
     public void LevelVisitControl()
     {
-        transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);
-        int lastStarCount = PlayerPrefs.GetInt("lastStarCount");
-        Star1.SetActive(lastStarCount >= 1);
-        Star2.SetActive(lastStarCount >= 2);
-        Star3.SetActive(lastStarCount >= 3);
+        doneLevelControl.DonePanelActiveCount();
+        doneLevelControl.gameObject.SetActive(true);
+        doneLevelControl.doneStarCount = starControl.starCount;
+        
+        Star1.SetActive(starControl.starCount >= 1);
+        Star2.SetActive(starControl.starCount >= 2);
+        Star3.SetActive(starControl.starCount >= 3);
     }
 
     public void LevelSceneSelect()

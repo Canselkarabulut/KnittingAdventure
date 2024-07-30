@@ -22,11 +22,13 @@ public class FinishNextButton : MonoBehaviour
         levelTextControl.DiamondCountUpdate();
         PlayerPrefs.SetInt("LevelDoneCount", doneButton.levelDoneCount);
         listLevelSelect[doneButton.levelDoneCount].LevelVisitControl();
-        doneLevelControl = listLevelSelect[doneButton.levelDoneCount].GetComponentInChildren<DoneLevelControl>();
-        doneLevelControl.donePanelActivecountbool = 1;
-        PlayerPrefs.SetInt("dlc", doneLevelControl.donePanelActivecountbool);
-        doneLevelControl.StarState(starControl.starCount);
-        PlayerPrefs.SetInt("sc", starControl.starCount);
+        
+        
+        //doneLevelControl = listLevelSelect[doneButton.levelDoneCount].GetComponentInChildren<DoneLevelControl>();
+       // doneLevelControl.donePanelActivecountbool = 1;
+       // PlayerPrefs.SetInt("dlc", doneLevelControl.donePanelActivecountbool);
+       // doneLevelControl.StarState(starControl.starCount);
+       // PlayerPrefs.SetInt("sc", starControl.starCount);
 
         gameFnishScene.SetActive(false);
         levelScene.SetActive(true);
