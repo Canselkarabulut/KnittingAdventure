@@ -41,7 +41,7 @@ public class DoneButton : MonoBehaviour
         gameObject.SetActive(false);
         gameScene.SetActive(false);
         finishScene.SetActive(true);
-        finishTextControl.DoneConclusion();
+        finishTextControl.Conclusion();
         finishStarControl.StarActiveWait();
        
         //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

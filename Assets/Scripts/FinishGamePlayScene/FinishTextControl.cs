@@ -11,20 +11,18 @@ public class FinishTextControl : MonoBehaviour
     public TextMeshProUGUI conclusionText;
     private int conclusion;
     private int count;
+    private int lastDiamond;
+    private int newDiamond;
 
-    public void DoneConclusion()
+    public void Conclusion()
     {
         lastStitchCountText.text = DoneButton.lastStitchCount.ToString();
         lasrStarCountText.text = DoneButton.lastStarCount.ToString();
         conclusion = DoneButton.lastStitchCount * DoneButton.lastStarCount;
-        PlayerPrefs.SetInt("DiamondCount", conclusion);
-        count = 0;
-        isCount = true;
-    }public void ConclusionBack()
-    {
-        lastStitchCountText.text = DoneButton.lastStitchCount.ToString();
-        lasrStarCountText.text = DoneButton.lastStarCount.ToString();
-        conclusion = DoneButton.lastStitchCount * DoneButton.lastStarCount;
+        lastDiamond = PlayerPrefs.GetInt("DiamondCount"); //eski elması al
+        newDiamond = conclusion + lastDiamond; // iki parayıda topla
+        PlayerPrefs.SetInt("DiamondCount", newDiamond); // rame gönder
+
         count = 0;
         isCount = true;
     }
@@ -32,6 +30,7 @@ public class FinishTextControl : MonoBehaviour
 
     private float time;
     private bool isCount;
+
     private void FixedUpdate()
     {
         if (isCount)

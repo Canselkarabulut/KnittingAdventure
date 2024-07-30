@@ -10,10 +10,11 @@ public class LevelMeneger : MonoBehaviour
     public BackGround desiredStitch;
     public StitchControl stitchControl;
     public static LevelMeneger _instance { get; set; }
-public GameObject entryScene;
-public GameObject levelScene;
-public GameObject gameScene;
-public GameObject gaemFinishScene;
+    public GameObject entryScene;
+    public GameObject levelScene;
+    public GameObject gameScene;
+    public GameObject gaemFinishScene;
+
     private void Awake()
     {
         SingletonThidGameManager();

@@ -29,7 +29,8 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-   // public GameObject needleEffect1;
+ 
+    // public GameObject needleEffect1;
    // public GameObject needleEffect2;
    // public GameObject stitchArrowEffect;
    // public GameObject miniImageEffectParent;

@@ -35,7 +35,7 @@ public class BackButton : MonoBehaviour
         gameScene.SetActive(false);
         levelScene.SetActive(true);
         settings.CloseSettingPanel();
-        finishTextControl.ConclusionBack();
+        finishTextControl.Conclusion();
         finishStarControl.StarActiveWait();
         settingPanel.SetActive(false);
 

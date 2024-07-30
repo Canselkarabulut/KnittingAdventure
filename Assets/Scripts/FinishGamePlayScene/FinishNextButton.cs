@@ -10,13 +10,14 @@ public class FinishNextButton : MonoBehaviour
    public static int levelDoneCount;
    public LevelMeneger levelMeneger;
    public LevelTextControl levelTextControl;
-   public LevelSelect levelSelect;
+   public List<LevelSelect> listLevelSelect;
    public void FinishNext()
    {
       switch (levelMeneger.levelStatus)
       {
          case LevelStatus.Level1 :
             levelDoneCount = 1;
+            
          break;
          case LevelStatus.Level2 :
             levelDoneCount = 2;
@@ -88,6 +89,6 @@ public class FinishNextButton : MonoBehaviour
       gameFnishScene.SetActive(false);
       levelScene.SetActive(true);
       levelTextControl.DiamondCountUpdate();
-      levelSelect.LevelVizitControl();
+      listLevelSelect[levelDoneCount-1].LevelVizitControl();
    }
 }
