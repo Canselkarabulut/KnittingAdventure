@@ -17,8 +17,7 @@ public class FinishNextButton : MonoBehaviour
       {
          case LevelStatus.Level1 :
             levelDoneCount = 1;
-            
-         break;
+            break;
          case LevelStatus.Level2 :
             levelDoneCount = 2;
             break;
@@ -86,9 +85,11 @@ public class FinishNextButton : MonoBehaviour
             levelDoneCount = 23;
             break;
       }
+  
       gameFnishScene.SetActive(false);
       levelScene.SetActive(true);
       levelTextControl.DiamondCountUpdate();
+      PlayerPrefs.SetInt("LevelDoneCount",levelDoneCount);
       listLevelSelect[levelDoneCount-1].LevelVizitControl();
    }
 }

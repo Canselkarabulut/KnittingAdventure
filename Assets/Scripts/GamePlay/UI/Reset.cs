@@ -12,6 +12,8 @@ public class Reset : MonoBehaviour
     public void ResetButton()
     {
         PlayerPrefs.SetInt("DiamondCount", 0);
+        PlayerPrefs.SetInt("LevelDoneCount",0);
+        PlayerPrefs.SetInt("lastStarCount",0);
      //   PlayerPrefs.GetInt("DiamondCount").ToString();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
        

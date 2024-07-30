@@ -17,7 +17,9 @@ public class LevelSelect : MonoBehaviour
     public GameObject Star3;
     public LevelMeneger levelMeneger;
     public StitchControl stitchControl;
-   
+    private int levelDoneCount;
+ 
+
     private void Start()
     {
         LevelVizitControl();
@@ -25,27 +27,31 @@ public class LevelSelect : MonoBehaviour
 
     public void LevelVizitControl()
     {
-        switch (FinishNextButton.levelDoneCount)
+        levelDoneCount = PlayerPrefs.GetInt("LevelDoneCount");
+
+        switch (levelDoneCount)
         {
             case 1:
                 if (levelCount == LevelCount.lvl1)
                 {
-                    transform.GetChild(transform.childCount - 1).gameObject.SetActive(true); // lock paneli aç
-                    if (DoneButton.lastStarCount == 1)
+                    transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);
+
+                    var lastStarCount = PlayerPrefs.GetInt("lastStarCount");
+                    if (lastStarCount == 1)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
 
-                    if (DoneButton.lastStarCount == 2)
+                    if (lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
 
-                    if (DoneButton.lastStarCount == 3)
+                    if (lastStarCount == 3)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
@@ -58,21 +64,22 @@ public class LevelSelect : MonoBehaviour
                 if (levelCount == LevelCount.lvl2)
                 {
                     transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);
-                    if (DoneButton.lastStarCount == 1)
+                    var lastStarCount = PlayerPrefs.GetInt("lastStarCount");
+                    if (lastStarCount == 1)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
 
-                    if (DoneButton.lastStarCount == 2)
+                    if (lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
 
-                    if (DoneButton.lastStarCount == 3)
+                    if (lastStarCount == 3)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
@@ -84,22 +91,24 @@ public class LevelSelect : MonoBehaviour
             case 3:
                 if (levelCount == LevelCount.lvl3)
                 {
-                    transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);
-                    if (DoneButton.lastStarCount == 1)
+                    lockPanel.SetActive(true);
+                     transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);
+                    var lastStarCount = PlayerPrefs.GetInt("lastStarCount");
+                    if (lastStarCount == 1)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(false);
                         Star3.SetActive(false);
                     }
 
-                    if (DoneButton.lastStarCount == 2)
+                    if (lastStarCount == 2)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
                         Star3.SetActive(false);
                     }
 
-                    if (DoneButton.lastStarCount == 3)
+                    if (lastStarCount == 3)
                     {
                         Star1.SetActive(true);
                         Star2.SetActive(true);
@@ -743,6 +752,5 @@ public class LevelSelect : MonoBehaviour
         gameScene.SetActive(true);
         levelMeneger.DesiredLevelControl();
         stitchControl.StartPixelColor();
-        
     }
 }
