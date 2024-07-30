@@ -461,6 +461,7 @@ MonoBehaviour:
   Star3: {fileID: 449408267629636317}
   levelMeneger: {fileID: 0}
   stitchControl: {fileID: 0}
+  doneLevelControl: {fileID: 4738994564540342475}
 --- !u!1 &1592305365992821982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,6 +1417,7 @@ GameObject:
   - component: {fileID: 3007004275954402976}
   - component: {fileID: 1663858908953306083}
   - component: {fileID: 5331930082341060465}
+  - component: {fileID: 4738994564540342475}
   m_Layer: 5
   m_Name: DoneImage
   m_TagString: Untagged
@@ -1483,6 +1485,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4738994564540342475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6249162960384442421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d50d0f857c9e83748a08c60cd9a10564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  donePanelActivecountbool: 0
+  doneStarCount: 0
+  gameStar1: {fileID: 5882767102760497828}
+  gameStar2: {fileID: 660083032740510835}
+  gameStar3: {fileID: 449408267629636317}
 --- !u!1 &7085228667732449132
 GameObject:
   m_ObjectHideFlags: 0

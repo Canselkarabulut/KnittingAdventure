@@ -19,15 +19,6 @@ public class LevelMeneger : MonoBehaviour
     {
         SingletonThidGameManager();
     }
-
-    private void Start()
-    {
-        entryScene.SetActive(true);
-        levelScene.SetActive(false);
-        gameScene.SetActive(false);
-        gaemFinishScene.SetActive(false);
-    }
-
     void SingletonThidGameManager()
     {
         if (_instance == null)
@@ -40,7 +31,14 @@ public class LevelMeneger : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
+    
+    private void Start()
+    {
+        entryScene.SetActive(true);
+        levelScene.SetActive(false);
+        gameScene.SetActive(false);
+        gaemFinishScene.SetActive(false);
+    }
     public void DesiredLevelControl()
     {
         desiredStitch.colorArrayList.Clear();

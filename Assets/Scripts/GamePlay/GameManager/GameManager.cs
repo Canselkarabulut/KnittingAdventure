@@ -30,23 +30,5 @@ public class GameManager : MonoBehaviour
     #endregion
 
  
-    // public GameObject needleEffect1;
-   // public GameObject needleEffect2;
-   // public GameObject stitchArrowEffect;
-   // public GameObject miniImageEffectParent;
-//
-   // private void Start()
-   // {
-   //     EffectOnOff(false, false, false, false);
-   // }
-//
-   // public void EffectOnOff( bool needle1, bool needle2,bool stitchArrow,bool miniImageParent)
-   // {
-   //     needleEffect1.SetActive(needle1);
-   //     needleEffect2.SetActive(needle2);
-   //     stitchArrowEffect.SetActive(stitchArrow);
-   //     miniImageEffectParent.SetActive(miniImageParent);
-   //     
-   //     
-   // }
+  
 }

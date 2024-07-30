@@ -10,40 +10,16 @@ public class FinishStarControl : MonoBehaviour
     public GameObject star1;
     public GameObject star2;
     public GameObject star3;
-
-    private void Awake()
-    {
-        StarActive(false, false, false);
-    }
-
+    public StarControl starControl;
     private void Start()
     {
+        StarActive(false, false, false);
         StarActiveWait();
     }
-
-    public void StarActive(bool star1bool, bool star2bool, bool star3bool)
-    {
-        star1.SetActive(star1bool);
-        if (star1bool)
-        {
-            star1.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-        }
-        star2.SetActive(star2bool);
-        if (star2bool)
-        {
-            star2.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-        }
-        star3.SetActive(star3bool);
-        if (star3bool)
-        {
-            star3.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
-        }
-    }
-
-   public void StarActiveWait()
+    public void StarActiveWait()
     {
         
-        switch (DoneButton.lastStarCount)
+        switch (starControl.starCount)
         {
             case 0:
                 StarActive(false, false, false);
@@ -59,4 +35,22 @@ public class FinishStarControl : MonoBehaviour
                 break;
         }
     }
+   public void StarActive(bool star1bool, bool star2bool, bool star3bool)
+   {
+       star1.SetActive(star1bool);
+       if (star1bool)
+       {
+           star1.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+       }
+       star2.SetActive(star2bool);
+       if (star2bool)
+       {
+           star2.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+       }
+       star3.SetActive(star3bool);
+       if (star3bool)
+       {
+           star3.transform.GetChild(0).GetComponent<ParticleSystem>().Play();
+       }
+   }
 }

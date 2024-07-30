@@ -14,11 +14,11 @@ public class DoneButton : MonoBehaviour
     public Button star2;
     public Button star3;
     public StarControl starControl;
-    public static int lastStarCount;
     public static int lastStitchCount;
     public FinishTextControl finishTextControl;
     public FinishStarControl finishStarControl;
     public BonusButton bonusButton;
+    public int levelDoneCount;
     public LevelMeneger levelMeneger;
     public void Done()
     {
@@ -29,13 +29,13 @@ public class DoneButton : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        lastStarCount = starControl.starCount;
-        PlayerPrefs.SetInt("lastStarCount",lastStarCount);
+        levelDoneCount = (int)levelMeneger.levelStatus+1;
+        PlayerPrefs.SetInt("lastStarCount",starControl.starCount);
         lastStitchCount = stitchControl.trueStitchInt;
         stitchControl.i = 0;
         stitchControl.j = 0;
         stitchControl.trueStitchInt = 0;
-        needle.transform.position = new Vector3(stitchControl.firstNeedleX, stitchControl.firstNeedleY,
+        needle.transform.position = new Vector3(stitchControl.firstNeedleX, stitchControl.firstNeedleY, 
             needle.transform.position.z);
         star1.interactable = false;
         star2.interactable = false;

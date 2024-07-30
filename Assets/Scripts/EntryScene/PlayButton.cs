@@ -12,8 +12,7 @@ public class PlayButton : MonoBehaviour
 
     public void PlayBtn()
     {
-       // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-       entryScene.SetActive(false);
+        entryScene.SetActive(false);
        levelScene.SetActive(true);
     }
 }

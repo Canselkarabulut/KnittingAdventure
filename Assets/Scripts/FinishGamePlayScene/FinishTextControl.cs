@@ -13,12 +13,12 @@ public class FinishTextControl : MonoBehaviour
     private int count;
     private int lastDiamond;
     private int newDiamond;
-
+    public StarControl starControl;
     public void Conclusion()
     {
         lastStitchCountText.text = DoneButton.lastStitchCount.ToString();
-        lasrStarCountText.text = DoneButton.lastStarCount.ToString();
-        conclusion = DoneButton.lastStitchCount * DoneButton.lastStarCount;
+        lasrStarCountText.text = starControl.starCount.ToString();
+        conclusion = DoneButton.lastStitchCount * starControl.starCount;
         lastDiamond = PlayerPrefs.GetInt("DiamondCount"); //eski elması al
         newDiamond = conclusion + lastDiamond; // iki parayıda topla
         PlayerPrefs.SetInt("DiamondCount", newDiamond); // rame gönder

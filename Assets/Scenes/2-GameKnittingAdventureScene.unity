@@ -297,6 +297,7 @@ MonoBehaviour:
   finishTextControl: {fileID: 1780903559}
   finishStarControl: {fileID: 1206685290}
   bonusButton: {fileID: 273770106}
+  levelDoneCount: 0
   levelMeneger: {fileID: 1741224138}
 --- !u!95 &6544799
 Animator:
@@ -9732,6 +9733,7 @@ MonoBehaviour:
   star1: {fileID: 518490487}
   star2: {fileID: 275029657}
   star3: {fileID: 203780447}
+  starControl: {fileID: 1613089768}
 --- !u!114 &1206685291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12140,6 +12142,8 @@ MonoBehaviour:
   - {fileID: 1145209035}
   - {fileID: 1177246878}
   - {fileID: 1588611633}
+  starControl: {fileID: 1613089768}
+  doneButton: {fileID: 6544798}
 --- !u!114 &1413511827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15950,6 +15954,7 @@ MonoBehaviour:
   lastStitchCountText: {fileID: 763767651}
   lasrStarCountText: {fileID: 75942679}
   conclusionText: {fileID: 1724018534}
+  starControl: {fileID: 1613089768}
 --- !u!114 &1780903560
 MonoBehaviour:
   m_ObjectHideFlags: 0
