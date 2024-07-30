@@ -12,30 +12,23 @@ public class FinishTextControl : MonoBehaviour
     private int conclusion;
     private int count;
 
-    public void Conclusion()
+    public void DoneConclusion()
+    {
+        lastStitchCountText.text = DoneButton.lastStitchCount.ToString();
+        lasrStarCountText.text = DoneButton.lastStarCount.ToString();
+        conclusion = DoneButton.lastStitchCount * DoneButton.lastStarCount;
+        PlayerPrefs.SetInt("DiamondCount", conclusion);
+        count = 0;
+        isCount = true;
+    }public void ConclusionBack()
     {
         lastStitchCountText.text = DoneButton.lastStitchCount.ToString();
         lasrStarCountText.text = DoneButton.lastStarCount.ToString();
         conclusion = DoneButton.lastStitchCount * DoneButton.lastStarCount;
         count = 0;
         isCount = true;
-     //   StartCoroutine(ConclusionAnim());
     }
 
-   // private IEnumerator ConclusionAnim()
-   // {
-   //     yield return new WaitForSeconds(.01f);
-   //     if (count <= conclusion)
-   //     {
-   //         conclusionText.text = count.ToString();
-   //         count++;
-   //         StartCoroutine(ConclusionAnim());
-   //     }
-   //     else
-   //     {
-   //         PlayerPrefs.SetInt("DiamondCount", count - 1);
-   //     }
-   // }
 
     private float time;
     private bool isCount;
@@ -53,9 +46,13 @@ public class FinishTextControl : MonoBehaviour
             {
                 isCount = false;
                 time = 0;
-                PlayerPrefs.SetInt("DiamondCount", count - 1);
             }
         }
-        
+
+        if (Input.GetMouseButton(0))
+        {
+            count = conclusion + 1;
+            conclusionText.text = conclusion.ToString();
+        }
     }
 }

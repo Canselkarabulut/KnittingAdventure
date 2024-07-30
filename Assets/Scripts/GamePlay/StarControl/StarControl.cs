@@ -76,6 +76,7 @@ public class StarControl : MonoBehaviour
         else
         {
             star1.interactable = false;
+            doneButton.SetActive(false);
             isAnimStar1 = false;
             starCount = 0;
         }

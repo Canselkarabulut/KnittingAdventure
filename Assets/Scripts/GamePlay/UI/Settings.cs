@@ -9,6 +9,7 @@ public class Settings : MonoBehaviour
     public GameObject settingPanel;
     public Button stitchArroeButton;
     public Button undostitchArroeButton;
+    public Button doneButton;
     
     private void Start()
     {
@@ -22,6 +23,7 @@ public class Settings : MonoBehaviour
         this.gameObject.GetComponent<Button>().interactable = false;
         stitchArroeButton.interactable = false;
         undostitchArroeButton.interactable = false;
+        doneButton.interactable = false;
     }
 
 
@@ -31,5 +33,6 @@ public class Settings : MonoBehaviour
         stitchArroeButton.interactable = true;
         undostitchArroeButton.interactable = true;
         settingPanel.SetActive(false);
+        doneButton.interactable = true;
     }
 }
