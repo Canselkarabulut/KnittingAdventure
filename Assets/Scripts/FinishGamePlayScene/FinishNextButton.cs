@@ -13,6 +13,7 @@ public class FinishNextButton : MonoBehaviour
    public List<LevelSelect> listLevelSelect;
    public void FinishNext()
    {
+   
       switch (levelMeneger.levelStatus)
       {
          case LevelStatus.Level1 :

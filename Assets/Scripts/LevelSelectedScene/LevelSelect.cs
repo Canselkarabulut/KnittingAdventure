@@ -29,9 +29,9 @@ public class LevelSelect : MonoBehaviour
     {
         levelDoneCount = PlayerPrefs.GetInt("LevelDoneCount");
 
-        switch (levelDoneCount)
+        switch (levelDoneCount) //kaçıncı levelden nextlendi?
         {
-            case 1:
+            case 1: //1. levelden nextlendiyse
                 if (levelCount == LevelCount.lvl1)
                 {
                     transform.GetChild(transform.childCount - 1).gameObject.SetActive(true);
