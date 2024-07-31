@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GamePlay.Enum;
 using UnityEngine;
 
 public class DoneLevelControl : MonoBehaviour
@@ -10,10 +11,13 @@ public class DoneLevelControl : MonoBehaviour
     public GameObject gameStar1;
     public GameObject gameStar2;
     public GameObject gameStar3;
+    public DoneActiveState doneActiveState;
+    
 
-    public void DonePanelActiveCount()
+    public int DonePanelActiveCount()
     {
-        donePanelActivecountbool = 1;
+        doneActiveState = DoneActiveState.True;
+        return donePanelActivecountbool = 1;
     }
 
     public void StarState(int starCount)

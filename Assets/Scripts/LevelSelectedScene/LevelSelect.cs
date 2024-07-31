@@ -20,12 +20,14 @@ public class LevelSelect : MonoBehaviour
    
     public StarControl starControl;
     public DoneLevelControl doneLevelControl;
-
+    public DoneActiveState doneActiveState = DoneActiveState.False;
+    private int doneint = 0;
+    
     public void LevelVisitControl()
     {
         doneLevelControl.DonePanelActiveCount();
-        doneLevelControl.gameObject.SetActive(true);
-        doneLevelControl.doneStarCount = starControl.starCount;
+     
+       // doneLevelControl.gameObject.SetActive(true);
         
         Star1.SetActive(starControl.starCount >= 1);
         Star2.SetActive(starControl.starCount >= 2);
@@ -37,6 +39,9 @@ public class LevelSelect : MonoBehaviour
         if (!lockPanel.gameObject.activeInHierarchy)
         {
             Selected(levelCount);
+            doneActiveState = DoneActiveState.True;
+            doneint = 1;
+            PlayerPrefs.SetInt("doneint",doneint);
         }
     }
 

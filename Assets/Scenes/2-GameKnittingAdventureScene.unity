@@ -299,6 +299,31 @@ MonoBehaviour:
   bonusButton: {fileID: 273770106}
   levelDoneCount: 0
   levelMeneger: {fileID: 1741224138}
+  listLevelSelect:
+  - {fileID: 1759982013}
+  - {fileID: 1010758033}
+  - {fileID: 1424923845}
+  - {fileID: 1494449048}
+  - {fileID: 1630309630}
+  - {fileID: 2004648974}
+  - {fileID: 1510788869}
+  - {fileID: 1539047349}
+  - {fileID: 1829256732}
+  - {fileID: 2022772365}
+  - {fileID: 1428906020}
+  - {fileID: 1959175176}
+  - {fileID: 1088469411}
+  - {fileID: 1685122066}
+  - {fileID: 1703916123}
+  - {fileID: 1660519883}
+  - {fileID: 1788593416}
+  - {fileID: 1993283112}
+  - {fileID: 1738047175}
+  - {fileID: 1816478913}
+  - {fileID: 1145209035}
+  - {fileID: 1177246878}
+  - {fileID: 1588611633}
+  listStarCount: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 --- !u!95 &6544799
 Animator:
   serializedVersion: 5
@@ -6572,7 +6597,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &736676562
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12164,7 +12189,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameFnishScene: {fileID: 1273140932}
   levelScene: {fileID: 1990216530}
-  levelMeneger: {fileID: 1741224138}
   levelTextControl: {fileID: 752585569}
   listLevelSelect:
   - {fileID: 1759982013}
@@ -12190,8 +12214,7 @@ MonoBehaviour:
   - {fileID: 1145209035}
   - {fileID: 1177246878}
   - {fileID: 1588611633}
-  starControl: {fileID: 1613089768}
-  doneButton: {fileID: 6544798}
+  levelDoneCount: 0
 --- !u!114 &1413511827
 MonoBehaviour:
   m_ObjectHideFlags: 0

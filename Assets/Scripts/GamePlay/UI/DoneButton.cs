@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,22 +21,31 @@ public class DoneButton : MonoBehaviour
     public BonusButton bonusButton;
     public int levelDoneCount;
     public LevelMeneger levelMeneger;
+    public List<LevelSelect> listLevelSelect;
+    public List<int> listStarCount;
+
+  
     public void Done()
     {
-        //  SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         foreach (Transform child in stitchControl.transform)
         {
-            //childleri temizlr
             Destroy(child.gameObject);
         }
 
-        levelDoneCount = (int)levelMeneger.levelStatus+1;
-        PlayerPrefs.SetInt("lastStarCount",starControl.starCount);
+        levelDoneCount = (int)levelMeneger.levelStatus; // bulunduğum levelin sayısı
+        listLevelSelect[levelDoneCount].doneLevelControl.gameObject.SetActive(true);
+        listLevelSelect[levelDoneCount].doneLevelControl.StarState(starControl.starCount);
+        listStarCount[levelDoneCount] = starControl.starCount;
+
+
+        PlayerPrefs.SetInt("lastStarCount", starControl.starCount); // yıldız sayısı
+
+
         lastStitchCount = stitchControl.trueStitchInt;
         stitchControl.i = 0;
         stitchControl.j = 0;
         stitchControl.trueStitchInt = 0;
-        needle.transform.position = new Vector3(stitchControl.firstNeedleX, stitchControl.firstNeedleY, 
+        needle.transform.position = new Vector3(stitchControl.firstNeedleX, stitchControl.firstNeedleY,
             needle.transform.position.z);
         star1.interactable = false;
         star2.interactable = false;
