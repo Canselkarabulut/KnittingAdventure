@@ -22,13 +22,35 @@ public class LevelSelect : MonoBehaviour
     public DoneLevelControl doneLevelControl;
     public DoneActiveState doneActiveState = DoneActiveState.False;
     private int doneint = 0;
+    public int[]  list = new int[5];
     
+    //private void Start()
+    //{
+    //    //yapılması gereken 
+    //    //level 1 e girildiğinde level 1 tamamlanacak
+    //    //bittiğinde o levelin artık done paneli açık  kalacak
+    //    //ve o levelde kazanılan yıldız sayısı tutulacak
+    //    // her level için bu tek tek yapılacak
+    //    
+    //    switch (levelCount)
+    //    {
+    //        case LevelCount.lvl1:
+    //            if (levelMeneger.levelStatus == LevelStatus.Level1)
+    //            {
+    //                click1Count = PlayerPrefs.GetInt("click1", 0);
+    //                if (click1Count >= 1)
+    //                {
+    //                    doneLevelControl.gameObject.SetActive(true);
+    //                }
+    //            }
+    //            break;
+    //    }
+    //  
+    //}
+
     public void LevelVisitControl()
     {
         doneLevelControl.DonePanelActiveCount();
-     
-       // doneLevelControl.gameObject.SetActive(true);
-        
         Star1.SetActive(starControl.starCount >= 1);
         Star2.SetActive(starControl.starCount >= 2);
         Star3.SetActive(starControl.starCount >= 3);
@@ -39,12 +61,10 @@ public class LevelSelect : MonoBehaviour
         if (!lockPanel.gameObject.activeInHierarchy)
         {
             Selected(levelCount);
-            doneActiveState = DoneActiveState.True;
-            doneint = 1;
-            PlayerPrefs.SetInt("doneint",doneint);
         }
     }
 
+    private int click1Count;
     public void Selected(LevelCount levelCount)
     {
         switch (levelCount)

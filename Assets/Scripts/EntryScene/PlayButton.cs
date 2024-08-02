@@ -9,11 +9,12 @@ public class PlayButton : MonoBehaviour
 {
     public GameObject entryScene;
     public GameObject levelScene;
- 
+    public DoneButton doneButton;
 
     public void PlayBtn()
     {
+        doneButton.LoadAllLevelsStatus();
         entryScene.SetActive(false);
-       levelScene.SetActive(true);
+        levelScene.SetActive(true);
     }
 }

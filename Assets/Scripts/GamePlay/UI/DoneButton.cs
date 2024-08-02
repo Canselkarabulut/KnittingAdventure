@@ -22,25 +22,27 @@ public class DoneButton : MonoBehaviour
     public int levelDoneCount;
     public LevelMeneger levelMeneger;
     public List<LevelSelect> listLevelSelect;
-    public List<int> listStarCount;
+ 
+   
 
-  
     public void Done()
     {
-        foreach (Transform child in stitchControl.transform)
-        {
-            Destroy(child.gameObject);
-        }
+      
 
         levelDoneCount = (int)levelMeneger.levelStatus; // bulunduğum levelin sayısı
         listLevelSelect[levelDoneCount].doneLevelControl.gameObject.SetActive(true);
         listLevelSelect[levelDoneCount].doneLevelControl.StarState(starControl.starCount);
-        listStarCount[levelDoneCount] = starControl.starCount;
 
-
+        OnLevelCompleted(levelDoneCount, starControl.starCount);
+        
         PlayerPrefs.SetInt("lastStarCount", starControl.starCount); // yıldız sayısı
 
+       
 
+        foreach (Transform child in stitchControl.transform)
+        {
+            Destroy(child.gameObject);
+        }
         lastStitchCount = stitchControl.trueStitchInt;
         stitchControl.i = 0;
         stitchControl.j = 0;
@@ -57,4 +59,61 @@ public class DoneButton : MonoBehaviour
         finishStarControl.StarActiveWait();
         bonusButton.BonusText();
     }
+    
+    void SaveLevelStatus(int levelIndex, int starCount)
+    {
+        // Seviye tamamlandı durumunu kaydet
+        PlayerPrefs.SetInt("Level_" + levelIndex + "_Completed", 1);
+
+        // Kazanılan yıldız sayısını kaydet
+        int previousStarCount = PlayerPrefs.GetInt("Level_" + levelIndex + "_Stars", 0);
+        if (starCount > previousStarCount)
+        {
+            PlayerPrefs.SetInt("Level_" + levelIndex + "_Stars", starCount);
+        }
+
+        PlayerPrefs.Save();
+    }
+    void LoadLevelStatus(int levelIndex)
+    {
+        // Seviye tamamlandı mı?
+        bool isLevelCompleted = PlayerPrefs.GetInt("Level_" + levelIndex + "_Completed", 0) == 1;
+
+        // Kazanılan yıldız sayısı
+        int starCount = PlayerPrefs.GetInt("Level_" + levelIndex + "_Stars", 0);
+
+        // Level kontrolünü ve yıldız durumunu ayarla
+        if (isLevelCompleted)
+        {
+            listLevelSelect[levelIndex].doneLevelControl.gameObject.SetActive(true);
+            listLevelSelect[levelIndex].doneLevelControl.StarState(starCount);
+        }
+    }
+    void OnLevelCompleted(int levelIndex, int starCount)
+    {
+        SaveLevelStatus(levelIndex, starCount);
+        LoadLevelStatus(levelIndex);
+    }
+    
+   public void LoadAllLevelsStatus()
+    {
+        for (int i = 0; i < listLevelSelect.Count; i++)
+        {
+            LoadLevelStatus(i);
+        }
+    }
+   public void ResetAllLevelsStatus()
+   {
+       for (int i = 0; i < listLevelSelect.Count; i++)
+       {
+           PlayerPrefs.DeleteKey("Level_" + i + "_Completed");
+           PlayerPrefs.DeleteKey("Level_" + i + "_Stars");
+
+           // İlgili UI elemanlarını da sıfırla
+           listLevelSelect[i].doneLevelControl.gameObject.SetActive(false);
+           listLevelSelect[i].doneLevelControl.StarState(0);
+       }
+
+       PlayerPrefs.Save();
+   }
 }

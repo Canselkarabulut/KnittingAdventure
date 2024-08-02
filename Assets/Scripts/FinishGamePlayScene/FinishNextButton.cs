@@ -8,16 +8,10 @@ public class FinishNextButton : MonoBehaviour
 {
     public GameObject gameFnishScene;
     public GameObject levelScene;
-    public LevelTextControl levelTextControl;
-    public List<LevelSelect> listLevelSelect;
-    public int levelDoneCount;
-    private DoneLevelControl doneLevelControl;
-    
+    public DoneButton doneButton;
     public void FinishNext()
     {
-    
-        levelTextControl.DiamondCountUpdate();
-        listLevelSelect[levelDoneCount].LevelVisitControl();
+        doneButton.LoadAllLevelsStatus();
         gameFnishScene.SetActive(false);
         levelScene.SetActive(true);
     }
