@@ -12191,6 +12191,7 @@ MonoBehaviour:
   gameFnishScene: {fileID: 1273140932}
   levelScene: {fileID: 1990216530}
   doneButton: {fileID: 6544798}
+  levelTextControl: {fileID: 752585569}
 --- !u!114 &1413511827
 MonoBehaviour:
   m_ObjectHideFlags: 0

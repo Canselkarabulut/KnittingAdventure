@@ -27,8 +27,6 @@ public class DoneButton : MonoBehaviour
 
     public void Done()
     {
-      
-
         levelDoneCount = (int)levelMeneger.levelStatus; // bulunduğum levelin sayısı
         listLevelSelect[levelDoneCount].doneLevelControl.gameObject.SetActive(true);
         listLevelSelect[levelDoneCount].doneLevelControl.StarState(starControl.starCount);
@@ -36,9 +34,7 @@ public class DoneButton : MonoBehaviour
         OnLevelCompleted(levelDoneCount, starControl.starCount);
         
         PlayerPrefs.SetInt("lastStarCount", starControl.starCount); // yıldız sayısı
-
-       
-
+        
         foreach (Transform child in stitchControl.transform)
         {
             Destroy(child.gameObject);
