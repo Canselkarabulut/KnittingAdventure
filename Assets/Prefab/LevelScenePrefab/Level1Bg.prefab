@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 4705001336307096684}
   - component: {fileID: 9012656058364111893}
   - component: {fileID: 353540418027866670}
+  - component: {fileID: 3887990098400400708}
   m_Layer: 5
   m_Name: CountDiamondBg
   m_TagString: Untagged
@@ -286,14 +287,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.37647063, g: 0.7686275, b: 0.96470594, a: 1}
+  m_Color: {r: 0, g: 0.29478312, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b0033aa49a6091142b1c2b53e04413a9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -303,6 +304,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3887990098400400708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783130031866037998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 461b05fffc773a84f877019ed0c5af90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastBonus: 0
+  levelSelect: {fileID: 7035591844001709010}
+  diamondText: {fileID: 6070985687889466812}
 --- !u!1 &798839348627577009
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,6 +481,10 @@ MonoBehaviour:
   doneLevelControl: {fileID: 4738994564540342475}
   doneActiveState: 0
   list: 0000000000000000000000000000000000000000
+  lastBonus: 0
+  earnDiamondText: {fileID: 0}
+  countDiamondText: {fileID: 6070985687889466812}
+  levelTextControl: {fileID: 0}
 --- !u!1 &1592305365992821982
 GameObject:
   m_ObjectHideFlags: 0
@@ -1274,8 +1294,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4290314495
-  m_fontColor: {r: 1, g: 0, b: 0.7260461, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1292,11 +1312,11 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.97
+  m_fontSize: 12.45
   m_fontSizeBase: 21.97
   m_fontWeight: 400
-  m_enableAutoSizing: 0
-  m_fontSizeMin: 18
+  m_enableAutoSizing: 1
+  m_fontSizeMin: 1
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 2
@@ -1427,7 +1447,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3007004275954402976
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2103,7 +2123,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 300
+  m_text: Free
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 72a891a6b87ad364a9f4245c88955d6b, type: 2}
   m_sharedMaterial: {fileID: 9013171566034636486, guid: 72a891a6b87ad364a9f4245c88955d6b, type: 2}

@@ -56,7 +56,7 @@ public class DoneButton : MonoBehaviour
         bonusButton.BonusText();
     }
     
-    void SaveLevelStatus(int levelIndex, int starCount)
+   public void SaveLevelStatus(int levelIndex, int starCount)
     {
         // Seviye tamamlandı durumunu kaydet
         PlayerPrefs.SetInt("Level_" + levelIndex + "_Completed", 1);
@@ -85,7 +85,7 @@ public class DoneButton : MonoBehaviour
             listLevelSelect[levelIndex].doneLevelControl.StarState(starCount);
         }
     }
-    void OnLevelCompleted(int levelIndex, int starCount)
+   public void OnLevelCompleted(int levelIndex, int starCount)
     {
         SaveLevelStatus(levelIndex, starCount);
         LoadLevelStatus(levelIndex);

@@ -10,7 +10,7 @@ public class PlayButton : MonoBehaviour
     public GameObject entryScene;
     public GameObject levelScene;
     public DoneButton doneButton;
-  
+    public LevelDiamondControl levelDiamondControl;
     public void PlayBtn()
     {
         doneButton.LoadAllLevelsStatus();
