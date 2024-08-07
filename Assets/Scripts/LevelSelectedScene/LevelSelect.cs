@@ -22,7 +22,12 @@ public class LevelSelect : MonoBehaviour
     public StarControl starControl;
     public DoneLevelControl doneLevelControl;
     private int doneint = 0;
+    public DoneButton doneButton;
 
+    private void Start()
+    {
+        LoadLevelStatus((int)levelCount);
+    }
 
     public void LevelVisitControl()
     {
@@ -134,19 +139,6 @@ public class LevelSelect : MonoBehaviour
       
 
     }
-
-  
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     public TextMeshProUGUI countDiamondText; //üzerimde yazan elmas texti
@@ -154,6 +146,7 @@ public class LevelSelect : MonoBehaviour
     public int updateDiamondCount;
     private int unlockDiamond;
     private int remainingDiamond;
+    public ParticleSystem lockPanelActiveEffect;
     public void LevelUnlock(LevelCount levelCount)
     {
         switch (levelCount)
@@ -250,13 +243,52 @@ public class LevelSelect : MonoBehaviour
         updateDiamondCount = PlayerPrefs.GetInt("DiamondCount");
         unlockDiamond = Convert.ToInt32(countDiamondText.text);
         if (updateDiamondCount >= unlockDiamond) // güncel param kilit parasından yüksekse
-        {
+        {  
+            lockPanelActiveEffect.Play();
             remainingDiamond = updateDiamondCount - unlockDiamond;
             PlayerPrefs.SetInt("DiamondCount", remainingDiamond);
             levelTextControl.DiamondCountUpdate();
             lockPanel.SetActive(false);
             lockPanelControl.LockPanelActive();
-
+            OnLevelCompleted((int)levelCount);
         }
     }
+    
+    
+    
+    public void SaveLevelStatus(int levelIndex)
+    {
+        //0: kilitli
+        //1 : kilit açık
+        // Seviye tamamlandı durumunu kaydet
+        PlayerPrefs.SetInt("LockLevel_" + levelIndex + "_UnLockCount", 1); //kilit açıldı
+        lockPanel.SetActive(false);
+       // if (starCount >= previousStarCount)
+       // {
+       //     PlayerPrefs.SetInt("Level_" + levelIndex + "_Stars", starCount);
+       // }
+
+        PlayerPrefs.Save();
+    }
+    void LoadLevelStatus(int levelIndex)
+    {
+        // Seviye tamamlandı mı?
+        bool isLevelCompleted = PlayerPrefs.GetInt("LockLevel_" + levelIndex + "_UnLockCount", 0) == 1;
+  
+        if (isLevelCompleted)
+        {      
+            lockPanel.SetActive(false);
+        }
+        else
+        {
+            lockPanel.SetActive(true);
+        }
+    }
+    public void OnLevelCompleted(int levelIndex)
+    {
+        SaveLevelStatus(levelIndex);
+        LoadLevelStatus(levelIndex);
+    }
+    
+
 }

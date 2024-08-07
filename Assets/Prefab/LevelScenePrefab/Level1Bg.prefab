@@ -484,6 +484,7 @@ MonoBehaviour:
   countDiamondText: {fileID: 6070985687889466812}
   levelTextControl: {fileID: 0}
   updateDiamondCount: 0
+  lockPanelActiveEffect: {fileID: 4167344524292636369}
 --- !u!1 &1592305365992821982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2222,6 +2223,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2119568272375998603}
   - {fileID: 5584658198883292799}
   - {fileID: 215684487463900006}
   m_Father: {fileID: 291740284462509353}
@@ -2282,3 +2284,142 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doneImage: {fileID: 6249162960384442421}
+--- !u!1001 &8864409158434044968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7044113864178521007}
+    m_Modifications:
+    - target: {fileID: 430209516267123740, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2547180889392133981, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812232348395959392, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829937239351716770, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829937239351716770, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3857927297420426002, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540540680047474992, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4540540680047474992, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814863578442990329, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814863578442990329, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814863578442990329, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: autoRandomSeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4814863578442990329, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 6633341431392651643, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_Name
+      value: Stones hit Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983606993119639095, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8983606993119639095, guid: 8125644266a521041ab01683b535d28c, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8125644266a521041ab01683b535d28c, type: 3}
+--- !u!4 &2119568272375998603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7380992097408963747, guid: 8125644266a521041ab01683b535d28c, type: 3}
+  m_PrefabInstance: {fileID: 8864409158434044968}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4167344524292636369 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4814863578442990329, guid: 8125644266a521041ab01683b535d28c, type: 3}
+  m_PrefabInstance: {fileID: 8864409158434044968}
+  m_PrefabAsset: {fileID: 0}

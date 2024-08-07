@@ -62,7 +62,7 @@ public class DoneButton : MonoBehaviour
         PlayerPrefs.SetInt("Level_" + levelIndex + "_Completed", 1);
         // Kazanılan yıldız sayısını kaydet
         int previousStarCount = PlayerPrefs.GetInt("Level_" + levelIndex + "_Stars", 0);
-        if (starCount > previousStarCount)
+        if (starCount >= previousStarCount)
         {
             PlayerPrefs.SetInt("Level_" + levelIndex + "_Stars", starCount);
         }

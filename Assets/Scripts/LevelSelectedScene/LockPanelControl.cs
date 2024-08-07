@@ -14,6 +14,7 @@ public class LockPanelControl : MonoBehaviour
 
    public void LockPanelActive()
    {
+      
       if (doneImage.activeInHierarchy)
       {
          gameObject.SetActive(false);
