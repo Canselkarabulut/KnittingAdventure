@@ -9,7 +9,7 @@ public class FinishTextControl : MonoBehaviour
     public TextMeshProUGUI lastStitchCountText;
     public TextMeshProUGUI lasrStarCountText;
     public TextMeshProUGUI conclusionText;
-    private int conclusion;
+    public int conclusion;
     private int count;
     private int lastDiamond;
     private int newDiamond;
@@ -30,7 +30,7 @@ public class FinishTextControl : MonoBehaviour
 
     private float time;
     private bool isCount;
-
+    public bool isClick;
     private void FixedUpdate()
     {
         if (isCount)
@@ -50,8 +50,12 @@ public class FinishTextControl : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            count = conclusion + 1;
-            conclusionText.text = conclusion.ToString();
+            if (!isClick)
+            {
+                count = conclusion + 1;
+                conclusionText.text = conclusion.ToString();
+                isClick = true;
+            }
         }
     }
 }

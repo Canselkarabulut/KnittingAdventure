@@ -32,7 +32,6 @@ public class DoneButton : MonoBehaviour
         listLevelSelect[levelDoneCount].doneLevelControl.StarState(starControl.starCount);
 
         OnLevelCompleted(levelDoneCount, starControl.starCount);
-        
         PlayerPrefs.SetInt("lastStarCount", starControl.starCount); // yıldız sayısı
         
         foreach (Transform child in stitchControl.transform)
@@ -51,6 +50,7 @@ public class DoneButton : MonoBehaviour
         gameObject.SetActive(false);
         gameScene.SetActive(false);
         finishScene.SetActive(true);
+        finishTextControl.isClick = false;
         finishTextControl.Conclusion();
         finishStarControl.StarActiveWait();
         bonusButton.BonusText();
@@ -60,7 +60,6 @@ public class DoneButton : MonoBehaviour
     {
         // Seviye tamamlandı durumunu kaydet
         PlayerPrefs.SetInt("Level_" + levelIndex + "_Completed", 1);
-
         // Kazanılan yıldız sayısını kaydet
         int previousStarCount = PlayerPrefs.GetInt("Level_" + levelIndex + "_Stars", 0);
         if (starCount > previousStarCount)
@@ -104,7 +103,6 @@ public class DoneButton : MonoBehaviour
        {
            PlayerPrefs.DeleteKey("Level_" + i + "_Completed");
            PlayerPrefs.DeleteKey("Level_" + i + "_Stars");
-
            // İlgili UI elemanlarını da sıfırla
            listLevelSelect[i].doneLevelControl.gameObject.SetActive(false);
            listLevelSelect[i].doneLevelControl.StarState(0);
@@ -112,4 +110,9 @@ public class DoneButton : MonoBehaviour
 
        PlayerPrefs.Save();
    }
+   
+   
+   
+   
+ 
 }

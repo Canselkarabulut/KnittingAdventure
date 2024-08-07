@@ -21,9 +21,7 @@ public class LevelSelect : MonoBehaviour
 
     public StarControl starControl;
     public DoneLevelControl doneLevelControl;
-    public DoneActiveState doneActiveState = DoneActiveState.False;
     private int doneint = 0;
-    public int[] list = new int[5];
 
 
     public void LevelVisitControl()
@@ -47,7 +45,6 @@ public class LevelSelect : MonoBehaviour
     }
 
     private int baseBonus;
-    public int lastBonus;
     public BonusButton bonusButton;
     public void Selected(LevelCount levelCount)
     {
@@ -125,6 +122,7 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
+    public LockPanelControl lockPanelControl;
     public void LevelControl(LevelStatus level)
     {
         levelMeneger.levelStatus = level;
@@ -133,8 +131,24 @@ public class LevelSelect : MonoBehaviour
         levelMeneger.DesiredLevelControl();
         stitchControl.StartPixelColor();
         bonusButton.gameObject.SetActive(true);
+      
+
     }
 
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public TextMeshProUGUI countDiamondText; //üzerimde yazan elmas texti
     public LevelTextControl levelTextControl; //elmas güncelleme
     public int updateDiamondCount;
@@ -241,13 +255,8 @@ public class LevelSelect : MonoBehaviour
             PlayerPrefs.SetInt("DiamondCount", remainingDiamond);
             levelTextControl.DiamondCountUpdate();
             lockPanel.SetActive(false);
-    
-          
-            //level ve tıklanma sayısı kaydedildi
+            lockPanelControl.LockPanelActive();
+
         }
     }
-    
-    
-    
-
 }

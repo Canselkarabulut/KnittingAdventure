@@ -32,7 +32,7 @@ public class UndoStitchControl : Tumbnails
             if (stitchControl.j > 0)
             {
                 stitchControl.j--;
-                needle.transform.position += new Vector3(-.2f, 0, 0);
+                needle.transform.position += new Vector3(-.155f, 0, 0);
                 if (transform.childCount > 0)
                 {
                     var lastStitch = transform.GetChild(transform.childCount - 1).gameObject;
@@ -85,7 +85,7 @@ public class UndoStitchControl : Tumbnails
             {
                 needle.transform.position = new Vector3(stitchControl.lastXPos, needle.transform.position.y,
                     needle.transform.position.z);
-                needle.transform.position += new Vector3(0, -.2f, 0);
+                needle.transform.position += new Vector3(0, -.155f, 0);
                 stitchControl.j = 22;
                 stitchControl.i--;
             }

@@ -12,7 +12,7 @@ public class BonusButton : MonoBehaviour
     public TextMeshProUGUI conclusionText;
     private int baseBonus;
     public int lastBonus;
-
+    public FinishTextControl finishTextControl;
     public void BonusText()
     {
         baseBonus = 500;
@@ -26,11 +26,12 @@ public class BonusButton : MonoBehaviour
     public void BonusButtonClick()
     {
         levelTextControl.DiamondCountUpdate();
+        conclusionText.text = (finishTextControl.conclusion + lastBonus).ToString();
         updateDiamondCount = PlayerPrefs.GetInt("DiamondCount");
         //günceldeki param getirildi
         updateDiamondCount += lastBonus; // bonus paramı ekle
         PlayerPrefs.SetInt("DiamondCount",updateDiamondCount); // yeni paramı kaydet
-        conclusionText.text = updateDiamondCount.ToString(); // ekrana yazır
+        
         gameObject.SetActive(false);
 
     }

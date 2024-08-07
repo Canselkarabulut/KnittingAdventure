@@ -479,12 +479,11 @@ MonoBehaviour:
   stitchControl: {fileID: 0}
   starControl: {fileID: 0}
   doneLevelControl: {fileID: 4738994564540342475}
-  doneActiveState: 0
-  list: 0000000000000000000000000000000000000000
-  lastBonus: 0
-  earnDiamondText: {fileID: 0}
+  bonusButton: {fileID: 0}
+  lockPanelControl: {fileID: 4073681335580094109}
   countDiamondText: {fileID: 6070985687889466812}
   levelTextControl: {fileID: 0}
+  updateDiamondCount: 0
 --- !u!1 &1592305365992821982
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,6 +2202,7 @@ GameObject:
   - component: {fileID: 7044113864178521007}
   - component: {fileID: 7711811125190578795}
   - component: {fileID: 8038796088657343110}
+  - component: {fileID: 4073681335580094109}
   m_Layer: 5
   m_Name: LockPanel
   m_TagString: Untagged
@@ -2269,3 +2269,16 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4073681335580094109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8898256099507728973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f5316b66f08e247b0964c1f0f4f7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doneImage: {fileID: 6249162960384442421}

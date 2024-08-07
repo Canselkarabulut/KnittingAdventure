@@ -14,7 +14,6 @@ public class FinishNextButton : MonoBehaviour
     public void FinishNext()
     {
         doneButton.LoadAllLevelsStatus();
-     
         levelTextControl.DiamondCountUpdate();
         gameFnishScene.SetActive(false);
         levelScene.SetActive(true);
