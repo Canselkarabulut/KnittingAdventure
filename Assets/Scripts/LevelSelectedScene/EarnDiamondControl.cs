@@ -8,10 +8,13 @@ public class EarnDiamondControl : MonoBehaviour
 {
     public Image activeAgainImage;
     public GameObject levelScenePanel;
-    public float timeSpeed=.01f;
+    private float timeSpeed=.00005f;
+    public Button earnDiamondButton;
+  
     private void Start()
     {
-        // activeAgainImage.fillAmount = 0;
+         activeAgainImage.fillAmount = 0;
+         earnDiamondClickCount = PlayerPrefs.GetInt("earnDiamondClickCount");
     }
 
     private void Update()
@@ -29,7 +32,30 @@ public class EarnDiamondControl : MonoBehaviour
             if (activeAgainImage.fillAmount > .01)
             {
                 activeAgainImage.fillAmount -= time * timeSpeed;
+                earnDiamondButton.interactable = false;
+            }
+            else
+            {
+                earnDiamondButton.interactable = true;
             }
         }
+    }
+
+    public int earnDiamondClickCount;
+    public void EarnDiamonfButton()
+    {
+        earnDiamondClickCount++;
+        Debug.Log("earnDiamondClickCount: "+earnDiamondClickCount);
+        PlayerPrefs.SetInt("earnDiamondClickCount",earnDiamondClickCount);
+        if (earnDiamondClickCount < 6)
+        {
+            activeAgainImage.fillAmount = 1;
+        }
+        else
+        {
+            earnDiamondButton.interactable = false;
+        }
+        
+        
     }
 }
