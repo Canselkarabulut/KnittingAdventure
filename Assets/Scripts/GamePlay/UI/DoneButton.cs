@@ -103,9 +103,15 @@ public class DoneButton : MonoBehaviour
        {
            PlayerPrefs.DeleteKey("Level_" + i + "_Completed");
            PlayerPrefs.DeleteKey("Level_" + i + "_Stars");
+           if (i > 0)
+           {
+               PlayerPrefs.DeleteKey("LockLevel_" + i + "_UnLockCount");
+               listLevelSelect[i].lockPanel.SetActive(true);
+           }
            // İlgili UI elemanlarını da sıfırla
            listLevelSelect[i].doneLevelControl.gameObject.SetActive(false);
            listLevelSelect[i].doneLevelControl.StarState(0);
+          
        }
 
        PlayerPrefs.Save();

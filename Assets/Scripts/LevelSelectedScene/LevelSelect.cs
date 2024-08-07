@@ -27,6 +27,7 @@ public class LevelSelect : MonoBehaviour
     private void Start()
     {
         LoadLevelStatus((int)levelCount);
+        PlayerPrefs.SetInt("LockLevel_" + 0 + "_UnLockCount", 1); //kilit açıldı
     }
 
     public void LevelVisitControl()
@@ -242,6 +243,7 @@ public class LevelSelect : MonoBehaviour
         levelTextControl.DiamondCountUpdate();
         updateDiamondCount = PlayerPrefs.GetInt("DiamondCount");
         unlockDiamond = Convert.ToInt32(countDiamondText.text);
+        
         if (updateDiamondCount >= unlockDiamond) // güncel param kilit parasından yüksekse
         {  
             lockPanelActiveEffect.Play();

@@ -31,9 +31,9 @@ public class BonusButton : MonoBehaviour
         //günceldeki param getirildi
         updateDiamondCount += lastBonus; // bonus paramı ekle
         PlayerPrefs.SetInt("DiamondCount",updateDiamondCount); // yeni paramı kaydet
-        
         gameObject.SetActive(false);
-
+        conclusionText.GetComponent<Animator>().Play("bonusButtonAnim");
+        
     }
         
 }
