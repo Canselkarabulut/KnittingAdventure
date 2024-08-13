@@ -8,7 +8,6 @@ public class SoundControl : MonoBehaviour
     [SerializeField] private GameObject soundControl;
     [SerializeField] private GameObject soundOnOffImage;
     private bool isClick = false;
-    public List<GameObject> soundsList;
 
     private void Start()
     {

@@ -37,7 +37,7 @@ public class StitchControl : Tumbnails
     [SerializeField] private GameObject falseStitchEffect;
     [SerializeField] private AudioSource failStitchSound;
     [SerializeField] private AudioSource stitchSound;
-
+    [SerializeField] private TutorialShowControl tutorialShowControl;
     public void Down() //butona basılı tutuluyor
     {
         isDown = true;
@@ -222,6 +222,9 @@ public class StitchControl : Tumbnails
                                 after2Image.color = desiredColor;
                                 break;
                         }
+                       
+                            
+                        
                     }
                 }
 
@@ -239,6 +242,7 @@ public class StitchControl : Tumbnails
 
                 StitchColor(stitchObject, before1Image.color); //ilmek rengi kontrolü
                 starControl.StarActive(); // yıldız kontrolü
+               
             }
             else
             {
@@ -249,15 +253,15 @@ public class StitchControl : Tumbnails
                 needle.transform.position += new Vector3(0, .155f, 0);
 
                 #endregion
-
                 i++;
                 j = 0;
             }
         }
         else
         {
-            //    needle anim dursun
             needleAnim.SetBool("isNeedle", false);
         }
+
+        tutorialShowControl.TutorialTree( nowImage.color,before1Image.color);
     }
 }
