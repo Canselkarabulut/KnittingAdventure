@@ -5,16 +5,13 @@ using UnityEngine;
 
 public class LockPanelControl : MonoBehaviour
 {
-   public GameObject doneImage;
-
+   [SerializeField] private GameObject doneImage;
    private void Start()
    {
       LockPanelActive();
    }
-
    public void LockPanelActive()
    {
-      
       if (doneImage.activeInHierarchy)
       {
          gameObject.SetActive(false);

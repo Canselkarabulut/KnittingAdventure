@@ -9,20 +9,28 @@ using UnityEngine.UI;
 
 public class LevelSelect : MonoBehaviour
 {
-    public GameObject levelScene;
-    public GameObject gameScene;
-    public GameObject lockPanel;
-    public LevelCount levelCount;
-    public GameObject Star1;
-    public GameObject Star2;
-    public GameObject Star3;
-    public LevelMeneger levelMeneger;
-    public StitchControl stitchControl;
-
-    public StarControl starControl;
-    public DoneLevelControl doneLevelControl;
+    [SerializeField] private GameObject levelScene;
+    [SerializeField] private GameObject gameScene;
+    [SerializeField] public GameObject lockPanel;
+    [SerializeField] public LevelCount levelCount;
+    [SerializeField] private GameObject Star1;
+    [SerializeField] private GameObject Star2;
+    [SerializeField] private GameObject Star3;
+    [SerializeField] private LevelMeneger levelMeneger;
+    [SerializeField] private StitchControl stitchControl;
+    [SerializeField] private StarControl starControl;
+    [SerializeField] public DoneLevelControl doneLevelControl;
+    [SerializeField] private DoneButton doneButton;
+    [SerializeField] private BonusButton bonusButton;
+    [SerializeField] private LockPanelControl lockPanelControl;
+    [SerializeField] private TextMeshProUGUI countDiamondText; //üzerimde yazan elmas texti
+    [SerializeField] private LevelTextControl levelTextControl; //elmas güncelleme
+    [SerializeField] private int updateDiamondCount;
+    [SerializeField] private ParticleSystem lockPanelActiveEffect;
     private int doneint = 0;
-    public DoneButton doneButton;
+    private int baseBonus;
+    private int unlockDiamond;
+    private int remainingDiamond;
 
     private void Start()
     {
@@ -50,8 +58,6 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
-    private int baseBonus;
-    public BonusButton bonusButton;
     public void Selected(LevelCount levelCount)
     {
         switch (levelCount)
@@ -128,7 +134,6 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
-    public LockPanelControl lockPanelControl;
     public void LevelControl(LevelStatus level)
     {
         levelMeneger.levelStatus = level;
@@ -137,17 +142,8 @@ public class LevelSelect : MonoBehaviour
         levelMeneger.DesiredLevelControl();
         stitchControl.StartPixelColor();
         bonusButton.gameObject.SetActive(true);
-      
-
     }
-    
-    
-    public TextMeshProUGUI countDiamondText; //üzerimde yazan elmas texti
-    public LevelTextControl levelTextControl; //elmas güncelleme
-    public int updateDiamondCount;
-    private int unlockDiamond;
-    private int remainingDiamond;
-    public ParticleSystem lockPanelActiveEffect;
+
     public void LevelUnlock(LevelCount levelCount)
     {
         switch (levelCount)
@@ -222,20 +218,6 @@ public class LevelSelect : MonoBehaviour
                 LevelUnlockControl(LevelStatus.Level23);
                 break;
         }
-        //   if (Convert.ToInt32(earnDiamondText) > 0)
-        //   {
-        //       if (Convert.ToInt32(earnDiamondText) >= Convert.ToInt32(countDiamondText))
-        //       {
-        //           var remainingDiamond = Convert.ToInt32(earnDiamondText) - Convert.ToInt32(countDiamondText);
-        //          // Debug.Log(remainingDiamond);
-        //           PlayerPrefs.SetInt("DiamondCount", remainingDiamond); // rame gönder
-        //           levelTextControl.DiamondCountUpdate();
-        //           lockPanel.SetActive(false);
-        //      
-        //       } 
-        //   }
-
-        //var olan elmasım diamond locta yazan elmastan büyükse lock sahne kapansın
     }
 
     public void LevelUnlockControl(LevelStatus level)
@@ -243,9 +225,9 @@ public class LevelSelect : MonoBehaviour
         levelTextControl.DiamondCountUpdate();
         updateDiamondCount = PlayerPrefs.GetInt("DiamondCount");
         unlockDiamond = Convert.ToInt32(countDiamondText.text);
-        
+
         if (updateDiamondCount >= unlockDiamond) // güncel param kilit parasından yüksekse
-        {  
+        {
             lockPanelActiveEffect.Play();
             remainingDiamond = updateDiamondCount - unlockDiamond;
             PlayerPrefs.SetInt("DiamondCount", remainingDiamond);
@@ -255,30 +237,21 @@ public class LevelSelect : MonoBehaviour
             OnLevelCompleted((int)levelCount);
         }
     }
-    
-    
-    
+
     public void SaveLevelStatus(int levelIndex)
     {
-        //0: kilitli
-        //1 : kilit açık
-        // Seviye tamamlandı durumunu kaydet
         PlayerPrefs.SetInt("LockLevel_" + levelIndex + "_UnLockCount", 1); //kilit açıldı
         lockPanel.SetActive(false);
-       // if (starCount >= previousStarCount)
-       // {
-       //     PlayerPrefs.SetInt("Level_" + levelIndex + "_Stars", starCount);
-       // }
-
         PlayerPrefs.Save();
     }
+
     void LoadLevelStatus(int levelIndex)
     {
         // Seviye tamamlandı mı?
         bool isLevelCompleted = PlayerPrefs.GetInt("LockLevel_" + levelIndex + "_UnLockCount", 0) == 1;
-  
+
         if (isLevelCompleted)
-        {      
+        {
             lockPanel.SetActive(false);
         }
         else
@@ -286,11 +259,10 @@ public class LevelSelect : MonoBehaviour
             lockPanel.SetActive(true);
         }
     }
+
     public void OnLevelCompleted(int levelIndex)
     {
         SaveLevelStatus(levelIndex);
         LoadLevelStatus(levelIndex);
     }
-    
-
 }

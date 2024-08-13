@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LevelTextControl : MonoBehaviour
 {
-    public TextMeshProUGUI diamondCountText;
+    [SerializeField] private TextMeshProUGUI diamondCountText;
    
     void Start()
     {

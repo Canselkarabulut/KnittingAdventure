@@ -1,18 +1,37 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundControl : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private GameObject soundControl;
+    [SerializeField] private GameObject soundOnOffImage;
+    private bool isClick = false;
+    public List<GameObject> soundsList;
+
+    private void Start()
     {
-        
+        isClick = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    private List<GameObject> soundList;
+
+    public void Sounds()
     {
-        
+        if (isClick)
+        {
+            Debug.Log("true idi");
+            soundOnOffImage.SetActive(true);
+            soundControl.SetActive(false);
+            isClick = false;
+        }
+        else
+        {
+            Debug.Log("false idi");
+            soundOnOffImage.SetActive(false);
+            soundControl.SetActive(true);
+            isClick = true;
+        }
     }
 }
