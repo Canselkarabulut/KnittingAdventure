@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class Colors : MonoBehaviour
 {
-    public Image stitchPrefab;
-    public Color32 color = new Color(1, 0.9686275f, 0, 1);
+    [SerializeField] private Image stitchPrefab;
+    [SerializeField] public Color32 color = new Color(1, 0.9686275f, 0, 1);
    
     public void ColorsButton()
     {

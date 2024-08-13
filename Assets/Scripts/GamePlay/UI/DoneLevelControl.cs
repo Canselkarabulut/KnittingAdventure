@@ -6,13 +6,12 @@ using UnityEngine;
 
 public class DoneLevelControl : MonoBehaviour
 {
-    public int donePanelActivecountbool;
-    public int doneStarCount;
-    public GameObject gameStar1;
-    public GameObject gameStar2;
-    public GameObject gameStar3;
-    public DoneActiveState doneActiveState;
-    
+    [SerializeField] private int donePanelActivecountbool;
+    [SerializeField] private GameObject gameStar1;
+    [SerializeField] private GameObject gameStar2;
+    [SerializeField] private GameObject gameStar3;
+    [SerializeField] private DoneActiveState doneActiveState;
+
 
     public int DonePanelActiveCount()
     {

@@ -7,11 +7,17 @@ using UnityEngine.UI;
 
 public class EarnDiamondControl : MonoBehaviour
 {
-    public Image activeAgainImage;
-    public GameObject levelScenePanel;
-    private float timeSpeed=.00005f;
-    public Button earnDiamondButton;
+    [SerializeField] private Image activeAgainImage;
+    [SerializeField] private GameObject levelScenePanel;
+    [SerializeField] public Button earnDiamondButton;
+    [SerializeField] public int earnDiamondClickCount;
+    [SerializeField] private  bool isClick;
+    [SerializeField] private  int addDiamond = 250;
+    [SerializeField] private  LevelTextControl levelTextControl;
     private int maxClick = 3;
+    private float time;
+    private float timeSpeed=.00005f;
+    private int updateDiamondCount;
     private void Start()
     {
          activeAgainImage.fillAmount = 0;
@@ -25,14 +31,11 @@ public class EarnDiamondControl : MonoBehaviour
              earnDiamondButton.interactable = true;
          }
     }
-
     private void Update()
     {
             ActiveTime();
     }
-
-    private float time;
-
+    
     public void ActiveTime()
     {
         if (isClick)
@@ -55,12 +58,6 @@ public class EarnDiamondControl : MonoBehaviour
         }
       
     }
-
-    public int earnDiamondClickCount;
-    public bool isClick;
-    private int updateDiamondCount;
-    public int addDiamond = 250;
-    public LevelTextControl levelTextControl;
     public void EarnDiamonfButton()
     {
        

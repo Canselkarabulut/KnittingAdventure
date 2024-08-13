@@ -6,13 +6,11 @@ using UnityEngine;
 
 public class LevelDiamondControl : MonoBehaviour
 {
-
-    private int baseBonus;
-    //public LevelMeneger levelMeneger;
-    public int lastBonus;
-    public LevelSelect levelSelect;
-    public TextMeshProUGUI diamondText;
+    [SerializeField] private int lastBonus;
+    [SerializeField] private LevelSelect levelSelect;
+    [SerializeField] private TextMeshProUGUI diamondText;
     private int levelUnlockDiamond;
+    private int baseBonus;
     private void Start()
     {
         DiamondCalculation();

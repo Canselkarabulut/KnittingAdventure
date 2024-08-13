@@ -5,31 +5,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-[System.Serializable]
-public class UI
-{
-    
-}
+
 public class DoneButton : MonoBehaviour
 {
- 
-     private  GameObject gameScene;
-    public GameObject finishScene;
-    public StitchControl stitchControl;
-    public GameObject needle;
-    public Button star1;
-    public Button star2;
-    public Button star3;
-    public StarControl starControl;
-    public static int lastStitchCount;
-    public FinishTextControl finishTextControl;
-    public FinishStarControl finishStarControl;
-    public BonusButton bonusButton;
-    public int levelDoneCount;
-    public LevelMeneger levelMeneger;
-    public List<LevelSelect> listLevelSelect;
- 
-   
+    [SerializeField] private GameObject gameScene;
+    [SerializeField] private GameObject finishScene;
+    [SerializeField] private StitchControl stitchControl;
+    [SerializeField] private GameObject needle;
+    [SerializeField] private Button star1;
+    [SerializeField] private Button star2;
+    [SerializeField] private Button star3;
+    [SerializeField] private StarControl starControl;
+    [SerializeField] public static int lastStitchCount;
+    [SerializeField] private FinishTextControl finishTextControl;
+    [SerializeField] private FinishStarControl finishStarControl;
+    [SerializeField] private BonusButton bonusButton;
+    [SerializeField] public int levelDoneCount;
+    [SerializeField] private LevelMeneger levelMeneger;
+    [SerializeField] private List<LevelSelect> listLevelSelect;
+
 
     public void Done()
     {
@@ -39,11 +33,12 @@ public class DoneButton : MonoBehaviour
 
         OnLevelCompleted(levelDoneCount, starControl.starCount);
         PlayerPrefs.SetInt("lastStarCount", starControl.starCount); // yıldız sayısı
-        
+
         foreach (Transform child in stitchControl.transform)
         {
             Destroy(child.gameObject);
         }
+
         lastStitchCount = stitchControl.trueStitchInt;
         stitchControl.i = 0;
         stitchControl.j = 0;
@@ -61,8 +56,8 @@ public class DoneButton : MonoBehaviour
         finishStarControl.StarActiveWait();
         bonusButton.BonusText();
     }
-    
-   public void SaveLevelStatus(int levelIndex, int starCount)
+
+    public void SaveLevelStatus(int levelIndex, int starCount)
     {
         // Seviye tamamlandı durumunu kaydet
         PlayerPrefs.SetInt("Level_" + levelIndex + "_Completed", 1);
@@ -75,6 +70,7 @@ public class DoneButton : MonoBehaviour
 
         PlayerPrefs.Save();
     }
+
     void LoadLevelStatus(int levelIndex)
     {
         // Seviye tamamlandı mı?
@@ -90,41 +86,38 @@ public class DoneButton : MonoBehaviour
             listLevelSelect[levelIndex].doneLevelControl.StarState(starCount);
         }
     }
-   public void OnLevelCompleted(int levelIndex, int starCount)
+
+    public void OnLevelCompleted(int levelIndex, int starCount)
     {
         SaveLevelStatus(levelIndex, starCount);
         LoadLevelStatus(levelIndex);
     }
-    
-   public void LoadAllLevelsStatus()
+
+    public void LoadAllLevelsStatus()
     {
         for (int i = 0; i < listLevelSelect.Count; i++)
         {
             LoadLevelStatus(i);
         }
     }
-   public void ResetAllLevelsStatus()
-   {
-       for (int i = 0; i < listLevelSelect.Count; i++)
-       {
-           PlayerPrefs.DeleteKey("Level_" + i + "_Completed");
-           PlayerPrefs.DeleteKey("Level_" + i + "_Stars");
-           if (i > 0)
-           {
-               PlayerPrefs.DeleteKey("LockLevel_" + i + "_UnLockCount");
-               listLevelSelect[i].lockPanel.SetActive(true);
-           }
-           // İlgili UI elemanlarını da sıfırla
-           listLevelSelect[i].doneLevelControl.gameObject.SetActive(false);
-           listLevelSelect[i].doneLevelControl.StarState(0);
-          
-       }
 
-       PlayerPrefs.Save();
-   }
-   
-   
-   
-   
- 
+    public void ResetAllLevelsStatus()
+    {
+        for (int i = 0; i < listLevelSelect.Count; i++)
+        {
+            PlayerPrefs.DeleteKey("Level_" + i + "_Completed");
+            PlayerPrefs.DeleteKey("Level_" + i + "_Stars");
+            if (i > 0)
+            {
+                PlayerPrefs.DeleteKey("LockLevel_" + i + "_UnLockCount");
+                listLevelSelect[i].lockPanel.SetActive(true);
+            }
+
+            // İlgili UI elemanlarını da sıfırla
+            listLevelSelect[i].doneLevelControl.gameObject.SetActive(false);
+            listLevelSelect[i].doneLevelControl.StarState(0);
+        }
+
+        PlayerPrefs.Save();
+    }
 }

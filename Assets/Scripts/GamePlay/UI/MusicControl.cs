@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class MusicControl : MonoBehaviour
 {
-   public AudioSource music;
-   public GameObject musicStateImage;
-   public bool isActive;
+   [SerializeField] private AudioSource music;
+   [SerializeField] private GameObject musicStateImage;
+   [SerializeField] private bool isActive;
 
    private void Start()
    {

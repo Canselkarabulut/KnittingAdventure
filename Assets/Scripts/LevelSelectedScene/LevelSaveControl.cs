@@ -16,19 +16,12 @@ public class LevelSaveControl : MonoBehaviour
       LoadList();
      
    }
-
    public void LevelSave(DoneButton doneButton,StarControl starControl)
    {
       levelListCount[doneButton.levelDoneCount] = doneButton.levelDoneCount;//bulunduğumuz level sayısı listeye eklendi;
       listStarCount[doneButton.levelDoneCount] = starControl.starCount;
-
       SaveList(arraylevelListCount);
-
-
-   } 
-   
-
-   
+   }
    private void SaveList(int[] list)
    {
       for (int i = 0; i < list.Length; i++)
