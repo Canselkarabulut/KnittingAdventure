@@ -23,8 +23,7 @@ public class Reset : MonoBehaviour
         PlayerPrefs.SetInt("doneint", 0);
         PlayerPrefs.SetInt("earnDiamondClickCount", 0);
         doneButton.ResetAllLevelsStatus();
-
-
+        PlayerPrefs.SetInt("gameShowCount",0);
         //   PlayerPrefs.GetInt("DiamondCount").ToString();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
