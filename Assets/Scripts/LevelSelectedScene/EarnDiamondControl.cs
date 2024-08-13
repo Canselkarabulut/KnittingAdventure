@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,52 +11,75 @@ public class EarnDiamondControl : MonoBehaviour
     public GameObject levelScenePanel;
     private float timeSpeed=.00005f;
     public Button earnDiamondButton;
-  
+    private int maxClick = 3;
     private void Start()
     {
          activeAgainImage.fillAmount = 0;
          earnDiamondClickCount = PlayerPrefs.GetInt("earnDiamondClickCount");
+         if ( PlayerPrefs.GetInt("earnDiamondClickCount") >=maxClick)
+         {
+             earnDiamondButton.interactable = false;
+         }
+         else
+         {
+             earnDiamondButton.interactable = true;
+         }
     }
 
     private void Update()
     {
-        ActiveTime();
+            ActiveTime();
     }
 
     private float time;
 
     public void ActiveTime()
     {
-        if (levelScenePanel.activeInHierarchy)
+        if (isClick)
         {
-            time += Time.deltaTime;
-            if (activeAgainImage.fillAmount > .01)
+            if (levelScenePanel.activeInHierarchy)
             {
-                activeAgainImage.fillAmount -= time * timeSpeed;
-                earnDiamondButton.interactable = false;
-            }
-            else
-            {
-                earnDiamondButton.interactable = true;
+                time += Time.deltaTime;
+                if (activeAgainImage.fillAmount < .999)
+                {
+                    activeAgainImage.fillAmount += time * timeSpeed;
+                    earnDiamondButton.interactable = false;
+                }
+                else
+                {
+                    earnDiamondButton.interactable = true;
+                    activeAgainImage.fillAmount = 0;
+                    isClick = false;
+                }
             }
         }
+      
     }
 
     public int earnDiamondClickCount;
+    public bool isClick;
+    private int updateDiamondCount;
+    public int addDiamond = 250;
+    public LevelTextControl levelTextControl;
     public void EarnDiamonfButton()
     {
+       
         earnDiamondClickCount++;
-        Debug.Log("earnDiamondClickCount: "+earnDiamondClickCount);
         PlayerPrefs.SetInt("earnDiamondClickCount",earnDiamondClickCount);
-        if (earnDiamondClickCount < 6)
+        if (earnDiamondClickCount < maxClick)
         {
-            activeAgainImage.fillAmount = 1;
+            activeAgainImage.fillAmount = 0;
+            isClick = true;
         }
         else
         {
             earnDiamondButton.interactable = false;
         }
         
-        
+        updateDiamondCount = PlayerPrefs.GetInt("DiamondCount");
+        //günceldeki param getirildi
+        updateDiamondCount += addDiamond; // bonus paramı ekle
+        PlayerPrefs.SetInt("DiamondCount",updateDiamondCount); // yeni paramı kaydet
+        levelTextControl.DiamondCountUpdate();
     }
 }

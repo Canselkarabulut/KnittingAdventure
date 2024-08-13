@@ -5,9 +5,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class UI
+{
+    
+}
 public class DoneButton : MonoBehaviour
 {
-    public GameObject gameScene;
+ 
+     private  GameObject gameScene;
     public GameObject finishScene;
     public StitchControl stitchControl;
     public GameObject needle;

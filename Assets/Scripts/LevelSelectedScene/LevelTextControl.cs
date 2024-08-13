@@ -12,10 +12,8 @@ public class LevelTextControl : MonoBehaviour
         DiamondCountUpdate();
 
     }
-
     public void DiamondCountUpdate()
     {
-        //ana menüye dönme çağırıldığında ve nextlenince görmeliyiz
         var diamondCount = PlayerPrefs.GetInt("DiamondCount");
         diamondCountText.text =  diamondCount.ToString();
     }

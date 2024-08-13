@@ -20,6 +20,7 @@ public class Reset : MonoBehaviour
           PlayerPrefs.SetInt("DonePanelActiveCount",0);
          PlayerPrefs.SetInt("StarCount",0);
          PlayerPrefs.SetInt("doneint",0);
+         PlayerPrefs.SetInt("earnDiamondClickCount",0);
          doneButton.ResetAllLevelsStatus();
    
         

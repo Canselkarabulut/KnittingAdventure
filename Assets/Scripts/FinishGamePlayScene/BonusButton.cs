@@ -7,12 +7,15 @@ using UnityEngine.UI;
 
 public class BonusButton : MonoBehaviour
 {
-    public LevelMeneger levelMeneger;
-    public TextMeshProUGUI bonusText;
-    public TextMeshProUGUI conclusionText;
+    [SerializeField] private LevelMeneger levelMeneger;
+    [SerializeField] private TextMeshProUGUI bonusText;
+    [SerializeField] private TextMeshProUGUI conclusionText;
+    [SerializeField] private int lastBonus;
+    [SerializeField] private FinishTextControl finishTextControl;
+    [SerializeField] private LevelTextControl levelTextControl; //elmas güncelleme
+    [SerializeField] private int updateDiamondCount;
     private int baseBonus;
-    public int lastBonus;
-    public FinishTextControl finishTextControl;
+    
     public void BonusText()
     {
         baseBonus = 500;
@@ -20,9 +23,6 @@ public class BonusButton : MonoBehaviour
         lastBonus = baseBonus + (level * 100);
         bonusText.text = "+" + lastBonus.ToString();
     }
-    public LevelTextControl levelTextControl; //elmas güncelleme
-    public int updateDiamondCount;
-
     public void BonusButtonClick()
     {
         levelTextControl.DiamondCountUpdate();
@@ -33,7 +33,5 @@ public class BonusButton : MonoBehaviour
         PlayerPrefs.SetInt("DiamondCount",updateDiamondCount); // yeni paramı kaydet
         gameObject.SetActive(false);
         conclusionText.GetComponent<Animator>().Play("bonusButtonAnim");
-        
     }
-        
 }

@@ -7,10 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
-    public GameObject entryScene;
-    public GameObject levelScene;
-    public DoneButton doneButton;
-    public LevelDiamondControl levelDiamondControl;
+    [SerializeField] private GameObject entryScene;
+    [SerializeField] private  GameObject levelScene;
+    [SerializeField] private  DoneButton doneButton;
+    [SerializeField] private  LevelDiamondControl levelDiamondControl;
     public void PlayBtn()
     {
         doneButton.LoadAllLevelsStatus();

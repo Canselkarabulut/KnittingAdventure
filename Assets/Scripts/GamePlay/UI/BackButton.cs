@@ -4,24 +4,26 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class BackButton : MonoBehaviour
-{    public StitchControl stitchControl;
-    public GameObject needle;
-    public Button star1;
-    public Button star2;
-    public Button star3;
-    public GameObject gameScene;
-    public GameObject levelScene;
-    public FinishTextControl finishTextControl;
-    public FinishStarControl finishStarControl;
-    public GameObject settingPanel;
-    public Settings settings;
-  
+{
+    [SerializeField] private StitchControl stitchControl;
+    [SerializeField] private GameObject needle;
+    [SerializeField] private Button star1;
+    [SerializeField] private Button star2;
+    [SerializeField] private Button star3;
+    [SerializeField] private GameObject gameScene;
+    [SerializeField] private GameObject levelScene;
+    [SerializeField] private FinishTextControl finishTextControl;
+    [SerializeField] private FinishStarControl finishStarControl;
+    [SerializeField] private GameObject settingPanel;
+    [SerializeField] private Settings settings;
+
     public void Back()
     {
         foreach (Transform child in stitchControl.transform)
         {
             Destroy(child.gameObject);
         }
+
         stitchControl.i = 0;
         stitchControl.j = 0;
         stitchControl.trueStitchInt = 0;
@@ -36,6 +38,5 @@ public class BackButton : MonoBehaviour
         finishTextControl.Conclusion();
         finishStarControl.StarActiveWait();
         settingPanel.SetActive(false);
-
     }
 }

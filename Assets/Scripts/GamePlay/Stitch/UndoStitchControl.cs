@@ -6,15 +6,15 @@ using UnityEngine.UI;
 
 public class UndoStitchControl : Tumbnails
 {
-    public GameObject needle;
-    public Animator needleAnim;
+    [SerializeField] private GameObject needle;
+    [SerializeField] private Animator needleAnim;
     [HideInInspector] public float time;
     [HideInInspector] public float firstNeedleX;
     [HideInInspector] public StitchControl stitchControl;
-
-    [Header("Star")] public StarControl starControl;
-    [Header("TrueColorControl")] public BackGround backGroundDesired;
-    public ParticleSystem undoButtonEffect;
+    [Header("Star")] [SerializeField] private StarControl starControl;
+    [Header("TrueColorControl")] [SerializeField]
+    private BackGround backGroundDesired;
+    [SerializeField] private ParticleSystem undoButtonEffect;
     private Color32 lastColor;
 
     private void Start()
@@ -36,7 +36,7 @@ public class UndoStitchControl : Tumbnails
                 if (transform.childCount > 0)
                 {
                     var lastStitch = transform.GetChild(transform.childCount - 1).gameObject;
-                
+
                     stitchControl.stitchCount--;
                     starControl.StarActive();
 
@@ -77,6 +77,7 @@ public class UndoStitchControl : Tumbnails
                             }
                         }
                     }
+
                     StitchColor(lastStitch);
                     Destroy(lastStitch);
                 }
@@ -95,6 +96,7 @@ public class UndoStitchControl : Tumbnails
             needleAnim.SetBool("isNeedle", false);
         }
     }
+
     public void StitchColor(GameObject obj)
     {
         if (obj.GetComponent<StitchState>().isTrueStitch)

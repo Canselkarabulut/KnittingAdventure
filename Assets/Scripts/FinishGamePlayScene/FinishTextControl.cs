@@ -6,14 +6,19 @@ using UnityEngine;
 
 public class FinishTextControl : MonoBehaviour
 {
-    public TextMeshProUGUI lastStitchCountText;
-    public TextMeshProUGUI lasrStarCountText;
-    public TextMeshProUGUI conclusionText;
-    public int conclusion;
+    [SerializeField] private TextMeshProUGUI lastStitchCountText;
+    [SerializeField] private TextMeshProUGUI lasrStarCountText;
+    [SerializeField] private TextMeshProUGUI conclusionText;
+    [SerializeField] public int conclusion;
+    [SerializeField] private StarControl starControl;
+    [SerializeField] public bool isClick;
+    [SerializeField] private AudioSource clickSound;
     private int count;
     private int lastDiamond;
     private int newDiamond;
-    public StarControl starControl;
+    private float time;
+    private bool isCount;
+
     public void Conclusion()
     {
         lastStitchCountText.text = DoneButton.lastStitchCount.ToString();
@@ -22,15 +27,9 @@ public class FinishTextControl : MonoBehaviour
         lastDiamond = PlayerPrefs.GetInt("DiamondCount"); //eski elması al
         newDiamond = conclusion + lastDiamond; // iki parayıda topla
         PlayerPrefs.SetInt("DiamondCount", newDiamond); // rame gönder
-
         count = 0;
         isCount = true;
     }
-
-
-    private float time;
-    private bool isCount;
-    public bool isClick;
     private void FixedUpdate()
     {
         if (isCount)
@@ -52,6 +51,7 @@ public class FinishTextControl : MonoBehaviour
         {
             if (!isClick)
             {
+                clickSound.Play();
                 count = conclusion + 1;
                 conclusionText.text = conclusion.ToString();
                 isClick = true;

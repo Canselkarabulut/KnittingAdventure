@@ -6,18 +6,20 @@ using UnityEngine.UI;
 
 public class StarControl : MonoBehaviour
 {
-    public StitchControl stitchControl;
-    public Button star1;
-    public Button star2;
-    public Button star3;
-    public ParticleSystem star1Effect;
-    public ParticleSystem star2Effect;
-    public ParticleSystem star3Effect;
+    
+    [SerializeField] private  StitchControl stitchControl;
+    [SerializeField] private  Button star1;
+    [SerializeField] private  Button star2;
+    [SerializeField] private  Button star3;
+    [SerializeField] private  ParticleSystem star1Effect;
+    [SerializeField] private  ParticleSystem star2Effect;
+    [SerializeField] private  ParticleSystem star3Effect;
+    [SerializeField] private  GameObject doneButton;
+    [SerializeField] public  int starCount;
     private bool isAnimStar1 = false;
     private bool isAnimStar2 = false;
     private bool isAnimStar3 = false;
-    public GameObject doneButton;
-    public int starCount;
+    
     private void Start()
     {
         doneButton.SetActive(false);

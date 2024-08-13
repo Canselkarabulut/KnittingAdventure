@@ -43,16 +43,16 @@ public abstract class Tumbnails : MonoBehaviour
     }
 
     // public Texture2D foregroundImage; // Ön plan resmi
-    [Header("PixelColors")] public Image before2Image;
-    public Image before1Image;
-    public Image nowImage;
-    public Image after1Image;
-    public Image after2Image;
-
-
-    public Image woolBeforeImage;
-    public Image woolNowImage;
-    public Image woolAfterImage;
+    [Header("PixelColors")] 
+    
+    [SerializeField] protected Image before2Image;
+    [SerializeField] protected  Image before1Image;
+    [SerializeField] protected  Image nowImage;
+    [SerializeField] protected  Image after1Image;
+    [SerializeField] protected  Image after2Image;
+    [SerializeField] protected  Image woolBeforeImage;
+    [SerializeField] protected  Image woolNowImage;
+    [SerializeField] protected  Image woolAfterImage;
     public GameObject Stitch(GameObject imagePrefabInstantiate, GameObject parentInstantiate, int startRow, int EndRow,
         int startCol, int Endcol, Texture2D levelTexture2d, List<Color> colorArrayList) //backgroundStitch
     {

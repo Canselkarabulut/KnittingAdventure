@@ -6,14 +6,15 @@ using UnityEngine.UI;
 
 public class LevelMeneger : MonoBehaviour
 {
-    public LevelStatus levelStatus;
-    public BackGround desiredStitch;
-    public StitchControl stitchControl;
-    public static LevelMeneger _instance { get; set; }
-    public GameObject entryScene;
-    public GameObject levelScene;
-    public GameObject gameScene;
-    public GameObject gaemFinishScene;
+    
+    [SerializeField] public LevelStatus levelStatus;
+    [SerializeField] private  BackGround desiredStitch;
+    [SerializeField] private  StitchControl stitchControl;
+    [SerializeField] private  GameObject entryScene;
+    [SerializeField] private  GameObject levelScene;
+    [SerializeField] private  GameObject gameScene;
+    [SerializeField] private  GameObject gaemFinishScene;
+    private  static LevelMeneger _instance { get; set; }
 
     private void Awake()
     {

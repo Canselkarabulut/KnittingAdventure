@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class StitchState : MonoBehaviour
 {
-    public bool isTrueStitch;
-    public bool isFalseStitch;
+    [SerializeField] public bool isTrueStitch;
+    [SerializeField] public bool isFalseStitch;
 
     private void Awake()
     {
