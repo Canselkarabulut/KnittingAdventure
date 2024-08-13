@@ -58,12 +58,14 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
-    public void Selected(LevelCount levelCount)
+    [SerializeField] private TutorialShowControl tutorialShowControl;
+public void Selected(LevelCount levelCount)
     {
         switch (levelCount)
         {
             case LevelCount.lvl1:
                 LevelControl(LevelStatus.Level1);
+                tutorialShowControl.TutorialOne();
                 break;
             case LevelCount.lvl2:
                 LevelControl(LevelStatus.Level2);
