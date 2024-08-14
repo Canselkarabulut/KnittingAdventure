@@ -6,6 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GameKnittingAdventureScene.unity
+    path: Assets/Scenes/2-GameKnittingAdventureScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: 6bb5aaa30a47cad47bda7f5ab9f93aaa, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 27e58f3f90809d14b914d8a3a9c5da52, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: 3b44f648ccbe82345b38c9538bca0b4a, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: ac3d3ea7a2a582a4e924d3490cd7ff42, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 31d7ce1b64b0b2743b1aeb9b8e3e8e1e, type: 2}
