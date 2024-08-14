@@ -34,4 +34,7 @@ public class Reset : MonoBehaviour
         gameScene.SetActive(false);
         gaemFinishScene.SetActive(false);
     }
+    
+    
+   
 }

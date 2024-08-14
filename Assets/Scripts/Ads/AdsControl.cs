@@ -183,6 +183,7 @@ public class AdsControl : MonoBehaviour
             });
             RegisterReloadHandler(_rewardedAdlevelScene);
         }
+        NoAdsShowRewardedAdLevelScene();
     }
     
 
@@ -257,6 +258,8 @@ public class AdsControl : MonoBehaviour
             });
             RegisterReloadHandlerBonusButton(_rewardedAdBonusButton);
         }
+
+        NoAdsShowRewardedAdsBonusButton();
     }
     private void RegisterReloadHandlerBonusButton(RewardedAd ad)
     {
@@ -273,5 +276,27 @@ public class AdsControl : MonoBehaviour
         };
     }
     #endregion
+
+
     
+
+    #region ifNoAds
+
+     public void NoAdsShowRewardedAdsBonusButton()
+    {
+        if (_rewardedAdBonusButton == null)
+        {
+            bonusButton.BonusButtonClick();
+        }
+    }
+     public void NoAdsShowRewardedAdLevelScene()
+     {
+         if (_rewardedAdlevelScene == null)
+         {
+             earnDiamondControl.EarnDiamonfButton();
+         }
+     }
+     
+
+    #endregion
 }
