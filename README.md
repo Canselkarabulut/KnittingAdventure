@@ -1,4 +1,4 @@
-![Image Sequence_001_0273 width="50%" height="50%"](https://github.com/user-attachments/assets/d9cb90ea-45bc-4efe-b0f3-4b640487b7f4) 
+![Image Sequence_001_0273 width="150" height="280"](https://github.com/user-attachments/assets/d9cb90ea-45bc-4efe-b0f3-4b640487b7f4) 
 
 ![Image Sequence_001_0273](https://github.com/user-attachments/assets/575c1cd2-e936-4c82-a6fc-c005f8503fb9) 
 
